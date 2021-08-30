@@ -10,7 +10,7 @@ var subscribeConfirmationBg;
 
 var utcHour;
 
-var baseApi = 'https://147.182.210.54:5001/v1';
+var baseApi = 'http://147.182.210.54:5001/v1';
 
 var eventData;
 
@@ -519,7 +519,7 @@ async function autenticaLogin(user, userName, tel, estado, genero, cpf) {
         mode: 'cors'
 
     };
-    //console.log('autenticando server 2');
+    console.log(myInit.body);
     let request = new Request(`${baseApi}/usuario/AutenticaLogin`, myInit)
 
     let response = await fetch(request)
@@ -790,7 +790,7 @@ async function createPalestraElement(scene, i, response) {
         };
 
         //console.log('requisoção de hora');
-        let hourRequest = new Request('https://147.182.210.54:5001/v1/ferramentas/getdate', hourInit);
+        let hourRequest = new Request('http://147.182.210.54:5001/v1/ferramentas/getdate', hourInit);
         let utcHour = await fetch(hourRequest)
             .then(res => {
                 if (res.ok) {
@@ -1553,7 +1553,7 @@ async function createPalestraStageElement(i, response) {
         };
 
         //console.log('requisoção de hora');
-        let hourRequest = new Request('https://147.182.210.54:5001/v1/ferramentas/getdate', hourInit);
+        let hourRequest = new Request('http://147.182.210.54:5001/v1/ferramentas/getdate', hourInit);
         let utcHour = await fetch(hourRequest)
             .then(res => {
                 if (res.ok) {
