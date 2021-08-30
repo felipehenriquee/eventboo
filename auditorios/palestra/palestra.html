@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../uiStyle.css">
+    <script src="../../scripts/logic.js"></script>
+    <script src="../../scripts/ajudaUI.js"></script>
+    <script src="./canvas-palestra.js"></script>
+    <title>Stages</title>
+</head>
+    
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=4fwj33VR8OjApcUtYcOYXI97N37Yjtz4ThqOGLv1J63dCN32KiP8EESqU9VO_XENCSF_N2_VD1Ge8WbB3YRK1lpd0d1eoQBhX2N1qnS6ZsVage2YWTgKBp8kvxf7ym-7mEgeQ8cJfmI3QEQFxVViI6d-IKyVniq_-Epurl92hDY" charset="UTF-8"></script></head>
+
+<body>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script defer src="./scripts/init-firebase.js"></script>
+    
+    <canvas id="myCanvas" style="width: 100%; height: 100vh; position: absolute;" width="1920" height="1080"></canvas>
+
+    <div class="headerContainer">
+        <div class="header">
+
+            <a id="openTalkSearchP" class="screenTitle">
+                <div>
+                    <img id="titleIconP0" class="screenTitleLeft" src="" alt="">
+                    <span class="page-title">Palestra</span>
+                </div>
+                <img id="titleIconP1" class="screenTitleRight" style="display: none;" src="" alt="">
+            </a>
+            
+            <div>
+                <a id="ajudaP" class="ajudaBtn whiteBtnBack">
+                    <div class="ajudaBtnSpanBox">
+                        <span>Ajuda</span>
+                    </div>
+                    <div class="ajudaBtnIcon whiteBtnIcon">
+                        <img id="ajudaIconP" src="" alt="">
+                    </div>
+                </a>
+
+                <a id="fullscreen" class="ajudaBtn whiteBtnBack" onclick="openFullScreen()">
+                    <div class="ajudaBtnSpanBox">
+                        <span>Tela cheia</span>
+                    </div>
+                    <div class="ajudaBtnIcon whiteBtnIcon">
+                        <img id="fullscreenIconP" src="" alt="">
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="talkPanel">
+        <div>
+            <iframe id="videoFrame" class="youtubeFrame"            
+                src=""
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            
+            <iframe id="chat" class="chatFrame"
+                    src="https://minnit.chat/FenacceChat?embed&&nickname="
+                    allowTransparency="true">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="footer">
+        
+        <a href="../auditorios.html" id="backButtonP" class="backBtn blackBtnBack">
+            <div class="backBtnIcon blackBtnIcon">
+                <img id="backButtonIconP" src="" alt="">
+            </div>
+            <span>Voltar</span>                         
+        </a>
+        
+        <button id="openChat" class="bottomBtn blueBtnBack" onclick="openChat()">
+            <span>Perguntar</span>
+            <div class="bottomBtnIcon blueBtnIcon">
+                <img id="openChatIcon" src="" alt="">
+            </div>
+        </button>
+        
+        <button id="closeChat" class="closeChatBtn" onclick="closeChat(this)">
+            <span>&times;</span>            
+        </button>
+        
+        <!--
+        <div class="btnMenu">
+            <a >
+                <div class="bottomBtn orangeBtnBack">
+                    <div class="bottomBtnSpanBox">
+                        <span>Visitar Standes</span>
+                    </div>
+                    <div class="bottomBtnIcon orangeBtnIcon">
+                        <img src="" alt="">
+                    </div>
+                </div>
+            </a>
+
+            <a id="entrarNoEvento">
+                <div class="bottomBtn redBtnBack">
+                    <div class="bottomBtnSpanBox">
+                        <span>Ir para Auditórios</span>
+                    </div>
+                    <div class="bottomBtnIcon redBtnIcon">
+                        <img src="" alt="">
+                    </div>
+                </div>
+            </a>
+        </div>
+        -->
+    </div>    
+
+    <div id="listBgP" class="modal-bg" style="z-index: 2">
+        <div class="listModal">
+            <div class="listHeader">
+                <div class="listHeaderInputContainer">
+                    <img src="" alt="">
+                    <input type="text" placeholder="Procure a palestra...">
+                </div>
+                <button id="listCloseButtonP" class="listCloseBtn">&times;</button>
+            </div>
+            <div class="listFilters">
+                <div class="filterButtons">
+                    <button class="filterSelected">TODOS</button>
+                    <!--
+                    <button>PALCO 1</button>
+                    <button>PALCO 2</button>
+                    <button>PALCO 3</button>
+                    <button>PALCO 4</button>
+                    <button>PALCO 5</button>
+                    -->
+                </div>
+            </div>
+            <div class="listBody">
+                <!--
+                <div id="lectureP0" class="listElement">
+                    <div class="listElementContent">
+                        <div class="leftSide">
+                            <span class="eventHour">10h às 10h40m</span>
+                            <span class="eventTitle">Qual o futuro da realidade virtual?</span>
+                            <span class="eventSpeaker">com Elson pegado e Breno Pinheiro</span>
+                            <span class="eventSpeaker">Palco Viagem</span>
+                        </div>
+                        <div class="rightSide">
+                            <span class="commandText">Ir para palestra</span>
+                            <img class="listIcon" src="" alt="">
+                        </div>                        
+                    </div>
+                    <div class="separator"></div>
+                </div>
+                -->
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="videoDetailBgP" class="modal-bg">
+        <div class="videoDetail">
+            <button id="detailCloseButton" class="videoDetailCloseButton">&times;</button>
+            <img class="videoThumbnail" src="../Images/Rectangle 42.png" alt="">
+            <div class="lectureTitle">
+                <span class="videoTitle">Qual o futuro da realidade virtual?</span>
+                <span class="videoHour">10h às 10h40m</span>
+            </div>
+            <span class="lectureSpeaker">com Elson Pegado e Breno Pinheiro</span>
+            <span class="synopsis">Sinópse</span>
+            <span class="synopsisText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est dignissim facilisis tortor nunc turpis eget sem urna. Sagittis netus quam malesuada viverra faucibus ut sed massa interdum. At amet pharetra posuere nec facilisis dignissim orci. Semper cum nec nisl nunc consequat porttitor sed.</span>
+            <button id="assitir" class="bottomBtn redBtnBack videoButton">
+                <span class="bottomBtnSpanBox">Assista a Palestra</span>
+                <div class="bottomBtnIcon redBtnIcon">
+                    <img id="assistaIconP" src="" alt="">
+                </div>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

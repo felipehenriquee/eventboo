@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../uiStyle.css">
+    <script src="./scripts/logic.js"></script>
+    <script src="./scripts/ajudaUI.js"></script>
+    <script src="../../scripts/init-firebase.js"></script>
+    <title>Stages</title>
+</head>
+    
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=M6syfvZsoKZQjHpYEasx4hAEFNE31loGeKjPMfohW7ldiZlbDaWDDJ4tFNesF9uTY0sVTk6PC9UZV0vXH-SSUSm2IwLHxk0HpZEVtYuDbDHp7PW0IaHbU6crh6JPtc4-aoKgziJ5Z5-tV937iuzQAw3N9F9PMSnQuXDtPVAiD8E" charset="UTF-8"></script></head>
+
+<body>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+
+    <div class="headerContainer">
+        <div class="header">
+
+            <a id="openTalkSearchS1" class="screenTitle">
+                <div>
+                    <img id="titleIconS1-0" class="screenTitleLeft" src="" alt="">
+                    <span class="page-title">Stand</span>
+                </div>
+                <img id="titleIconS1-1" style="display: none;" class="screenTitleRight" src="" alt="">
+            </a>
+
+            <div>
+                
+                <a id="ajudaS1" class="ajudaBtn whiteBtnBack" style="display: none;">
+                    <div class="ajudaBtnSpanBox">
+                        <span>Ajuda</span>
+                    </div>
+                    <div class="ajudaBtnIcon whiteBtnIcon">
+                        <img id="ajudaIconS1" src="" alt="">
+                    </div>
+                </a>
+                
+                <a id="fullscreen" class="ajudaBtn whiteBtnBack" onclick="openFullScreen()">
+                    <div class="ajudaBtnSpanBox">
+                        <span>Tela cheia</span>
+                    </div>
+                    <div class="ajudaBtnIcon whiteBtnIcon">
+                        <img id="fullscreenIconS1" src="" alt="">
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="../standes.html" id="backButtonS1" class="backBtn blackBtnBack">
+            <div class="backBtnIcon blackBtnIcon">
+                <img id="backButtonIconS1" src="" alt="">
+            </div>
+            <span>Voltar</span>                         
+        </a>
+
+        <div class="socials">
+            <a id="instagramBtn" class="socialButton">
+                <img id="instaIcon" src="" alt="">
+            </a>
+            <a id="facebookBtn" class="socialButton">
+                <img id="faceIcon" src="" alt="">
+            </a>
+            <a id="twitterBtn" class="socialButton" href="https://twitter.com/" target="_blank">
+                <img id="twitterIcon" src="" alt="">
+            </a>
+        </div>
+
+        <div class="btnMenu">
+            <a id="catalogo">
+                <div id="catalogoBtn" class="bottomBtn catalogBtn">
+                    <span style="color: #BC5957">Acesse a loja</span>
+                    <div class="bottomBtnIcon whiteBtnIcon">
+                        <img id="catalogoIcon" src="" alt="">
+                    </div>
+                </div>
+            </a>
+
+            <a id="whatappButton">
+                <div class="bottomBtn redBtnBack">
+                    <span>Entre em contato</span>
+                    <div class="bottomBtnIcon redBtnIcon">
+                        <img id="whatsIcon" src="" alt="">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>    
+
+    <div id="listBg" class="modal-bg">
+        <div class="listModal">
+            <div class="listHeader">
+                <div class="listHeaderInputContainer">
+                    <img src="" alt="">
+                    <input type="text" placeholder="Procure a palestra...">
+                </div>
+                <button id="listCloseButtonS1" class="listCloseBtn">&times;</button>
+            </div>
+            
+            <div class="listBody">
+                Catálogo aqui
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="vidBgH" class="modal-bg">        
+        <div id="vidBorder" class="videoBorder">
+            <span class="entranceIframeClose">&times;</span>
+            <!--
+            <iframe id="videoFrame" class="entranceIframe" src="https://www.youtube.com/embed/6AklbYpQqzw"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            -->
+        </div>
+    </div>
+    
+    <div id="pdfBgS1" class="modal-bg">        
+        <div id="pdfBorder" class="pdfBorder">
+            <span class="entranceIframeClose">&times;</span>
+            
+            <iframe id="pdfFrame" class="entranceIframe" src=""
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            
+        </div>
+    </div>
+    <!--
+    <div id="storePopup" class="modal-bg bg-active">
+        <div class="popupBackground" onclick="closeStorePopup(this)">
+            <span class="storeAccessLabel">Acesso a loja</span><br>
+            <span class="downloadThisLabel">Para acessar a loja você precisa baixar o seguinte aplicativo</span>
+            <div class="sindieventosBox">
+                <img src="../bilheteIcon.svg" alt="" srcset="">
+                <span>SINDIEVENTOS</span>
+            </div>
+
+            <div class="qrCodeBox">
+                <div class="qrStores">
+                    <img src="../1200px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="">
+                    <span>Google Play</span>
+                </div>
+
+                <div class="qrStores" style="display: none;">
+                    <img src="" alt="">
+                    <span>Google Play</span>
+                </div>                
+            </div>
+
+            <span class="qrInstruction">Com a câmera do sei celular, você pode escanear o QR Code para ir para a respetiva loja</span>
+        </div>
+    </div>
+    -->
+</body>
+
+</html>

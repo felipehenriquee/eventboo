@@ -1,0 +1,2441 @@
+body,
+ul,
+li,
+p {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+p, span {
+    font-family: myriad-pro,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0px;
+}
+.bg-image{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+.containerObjetos{
+    max-width: 1920px; max-height: 1080px; width: 100%; height: 100vh;
+}
+
+/*Header*/
+
+.videoBorder {
+    display: flex;
+    background-color: white;
+    height: 75%;
+    width: 75%;
+    border-radius: 10px;
+    flex-flow: column;
+}
+
+.pdfBorder {
+    display: flex;
+    background-color: white;
+    height: 75%;
+    width: 75%;
+    border-radius: 10px;
+    flex-flow: column;
+}
+
+.entranceIframeClose {
+    position: absolute;
+    font-size: 2rem;    
+    font-weight: bold;    
+    align-self: flex-end;
+    margin: 1%;
+    cursor: pointer;
+}
+
+.entranceIframe {
+    width: 90%;
+    height: 90%;
+    margin: auto; 
+}
+
+.headerContainer {   
+    position: fixed; 
+    top:0%;
+    left:0%;
+    width: 100%;
+    height: fit-content;
+}
+
+.header {    
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 80px 0px 80px;
+    height: fit-content;
+    z-index: 10;
+}
+
+.header div {
+    display: flex;
+}
+
+.screenTitle {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 430px;    
+    height: 51px;
+    border-radius: 30px;
+    background-color: white;
+}
+
+.screenTitle div {
+    display: flex;
+}
+
+.screenTitleLeft {
+    margin: auto 20px;
+}
+
+.screenTitle span {
+    margin: auto 0px;
+    color: black;
+    font-weight: bold;
+}
+
+.screenTitleRight {
+    align-self: flex-end;
+    margin: auto 20px;    
+}
+
+/*Ajuda Btn*/
+
+.ajudaBtn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: flex-end;
+    width: 151px;
+    height: 51px;
+    border-radius: 32px;
+    margin: 0 0 20px 20px;
+}
+.nomeButton{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #a1a1a1;
+    width: 151px;
+    height: 51px;
+    border-radius: 32px;
+    transition: 0.5s;
+    transform: scaleX(0);
+    transform-origin: right;
+    margin-right: 12%;
+
+    
+    
+    
+}
+.nomeButton p{
+    margin-left: 40px;
+    font-weight: 800;
+}
+.ajudaBtn:hover > .nomeButton{
+    transform-origin: right;
+    
+
+    transform: scaleX(1);
+}
+
+.ajudaBtnSpanBox {
+    display: flex;
+    /*height: 100%;*/
+}
+
+.ajudaBtn span {
+    display: flex;
+    font-size: 13px;
+    font-weight: bold;
+    margin: auto 15px
+}
+
+.ajudaBtnIcon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 51px;
+    height: 51px;
+    border-radius: 32px;
+}
+
+.ajudaBtnIcon img {
+    margin: auto;
+}
+
+.whiteBtnBack {
+    background: #a1a1a1;
+}
+
+.whiteBtnIcon {
+    background: white;
+}
+
+/*Fim do Header*/
+
+.footer {
+    position: fixed; 
+    left:0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    bottom: 0px;
+    width: 100%;
+    height: fit-content;
+    
+}
+
+.footer .clickToStart {
+    font-size: 20px;
+    margin: 5px 20px 10px 20px;
+    display: none;
+}
+
+.footer .welcome {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 20px;
+    display: none;
+}
+
+/*Início menu*/
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    margin-left: 80px;
+    width: 410px;
+    height: 90px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px 20px 0px 0px;
+}
+
+.menu li {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.menu li a {
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    color: black;
+}
+
+.menu li a .menuImgContainer {
+    display: flex;    
+    width: 32px;
+    height: 32px;
+    margin: auto;
+}
+
+.menu li a .menuImgContainer img {
+    
+    margin: auto;
+}
+
+.menu li a span {
+    align-self: center;
+    font-size: 12px;
+}
+
+.selected {
+    color: #BC5957;
+}
+
+.disabled {
+    opacity: 0.2;
+    pointer-events: none;
+    cursor: default;
+}
+
+/*Fim menu*/
+
+/*Início Btns*/
+
+.btnMenu {    
+    margin-right: 80px;
+}
+
+.bottomBtn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: flex-end;
+    width: 237px;
+    height: 65px;
+    border-radius: 32px;
+    margin-bottom: 23px;
+}
+
+.bottomBtnDisable {
+    display: none;
+}
+
+.bottomBtnSpanBox {
+    display: flex;
+    /*height: 100%;*/
+}
+
+.bottomBtn span {
+    display: flex;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin: auto;
+}
+
+.bottomBtnIcon {
+    display: flex;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    border-radius: 32px;
+}
+
+.bottomBtnIcon img {
+    margin: auto;
+}
+
+.backBtn {    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;    
+    width: 147px;
+    height: 50px;
+    border-radius: 32px;
+    margin-left: 80px;
+    margin-bottom: 23px;
+}
+
+.backBtnIcon {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 32px;
+}
+
+.backBtn span {
+    margin: auto 14px;
+    color: white;
+}
+
+.redBtnBack {
+    background: #873e3d;
+}
+
+.redBtnIcon {
+    background: #BC5957;
+}
+
+.orangeBtnBack {
+    background: #996135;
+}
+
+.orangeBtnIcon {
+    background: #D5874B;
+}
+
+.roseBtnBack {
+    background: #fdbebd;
+}
+
+.roseBtnIcon {
+    background: white;
+}
+
+.blackBtnBack {
+    background: #5c5c5c;
+}
+
+.blackBtnIcon {
+    background: black;
+}
+
+.blueBtnBack {
+    background: #225eac;
+    visibility: hidden;
+}
+
+.blueBtnIcon {
+    background: #2F80ED;
+}
+
+.catalogBtn {
+    background: #cacaca;
+}
+
+.videoButtonDisabled {
+    background-color: #a0a0a0;
+}
+
+.videoButtonDisabledIcon {
+    background-color: #E0E0E0;
+}
+
+
+/*Fim RedBtn*/
+
+/*Modal*/
+
+.modal-bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.modal-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;    
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.bg-inactive {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.bg-active {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1000;
+}
+
+.modal-subscribe {
+    background-color: #1e1e1e;
+    width: 812px;
+    height: fit-content;
+    display: flex;    
+    flex-direction: column;
+    padding: 20px 50px;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    flex-grow: 1;
+    margin: 10px 0px;
+    font-size: 1.5rem;
+}
+
+.modalHeader p {
+    font-weight: bold;
+}
+
+.closeModalButton {
+    font-size: 1.5rem; 
+    background: none;
+    border: none;
+    color: white;    
+}
+
+.closeModalButton {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.inputDiv {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background-color: #333333;
+    border-radius: 40px;
+    margin: 10px 0px;
+}
+
+.inputDiv input {
+    background-color: #333333;
+    color: white;
+    width: 80%;
+    border: none;
+    outline: none;
+    margin: 0px 30px;
+}
+
+.inputDiv input::placeholder {
+    color: white;
+}
+
+.inputDiv label {    
+    color: white;
+    margin: 0px 30px;
+}
+
+.inputDiv select {
+    background-color: #333333;
+    width: 90%;
+    color: white;
+    border: none;
+    outline: none;
+    margin: 0px 30px;
+}
+
+.inputDiv .customArrow {
+    display: block;
+}
+
+.checkboxLine {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.checkmark {
+    appearance: none;
+    background: none;
+    height: 20px;
+    width: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkmark::after {
+    content: '\2713';
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0;
+}
+
+.checkmark:checked {
+    background-color: white;
+}
+
+.checkmark:checked::after {
+    opacity: 1;
+}
+
+.checkboxLine label {
+    margin-left: 20px;
+    color: white;
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    color: white;
+    margin: 10px 0px;
+}
+
+.modalButton {
+    width: 25%;
+    height: 100%; 
+    background-color: #873e3d;
+    border-radius: 40px;
+    border: none;
+    color: white;    
+}
+
+.subscribeConfirmation {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.loadingSpinner {
+    width: 10rem;
+    height: 10rem;
+    display: inline-block;
+    border: 3px solid rgb(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: 1s spin infinite ease-in-out;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.midText {
+    color: white;
+    align-self: center;
+    margin: 20px;
+    font-size: 15px;
+}
+
+.socialButtonsPanel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.socialLoginButton {
+    display: flex;
+    justify-content: flex-start;
+    width: 334px;
+    height: 50px;
+    background: #333333;
+    border-radius: 40px;
+}
+
+.socialLoginButton img {
+    margin: auto 30px;
+}
+
+.socialLoginButton span {
+    color: white;
+    margin: auto 10px;
+}
+
+.confirmationWelcom {
+    height: 108px;
+    width: 275px;
+    left: 63px;
+    top: 51px;
+    border-radius: nullpx;
+
+    font-size: 30px;
+    line-height: 36px;
+}
+
+.confirmationEnjoy {
+    height: 60px;
+    width: 176px;
+    left: 112px;
+    top: 189px;
+    border-radius: nullpx;
+
+    font-size: 25px;
+    line-height: 30px;
+}
+
+/*Fim modal*/
+
+/*hall*/
+
+.listModal {
+    position: fixed;
+    width: 812px;
+    height: 686px;
+    background-color: white;    
+    padding: 20px 40px;
+}
+
+.listHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+    font-size: 1.5rem;
+}
+
+.listHeaderInputContainer{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 668px;
+    height: 50px;
+
+    border: #e0e0e0 solid 1px;
+    border-radius: 40px;
+    margin: 0px 0px;
+
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.listHeaderInputContainer div {
+    display: flex;
+}
+
+.listHeaderInputContainer img {
+    margin: auto 20px;
+}
+
+.listHeaderInputContainer input {
+    border: none;
+    outline: none;
+    width: 80%;
+    height: 95%;
+    margin-left: 16px;
+}
+
+.listCloseBtn {
+    font-size: 2rem; 
+    background: none;
+    border: none;
+}
+
+.listFilters {
+    display: flex;    
+    align-items: flex-start;
+    margin: 20px 0px;    
+    overflow-x: scroll;
+}
+
+.filterButtons {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 20px 0px;
+}
+
+.listFilters::-webkit-scrollbar {
+    /*background: none;*/
+}
+
+.listFilters button {
+    width: 147px;
+    height: 40px;
+    margin-right: 20px;
+    border-radius: 50px;
+    border: #bdbdbd 1px solid;
+}
+
+.listFilters .filterSelected{
+    background: #BC5957;
+    font-weight: bold;
+    color: white;
+}
+
+.listBody {
+    overflow-y: scroll;
+    height: 70%;
+}
+
+.listBody::-webkit-scrollbar {
+    width: 5px;   
+}
+
+.listBody::-webkit-scrollbar-thumb {
+    background-color: #acacac;
+    
+}
+
+.listElement {
+    cursor: pointer;
+}
+
+.listelementDisabled {
+    visibility: hidden;
+    transform: scale(0, 0);
+}
+
+.listelementEnabled {
+    visibility: visible;
+    transform: scale(1, 1);
+}
+
+.listElementContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftContainer {
+    display: flex;    
+    flex-flow: row;
+}
+
+.leftContainer .imgContainer {
+    width: 150px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    margin: 13px;
+}
+
+.leftContainer .imgContainer img {    
+    width: auto;
+    height: auto;
+    max-width: 150px;
+}
+
+.listElementContent .leftSide {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.listElementContent .leftSide .eventHour {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.listElementContent .leftSide .eventTitle {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    margin: 2px 0;
+}
+
+.listElementContent .leftSide .eventSpeaker {
+    font-size: 15px;
+    line-height: 18px;
+    margin: 2px 0;
+}
+
+.listElementContent .leftSide span {
+    flex-flow: column;
+}
+
+.listElementContent .rightSide {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.listElementContent .rightSide span {
+    margin-right: 16px;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;    
+}
+
+.commandText {
+    color: #BC5957;
+}
+
+.separator {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #c4c4c4;
+    margin: 20px auto;
+}
+
+/*Video detail*/
+
+.videoDetail {
+    position: fixed;
+    display: flex;    
+    width: 762px;
+    height: 682px;
+    background: #1E1E1E;
+    color: white;
+    padding: 50px 25px;
+    flex-flow: column
+}
+
+.videoDetailCloseButton {
+    position: absolute;
+    align-self: flex-end;
+    font-size: 2rem; 
+    background: none;
+    border: none;
+    color: white;
+}
+
+.videoThumbContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.videoThumbnail {
+    width: initial;
+    height: fit-content;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    padding: 0px 25px;
+}
+
+.lectureTitle {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 25px;
+}
+
+.videoTitle {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.videoHour {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.lectureSpeaker {    
+    margin: 0px 25px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.synopsis {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;    
+    margin: 0px 25px;
+    margin-bottom: 20px;
+}
+
+.synopsisText{
+    font-size: 18px;
+    line-height: 22px;
+    text-align: justify;
+    margin: 0px 25px;
+    margin-bottom: 20px;
+}
+
+.videoButton {
+    align-self: flex-end;
+    margin: 0px 25px;
+}
+
+/*Fim do hall*/
+
+/*Auditorios*/
+
+.stageListModal {
+    position: fixed;
+    width: 812px;
+    height: 686px;     
+    padding: 20px 40px;
+}
+
+.stageListBody {
+    overflow-y: scroll;
+    height: 85%;
+}
+
+.stageListBody::-webkit-scrollbar {
+    width: 5px;   
+}
+
+.stageListBody::-webkit-scrollbar-thumb {
+    background-color: #acacac;
+    
+}
+
+.stageListElement {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, rgba(0, 0, 0, 0.5));
+}
+
+.listElementContent .stageRightSide span {
+    margin-right: 16px;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    color: white;
+}
+
+.stageText {
+    color: white;
+}
+
+/*Stands*/
+
+.stageSearchBox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 350px;
+    height: 50px;
+
+    border: #e0e0e0 solid 1px;
+    border-radius: 40px;
+    margin: 0px 0px;
+
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.stageSearchBox img {
+    margin-left: 16px;
+}
+
+.stageSearchBox input {
+    border: none;
+    outline: none;
+    width: 70%;
+    height: 95%;
+    margin-left: 16px;
+}
+
+.stateFilterDropDown {
+    position: relative;
+    display: none;
+    justify-content: space-between;
+    width: 350px;
+    height: 50px;
+
+    border: #e0e0e0 solid 1px;
+    border-radius: 40px;
+
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+/*
+.stateFilterDropDown button{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.stateFilterDropDown button:focus + ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+.stateFilterDropDown button div {
+    display: flex;    
+    height: 100%    
+}
+*/
+
+/*
+.stateFilterDropDown span {
+    border: none;
+    outline: none;
+    margin: auto 16px;
+}
+*/
+.dropdown {    
+    display: flex;
+    width: 100%;
+}
+
+.dropdown img {
+    margin: auto 20px;
+}
+
+.dropdown select {
+    width: 80%;
+    font-size: 18px;
+    
+    background-color: none;
+    outline: none;
+    border: none;
+}
+
+/*
+.dropdown ul {
+    position: absolute;
+    background: white;
+    width: 100%;
+    height: fit-content;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 25px 25px 0 0;
+    transition: 0.5s;    
+    overflow-y: scroll;
+}
+
+.dropdown ul::-webkit-scrollbar {
+    width: 5px;
+}
+
+.dropdown ul::-webkit-scrollbar-thumb {
+    background: #a8a8a8;
+}
+
+.dropdown ul li {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    min-height: 50px;
+    align-content: flex-start;
+    color: black;
+    font-size: 18px;
+    transition: 0.5s;    
+}
+
+.dropdown ul li::after { 
+    position: absolute;
+    align-self: flex-end;
+    content: '';   
+    width: 100%;
+    height: 1px;
+    background: rgb(211, 211, 211);
+}
+
+.hideDropdown {    
+    opacity: 0;
+    visibility: hidden;
+}
+*/
+
+/*TalkPanel*/
+.talkPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 80vh;
+    margin: auto;
+    z-index: 1;
+}
+
+.talkPanel div {
+    display: flex;
+    width: 100%;
+    height: 90%;
+}
+
+.youtubeFrame {    
+    width: 69.3%;
+    height: 70%;
+    max-width: 800px;
+    margin: auto;    
+    z-index: 1;
+}
+
+.chatFrame {    
+    width: 54.7%;
+    height: 70%;
+    margin: auto 0 auto 50px;
+    border: none;
+    z-index: 1;
+}
+
+.closeChatBtn {
+    display: none;
+    visibility: hidden;
+}
+
+/*Standes Templates*/
+
+.socials {
+    display: flex;
+    justify-content: space-between;
+}
+
+.socialButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    background-color: #2F80ED;
+    margin: 23px 9px;
+}
+
+.popupBackground {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: calc(80% - 50px);
+    height: calc(80% - 50px);
+    border-radius: 20px;
+    padding: 25px;   
+    justify-content: center; 
+}
+
+.storeAccessLabel {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.downloadThisLabel {
+    margin: 0 auto;
+}
+
+.sindieventosBox {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 33%;
+    height: 50px;
+    margin: 20px auto;
+}
+
+.sindieventosBox img {
+    margin: auto 15px;
+}
+
+.sindieventosBox span {
+    margin: auto 0;
+}
+
+.qrCodeBox {
+    display: flex;
+    justify-content: space-around;
+}
+
+.qrStores {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+}
+
+.qrStores img {
+    width: 128px;
+    height: 128px;
+}
+
+.qrCodeBox span {
+    margin: 10px auto;
+}
+
+.qrInstruction {
+    font-size: 12px;
+    margin: 0 auto;
+}
+
+/*Menu ajuda*/
+
+.ajudaContainer {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    z-index: 10;
+}
+
+.menuAjuda {    
+    display: flex;
+    flex-flow: column;
+    width: 213px;
+    height: 100vh;
+    background-color: white;
+    transform: translate(100%, 0);
+    transition: 0.5s;
+}
+
+.labelUp {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 70px 25px 0px 18px;
+}
+
+.labelUp span {
+    margin: auto 0;
+}
+
+.closeAjudaButton {
+    font-size: 1.5rem;
+}
+
+.threeLinks {
+    display: flex;
+    flex-flow: column;
+    margin: 45px 18px;
+}
+
+.ajudaBottom {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    vertical-align: bottom;
+    margin: 8px;
+    bottom: 50px;
+}
+
+.bottomElements {
+    display: flex;    
+    align-content: center;
+    margin: 5px 0;
+}
+
+.bottomElements span {
+    margin: auto 10px;
+}
+
+/*Fim menu ajuda*/
+
+/*Sobre*/
+
+.sobreContainer {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sobrePanel {
+    display: flex;
+    flex-flow: column;
+    width: 375px;
+    height: 100vh;
+    background-color: #1e1e1e;
+    transform: translate(160%, 0);
+    /*visibility: hidden;*/
+    transition: visible 0s, transform 0.5s;
+}
+
+
+
+.sobreLabel {
+    display: flex;
+    justify-content: space-between;
+    margin: 70px 26px;    
+}
+
+.sobreLabel span {
+    color: white; 
+    font-size: 30px;
+    margin: auto 0px;
+}
+
+.sobrePanel .sobreText {    
+    color: white;
+    margin: auto 26px;
+    text-align: justify;
+}
+
+.ajudaContainerActive {
+    visibility: visible;
+}
+
+.ajudaActive {
+    transform: translate(0%, 0);
+}
+
+/*Fim sobre*/
+
+/*--MOBILE PORTRAIT--*/
+@media only screen and (orientation: portrait) {
+    /*Header*/
+
+    .header {    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        margin: 35px 0px 0px 0px;
+        height: fit-content;
+    }
+    
+    .screenTitle {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        width: 90%;    
+        height: 51px;
+        border-radius: 30px;
+        background-color: white;
+        margin: 0 20px;
+    }
+    
+    .screenTitle div {
+        display: flex;
+    }
+    
+    .screenTitleLeft {
+        margin: auto 20px;
+    }
+    
+    .screenTitle span {
+        margin: auto 0px;
+        color: black;
+        font-weight: bold;
+        font-size: 13px;
+    }
+    
+    .screenTitleRight {
+        align-self: flex-end;
+        margin: auto 20px;
+    }
+    
+    /*Ajuda Btn*/
+
+.ajudaBtn {    
+    margin: 20px 20px 0 0px;
+}
+
+.whiteBtnBack {
+    background: #cacaca;
+}
+    
+.ajudaBtn {
+    width: 51px;
+    height: 51px;
+    border-radius: 32px;
+}
+
+.ajudaBtn span {
+    display: none;
+}
+
+/*fim ajuda btn*/
+
+/*Fim do Header*/
+
+.footer {
+    position: fixed;
+    display: flex;
+    flex-direction: column-reverse;  
+    justify-content: flex-start;
+    align-items: flex-start;
+    /*background-color: white*/
+    width: 100%;
+    height: fit-content;
+    margin: 0px;
+    
+}
+
+.footer .clickToStart {
+    font-size: 20px;
+    margin: 5px 20px 10px 20px;
+    display: block;
+}
+
+.footer .welcome {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 20px;
+    display: block;
+}
+
+
+/*Início menu*/
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin: 0px;
+    width: 100%;
+    height: 90px;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px 20px 0px 0px;
+}
+
+/*Fim menu*/
+
+/*Início Btns*/
+
+.btnMenu {
+    width: 90%;
+    margin: 00px 20px;
+}
+
+.bottomBtn {
+    /*display: flex;*/
+    justify-content: flex-end;
+    align-items: center;
+    align-content: flex-end;
+    width: 100%;
+    height: 65px;
+    border-radius: 32px;
+    margin: 5px 00px 10px 0px;
+}
+/*
+.bottomBtn div {
+    display: flex;
+    justify-content: center;
+}
+
+.bottomBtn span {
+    position: absolute;
+    justify-self: center;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin: auto;
+}
+*/
+/*Fim RedBtn*/
+
+/*Modal*/
+
+.modal-subscribe {
+    background-color: #1e1e1e;
+    width: 100%;
+    height: 100vh;
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 20px;
+}
+
+.modalHeader {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    flex-grow: 0;
+    margin: 28px 0px;
+    font-size: 1.5rem;
+    top: 10px;
+}
+
+.closeModalButton {
+    position: fixed;
+    font-size: 1.5rem; 
+    background: none;
+    border: none;
+    color: white;
+    align-self: flex-end;
+    right: 30px;
+}
+
+.modalFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    color: white;
+    margin: 00px 0px;
+}
+
+.modalButton {
+    width: 80%;
+    height: 50px; 
+    background-color: #873e3d;
+    border-radius: 40px;
+    border: none;
+    color: white; 
+    margin: 30px;   
+}
+
+.subscribeConfirmation {
+    width: 80%;
+    height: 300px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.confirmationWelcom {
+    height: 108px;
+    width: 275px;
+    left: 63px;
+    top: 51px;
+    border-radius: nullpx;
+    margin: 20px;
+    font-size: 30px;
+    line-height: 36px;
+}
+
+/*Fim modal*/
+
+/*hall*/
+
+.listModal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: white;    
+    /*padding: 20px 40px;*/
+}
+
+.listHeader {
+    display: flex;
+    justify-content: space-between;    
+    align-items: center;
+    margin: 32px 20px 5px 20px;
+    font-size: 1.5rem;
+}
+
+.listHeaderInputContainer{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    height: 50px;
+
+    border: #e0e0e0 solid 1px;
+    border-radius: 40px;
+    margin: 0px 0px;
+
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.filterButtons {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 20px 20px;
+}
+
+.listBody {
+    overflow-y: scroll;
+    height: 80%;
+}
+
+.listBody::-webkit-scrollbar {
+    width: 5px;   
+}
+
+.listBody::-webkit-scrollbar-thumb {
+    background-color: #acacac;    
+}
+
+.listElement {
+    cursor: pointer;
+    margin: 0px 20px;
+}
+
+.listElementContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftContainer {
+    display: flex;    
+    flex-flow: row;
+}
+
+.leftContainer .imgContainer {
+    width: 71px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    margin: 13px;
+}
+
+.leftContainer .imgContainer img {    
+    width: auto;
+    height: auto;
+    max-width: 71px;
+}
+
+.listElementContent .leftSide {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.listElementContent .leftSide .eventHour {
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.listElementContent .leftSide .eventTitle {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: bold;
+    margin: 2px 0;
+}
+
+.listElementContent .leftSide .eventSpeaker {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 2px 0;
+}
+
+.listElementContent .leftSide span {
+    flex-flow: column;
+}
+
+.listElementContent .rightSide {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.listElementContent .rightSide span {
+    margin-right: 16px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;    
+}
+
+.commandText {
+    color: #BC5957;
+}
+
+/*Video detail*/
+
+.videoDetail {
+    position: fixed;
+    display: flex;    
+    width: 100%;
+    height: 100vh;
+    background: #1E1E1E;
+    color: white;
+    padding: 0;
+    flex-flow: column
+}
+
+.videoDetailCloseButton {
+    position: absolute;
+    align-self: unset;
+    font-size: 2rem; 
+    background: none;
+    border: none;
+    color: white;
+    top: 40px;
+    right: 20px;
+}
+
+.videoThumbContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.lectureTitle {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 20px 25px;
+}
+
+.lectureSpeaker {    
+    margin: 0px 25px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.videoButton {
+    align-self: center;
+    width: calc(100% - 40px);
+    margin: auto;
+    bottom: 20px;
+}
+
+/*Fim do hall*/
+
+/*Auditorios*/
+
+.stageListModal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;     
+    padding: 0px;
+}
+
+.stageListBody {
+    align-self: center;
+    width: calc(100% - 40px);
+    overflow-y: scroll;
+    height: 50%;
+    margin: 200px 20px;
+}
+
+.stageListBody::-webkit-scrollbar {
+    width: 5px;   
+}
+
+.stageListBody::-webkit-scrollbar-thumb {
+    background-color: #acacac;
+    
+}
+
+.stageListElement {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, rgba(0, 0, 0, 0.5));
+}
+
+.listElementContent .stageRightSide span {
+    margin-right: 16px;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    color: white;
+}
+
+.stageText {
+    color: white;
+}
+
+/*Stands*/
+
+.stageSearchBox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 85%;
+    height: 50px;
+
+    border: #e0e0e0 solid 1px;
+    border-radius: 40px;
+    margin: 0px 0px;
+
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.stateFilterDropDown {   
+    display: none;
+}
+
+/*TalkPanel*/
+.talkPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 100vh;
+    margin: auto;
+    z-index: 1;
+}
+
+.talkPanel div {
+    display: flex;
+    width: 100%;
+    height: 90%;
+}
+
+.youtubeFrame {    
+    width: 100%;
+    height: 40%;
+    margin: auto 0;    
+    z-index: 1;
+}
+
+.chatFrame {   
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    border: none;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.25s;
+}
+
+.chatFrameActive {
+    visibility: visible;
+    opacity: 1;
+}
+
+.closeChatBtn {
+    position: fixed;
+    display: none;
+    visibility: hidden;
+    font-size: 30px;
+    top: 2px;
+    right: 10px;
+    z-index: 2;
+}
+
+.closeChatBtnActive {
+    display: flex;
+    visibility: visible;
+}
+
+.backBtn {    
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;    
+    width: 147px;
+    height: 50px;
+    border-radius: 32px;
+    left: 20px;
+    top: 105px;
+    margin: 0px;
+}
+
+.blackBtnBack {
+    background-color: transparent;   
+}
+
+.blackBtnBack span {
+    color: transparent;
+}
+
+.blueBtnBack {
+    width: calc(95% - 40px);
+    align-self: center;
+    visibility: visible;  
+}
+
+/*Standes Templates*/
+
+.socials {
+    display: flex;
+    justify-content: space-between;
+    margin: 11px;
+    order: 1;
+}
+
+.socialButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    background-color: #2F80ED;
+    margin: 0px 9px;    
+}
+
+.whatsBtn {    
+    
+}
+
+.whatsBtn .bottomBtn{
+    width: 65px;
+}
+
+.whatsBtn .bottomBtn span {
+    display: none;
+}
+
+.whatsBtn .bottomBtnIcon {
+    display: flex;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    border-radius: 32px;
+}
+    
+.pdfBorder {
+    display: flex;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    flex-flow: column;
+}
+
+/*Menu ajuda*/
+
+.ajudaContainer {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    z-index: 10;
+}
+
+.menuAjuda {    
+    display: flex;
+    flex-flow: column;
+    width: 60%;
+    height: 100vh;
+    background-color: white;
+    transform: translate(100%, 0);
+    transition: 0.5s;
+}
+
+.labelUp {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 70px 25px 0px 18px;
+}
+
+.labelUp span {
+    margin: auto 0;
+}
+
+.closeAjudaButton {
+    font-size: 1.5rem;
+}
+
+.threeLinks {
+    display: flex;
+    flex-flow: column;
+    margin: 45px 18px;
+}
+
+.sobrePanel {
+    position: fixed;
+    display: flex;
+    flex-flow: column;
+    width: 375px;
+    height: 100vh;
+    background-color: #1e1e1e;
+    transform: translate(100%, 0);
+    /*visibility: hidden;*/
+    transition: visible 0s, transform 0.5s;
+    z-index: 1;
+}
+
+.ajudaContainerActive {
+    visibility: visible;
+}
+
+.ajudaActive {
+    transform: translate(0%, 0);
+}
+
+/*Fim menu ajuda*/
+
+}
+/* video entrada */
+.btnImage{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.btnPlay{
+    position: absolute;
+    left:175px;
+    top: 44%;
+    
+    
+    width: 50px;
+    height: 50px;
+    background-image: url("./icons/PlayIcon.png");
+    transform: perspective(600px) rotateY(0deg);
+    border-radius: 50%;
+    animation: pulseShadow 2s infinite;
+    box-shadow: 0 0 0 0 rgb(255, 153, 0);
+}
+.divVideo{
+    position: absolute;
+    z-index:1;
+    
+    left:175px;
+    top: 44%;
+    width: 430px;
+    height: 21.5%;
+    transform: perspective(600px) rotateY(15deg);
+    transition: 1s;
+}
+.btnIndicadores{
+    animation: pulse 2s infinite;
+}
+#assistaVideo{
+    position: absolute;
+    left:120px;
+    top: -50%;
+    z-index: 6;
+    
+    width: 200px;
+    height: 100px;
+}
+@keyframes pulseShadow {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgb(255, 153, 0,0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgb(255, 153, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		
+	}
+
+	70% {
+		transform: scale(1);
+		
+	}
+
+	100% {
+		transform: scale(0.95);
+		
+	}
+}
+.divVideo:hover> .telaEntradaVideo{
+    cursor: pointer;
+    filter: blur(4px);
+}
+/* Imagens */
+/* Tela Entrada */
+.telaEntrada{
+    position: absolute;
+    
+    left:1296px;
+    top: 27%;
+    width: 292px;
+    height: 30.5%;
+}
+.telaEntradaVideo{
+    position: absolute;
+    
+    left:0%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: perspective(600px) rotateY(0deg);
+    transition: 1s;
+}
+/* fim tela Entrada */
+/* fim imagens */
+
+@media screen and (min-width: 1919px) {
+    body{
+        display: flex;
+        justify-content: center;
+
+    }
+    .footer {
+        position: absolute; 
+        
+    }
+    .bg-image{
+        display: block;
+    }
+    .headerContainer {   
+        position: absolute;
+    }
+    
+}
+@media screen and (min-height: 1079px) {
+    body{
+        align-items: center;
+        
+    }
+    
+}
+@media screen and (min-height: 700px) {
+    
+    
+}
+
+@media only screen and (orientation: landscape) and (max-height: 800px) {
+    .listModal {
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    .listBody {
+        max-height: 60%;
+    }
+    
+    .stageListModal {
+        position: absolute;
+        width: 812px;
+        height: 686px;
+        max-height: 65%;
+        padding: 0;
+        margin: auto;
+    }
+
+    .stageListBody {
+        overflow-y: scroll;
+        height: 100%;
+        margin: auto;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-height: 600px) {
+    .header {    
+        margin: 20px 20px 0px 20px;
+        height: 60px;
+    }
+
+    .headerContainer {
+        height: 60px;
+    }
+
+    .footer {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        bottom: 0px;
+        width: calc(100%) ;
+        height: 60px;
+        padding: 20px 0;
+    }
+
+    .menu {
+        margin-left: 40px;
+        margin-bottom: -20px;
+    }
+
+    .btnMenu {    
+        margin-right: 20px;
+    }
+
+    .bottomBtn {
+        margin-bottom: 7px;
+    }
+    
+    .bottomBtnDisable {
+        display: none;
+    }
+
+    .modal-subscribe {
+        position: absolute;
+        width: calc(100% - 100px);
+        height: calc(100vh - 40px);
+        padding: 20px 50px;
+        overflow-y: scroll;
+    }
+
+    .modalHeader {        
+        flex-grow: 0;
+    }
+
+    .inputDiv input {
+        height: 100%;
+    }
+    
+    /*ajuda btn*/
+
+    .ajudaBtn {
+        width: 51px;
+        height: 51px;
+        border-radius: 32px;
+    }
+    
+    .ajudaBtn span {
+        display: none;
+    }
+
+    /*fim ajuda btn*/
+
+    /*Header*/
+
+    .listModal {
+        position: fixed;
+        width: calc(100% - 80px);
+        height: calc(100% - 40px);
+        max-width: none;
+        max-height: none;
+        background-color: white;    
+        padding: 20px 40px;
+    }
+    
+    .listHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px 0px;
+        font-size: 1.5rem;
+    }
+    
+    .listFilters {
+        display: flex;    
+        align-items: flex-start;
+        margin: 5px 0px;    
+        overflow-x: scroll;
+    }
+    
+    .filterButtons {
+        display: flex;
+        flex-wrap: nowrap;
+        margin: 5px 0px;
+    }
+
+    /*Video detail*/
+
+.videoDetail { 
+    width: calc(100% - 50px);
+    height: calc(100% - 100px);
+    padding: 50px 25px;
+}
+
+.videoDetailCloseButton {
+    position: fixed;
+    top: 25px;
+}
+
+.videoThumbContainer {
+    display: none;
+}
+
+.videoTitle {
+    position: fixed;
+    top: 50px;
+    width: 40%;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.videoHour {
+    position: fixed;
+    top: 25px;
+    width: 40%;
+}
+
+.lectureSpeaker {  
+    position: fixed;
+    top: 150px;
+    max-width: 40%;
+}
+
+.synopsis {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+}
+
+.synopsisText{
+    position: fixed;
+    top: 65px;
+    left: 50%;
+}
+
+.videoButton {
+    position: fixed;
+    right: 20px;
+    bottom: 33px;
+    align-self: flex-end;
+    margin: 0px 0px;
+}
+
+/*Fim do hall*/
+
+/*Auditótios*/
+.stageListModal {
+    position: fixed;
+    width: calc(100% - 40px);
+    height: calc(100% - 100px);     
+    padding: 0px;
+    margin: 60px 0 20px 0;
+}
+
+/*Stands*/
+/*Fim Standes*/
+
+/*TalkPanel*/
+.talkPanel {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 150px);
+    z-index: 1;
+    top: 75px;
+}
+
+.talkPanel div {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0 20px;
+}
+
+.youtubeFrame {        
+    width: 50%;
+    height: 100%;
+    margin: 0;    
+    z-index: 1;
+    top: 60px;
+}
+
+.chatFrame {   
+    position: fixed; 
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    right: 0px;
+    border: none;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.25s;
+}
+
+.chatFrameActive {
+    visibility: visible;
+    opacity: 1;
+}
+
+.closeChatBtn {
+    position: fixed;
+    display: none;
+    visibility: hidden;
+    font-size: 30px;
+    top: 2px;
+    right: 10px;
+    z-index: 2;
+}
+
+.closeChatBtnActive {
+    display: flex;
+    visibility: visible;
+}
+
+.backBtn {        
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;    
+    width: 147px;
+    height: 50px;
+    border-radius: 32px;
+    margin: 0px 20px;
+}
+
+.blueBtnBack {
+    visibility: visible; 
+    margin: 0 20px; 
+}
+
+.socials {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+}
+
+.socialButton {
+    margin: 0px 9px;    
+}
+    
+.pdfBorder {
+    display: flex;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    flex-flow: column;
+}
+
+}
+

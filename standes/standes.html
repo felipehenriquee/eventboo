@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../uiStyle.css">
+    <script src="../scripts/logic.js"></script>
+    <script src="../scripts/ajudaUI.js"></script>
+    <script src="./standes-controller.js"></script>
+    <script src="./canvas-standes.js"></script>
+    
+    <title>Standes</title>
+</head>
+
+
+<body>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script defer src="../scripts/init-firebase.js"></script>
+
+    <canvas id="myCanvas" style="width: 100%; height: 100vh; position: absolute;" width="1920" height="1080"></canvas>
+
+    <div class="headerContainer">
+        <div class="header">
+
+            <a id="openTalkSearchS" class="screenTitle">
+                <div>
+                    <img id="titleIconS0" class="screenTitleLeft" src="../icons/StandBlack.svg" alt="">
+                    <span class="page-title">Qual stand você deseja visitar?</span>
+                </div>
+                <img id="titleIconS1" class="screenTitleRight" src="../icons/Arow.svg" alt="">
+            </a>
+
+            <div>
+                <a id="ajudaS" class="ajudaBtn whiteBtnBack">
+                    <div class="ajudaBtnSpanBox">
+                        <span>Ajuda</span>
+                    </div>
+                    <div class="ajudaBtnIcon whiteBtnIcon">
+                        <img id="ajudaIconS" src="../icons/bx_bx-help-circle.svg" alt="">
+                    </div>
+                </a>
+
+                <a id="fullscreen" class="ajudaBtn whiteBtnBack" onclick="openFullScreen()">
+                    <div class="ajudaBtnSpanBox">
+                        <span>Tela cheia</span>
+                    </div>
+                    <div class="ajudaBtnIcon whiteBtnIcon">
+                        <img id="fullscreenIconS" src="../icons/ic_baseline-fullscreen.svg" alt="">
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="footer">
+        <ul id="menuS" class="menu">
+            <li>
+                <a href="../index.html" id="entrada">
+                    <div class="menuImgContainer">
+                        <img id="entradaIcon" src="../icons/EnterBlack.svg" alt="">
+                    </div>
+                    <span>Entrada</span>
+                </a>
+            </li>
+            <li>
+                <a href="../credenciamento/index.html" id="credenciamento">
+                    <div class="menuImgContainer">
+                        <img id="credenciamentoIcon" src="../icons/TicketBlack.svg" alt="">
+                    </div>
+                    <span>Cadastre-se</span>
+                </a>
+            </li>
+            <li>
+                <a href="../hall/hall.html" id="hall">
+                    <div class="menuImgContainer">
+                        <img id="HallIcon" src="../icons/HallBlack.svg" alt="">
+                    </div>
+                    <span>Hall</span>
+                </a>
+            </li>
+            <li>
+                <a href="../auditorios/auditorios.html" id="auditorios">
+                    <div class="menuImgContainer">
+                        <img id="auditoriosIcon" src="../icons/theaterBlack.svg" alt="">
+                    </div>
+                    <span>Auditórios</span>
+                </a>
+            </li>
+            <li>
+                <a id="standes">
+                    <div class="menuImgContainer">
+                        <img id="standesIcon" src="../icons/StandRed.svg" alt="">
+                    </div>
+                    <span class="selected">Standes</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="btnMenu">
+            <a href="../auditorios/auditorios.html">
+                <div id="paraAuditoriosS" class="bottomBtn redBtnBack">
+                    <span>Ir para Auditórios</span>
+                    <div class="bottomBtnIcon redBtnIcon">
+                        <img id="paraAuditoriosIconS" src="../icons/Theaterwhite.svg" alt="">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div id="listBgS" class="modal-bg">
+        <div class="listModal">
+            <div class="listHeader">
+                <div class="stageSearchBox">
+                    <img id="buscaIconS" src="../icons/search.svg" alt="">
+                    <input type="text" placeholder="Buscar..." onkeyup="selectStandFilters(null, null, this.value)">
+                </div>
+                
+                <div class="stateFilterDropDown">
+                    <div class="dropdown">
+                        <img id="locationIconS" src="../icons/ic_outline-location-on.svg" alt="">
+                            <!--<span>Estado</span>-->
+                            <select name="estado" id="estadoInput" onchange="selectState(this.value)"> 
+                                <option value="all">Todos os estado</option>                       
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                                <option value="DF">Distrito Federal</option>
+                            </select>                         
+                    </div>
+                </div>
+
+                <button id="listCloseButtonS" class="listCloseBtn">&times;</button>
+            </div>
+            
+            <div class="listFilters">
+                <div id="listFiltersContainer" class="filterButtons">
+                    <button class="filterSelected" onclick="selectStandFilters(this, 'all', standSearch)">TODOS</button>                    
+                                        
+                </div>
+            </div>            
+            
+            <div id="listBodyS" class="listBody">
+                
+            </div>            
+        </div>
+    </div>
+
+    <!--
+    <div id="listBgS" class="modal-bg">
+        <div class="listModal">
+            <div class="listHeader">
+                <div class="stageSearchBox">
+                    <img id="buscaIconS" src="" alt="">
+                    <input type="text" placeholder="Procure a palestra...">
+                </div>
+
+                <div class="stateFilterDropDown">
+                    <div class="dropdown">
+                        <button >
+                            <div>
+                                <img id="locationIconS" src="" alt="">
+                                <span>Estado</span>
+                            </div>
+                            <img id="setaLocationIconS" src="" alt="">
+                        </button>
+                        <ul id="statesDropdown">
+                           
+                            <li onclick="selectState('all')">
+                                <img src="" alt="">
+                                <span>Todos</span>
+                                <div></div>
+                            </li>
+                            <li onclick="selectState('PE')">
+                                <img src="" alt="">
+                                <span>PE</span>
+                                <div></div>
+                            </li>
+                            <li onclick="selectState('CE')">
+                                <img src="" alt="">
+                                <span>CE</span>
+                            </li>
+                        </ul>                        
+                      </div>
+                </div>
+
+                <button id="listCloseButtonS" class="listCloseBtn">&times;</button>
+            </div>
+            
+            <div class="listFilters">
+                <div id="listFiltersContainer" class="filterButtons">
+                    <button class="filterSelected" onclick="selectStandFilters(this, 'all')">TODOS</button>
+                    <!--
+                    <button>PATROCINADORES</button>
+                    <button>ENTIDADES</button>
+                    <button>DECORAÇÃO</button>
+                    <button>JOIAS</button>
+                    
+                </div>
+            </div>
+            
+            
+            <div class="listBody">
+                <!--
+                <div id="lectureS0" class="listElement">
+                    <div class="listElementContent">
+                        <div class="leftContainer">
+                            <div class="imgContainer">
+                                <img src="../Images/sebrae-logo.png" alt="">
+                            </div>
+                            <div class="leftSide">
+                                <span class="eventHour">10h às 10h40m</span>
+                                <span class="eventTitle">Qual o futuro da realidade virtual?</span>
+                                <span class="eventSpeaker">com Elson pegado e Breno Pinheiro</span>
+                                <span class="eventSpeaker">Palco Viagem</span>
+                            </div>
+                        </div>
+                        <div class="rightSide">
+                            <span class="commandText">Ir para stand</span>
+                            <img class="listIcon" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+                </div>
+                
+            </div>            
+        </div>
+    </div>
+    -->
+    <!--
+    <div id="visitBtnS" class="modal-bg">
+        <button style="width: 50%; height: 50%; background-color: white;">
+            Visitar Stand 
+        </button>
+    </div>
+    -->
+
+    <div id="ajudaContainer" class="ajudaContainer">
+        <div id="sobre" class="sobrePanel">
+            <div class="sobreLabel">
+                <span id="sobreTitle">Sobre o evento</span>
+                <span id="closeSobreButton" class="closeSobreButton">&times;</span>
+            </div>
+            <span id="sobreText" class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
+                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
+        </div>
+        <!--
+        <div id="comoParticipar" class="sobrePanel">
+            <div class="sobreLabel">
+                <span>Como posso participar?</span>
+                <span class="closeAjudaButton">&times;</span>
+            </div>
+            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
+                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
+        </div>
+    
+        <div id="comoEntrar" class="sobrePanel">
+            <div class="sobreLabel">
+                <span>Como faço para entrar?</span>
+                <span class="closeAjudaButton">&times;</span>
+            </div>
+            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
+                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
+        </div>
+        -->
+        <div id="menuajuda" class="menuAjuda">
+            <div class="labelUp">
+                <span>Central de ajuda</span>
+                <span id="closeAjudaButton" class="closeAjudaButton">&times;</span>
+            </div>
+            <div class="threeLinks">
+                <span id="sobreBtn">Sobre o evento</span><br>
+                <span id="comoParticiparBtn" style="display:none;">Como posso participar?</span><br>
+                <span id="comoEntrarBtn" style="display:none;">Como faço para entrar?</span><br>
+            </div>
+            <div class="ajudaBottom">
+                <!--
+                <button class="bottomElements">
+                    <img src="" alt="">
+                    <span>Minha conta</span>
+                </button>
+                -->
+                <button id="sairBtn" class="bottomElements" onclick="logout()">
+                    <img src="../icons/ic_outline-log-out.svg" alt="">
+                    <span>Sair</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

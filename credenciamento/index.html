@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../uiStyle.css">
+    <script src="../scripts/logic.js"></script>    
+    <script src="./credenciamento-controller.js"></script>
+    <script src="./credenciamento-canvas.js"></script>    
+    <script src="../scripts/ajudaUI.js"></script>
+    <title>Credenciamento</title>
+</head>
+
+<body>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script defer src="../scripts/init-firebase.js"></script>
+
+    <canvas id="myCanvas" style="width: 100%; height: 100vh; position: absolute;" width="1920" height="1080"></canvas>
+    <div class="headerContainer">
+        <div class="header">
+
+            <a class="screenTitle">
+                <div>
+                    <img id="titleIconC0" class="screenTitleLeft" src="../icons/TicketBlack.svg" alt="">
+                    <span class="page-title">Cadastre-se - Faça sua Inscrição</span>
+                </div>
+            </a>
+
+            <div>
+                <a id="ajudaC" class="ajudaBtn whiteBtnBack">
+                    <div class="ajudaBtnSpanBox">
+                        <span>Ajuda</span>
+                    </div>
+                    <div class="ajudaBtnIcon whiteBtnIcon">
+                        <img id="ajudaIconC" src="../icons/bx_bx-help-circle.svg" alt="">
+                    </div>
+                </a>
+
+                <a id="fullscreen" class="ajudaBtn whiteBtnBack" onclick="openFullScreen()">
+                    <div class="ajudaBtnSpanBox">
+                        <span>Tela cheia</span>
+                    </div>
+                    <div class="ajudaBtnIcon whiteBtnIcon">
+                        <img id="fullscreenIconC" src="../icons/ic_baseline-fullscreen.svg" alt="">
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="footer">
+        <ul id="menu" class="menu">
+            <li>
+                <a href="../index.html" id="entrada">
+                    <div class="menuImgContainer">
+                        <img id="entradaIcon" src="../icons/EnterBlack.svg" alt="">
+                    </div>
+                    <span>Entrada</span>
+                </a>
+            </li>
+            <li>
+                <a id="credenciamento">
+                    <div class="menuImgContainer">
+                        <img id="credenciamentoIcon" src="../icons/TicketRed.svg" alt="">
+                    </div>
+                    <span class="selected">Cadastre-se</span>
+                </a>
+            </li>
+            <li>
+                <a href="../hall/hall.html" id="hall">
+                    <div class="menuImgContainer">
+                        <img id="HallIcon" src="../icons/HallBlack.svg" alt="">
+                    </div>
+                    <span>Hall</span>
+                </a>
+            </li>
+            <li>
+                <a href="../auditorios/auditorios.html" id="auditorios">
+                    <div class="menuImgContainer">
+                        <img id="auditoriosIcon" src="../icons/theaterBlack.svg" alt="">
+                    </div>
+                    <span>Auditórios</span>
+                </a>
+            </li>
+            <li>
+                <a href="../standes/standes.html" id="standes">
+                    <div class="menuImgContainer">
+                        <img id="standesIcon" src="../icons/StandBlack.svg" alt="">
+                    </div>
+                    <span>Standes</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="btnMenu">
+            <button id="login" class="bottomBtn roseBtnBack" onclick="openLoginPanel()">
+                <span style="color: #BC5957">Já sou inscrito</span>
+                <div class="bottomBtnIcon roseBtnIcon">
+                    <img id="loginIcon" src="../icons/JaSouCadastrado.svg" alt="">
+                </div>
+            </button>
+
+            <button id="credenciar" class="bottomBtn redBtnBack" onclick="openSubscribePanel()">
+                <span>cadastre-se</span>
+                <div class="bottomBtnIcon redBtnIcon">
+                    <img id="signinIcon" src="../icons/TicketWhite.svg" alt="">
+                </div>
+            </button>
+        </div>
+    </div>
+    <!--
+    <div id="subscribeBg" class="modal-bg">
+        <div id="subscribe" class="modal-subscribe">
+            <div class="modalHeader">
+                <p>Faça sua Inscrição</p>
+                <button id="closeSubscribeBtn" class="closeModalButton">&times;</button>
+            </div>
+            <div class="inputDiv">
+                <input id="nameInput" type="text" placeholder="Nome Completo">
+            </div>
+            <div class="inputDiv">
+                <input id="emailInput" type="email" placeholder="E-mail">
+            </div>
+            <div class="inputDiv">
+                <input id="passwordInput" type="password" placeholder="Senha">
+            </div>
+            <div class="modalFooter">
+                <button id="subscribeBtn" class="modalButton" onclick="authBtnClick()">Fazer Inscrição</button>
+                <a id="duvida">Você tem alguma dúvida?</a>
+            </div>
+            
+            <span class="midText">Ou se conecte com</span>
+            <div class="socialButtonsPanel">
+                <button id="signInGoogle" class="socialLoginButton" onclick="googleSingIn()">
+                    <img src="" alt="">
+                    <span>Google</span>
+                </button>
+                <button id="signInFace" class="socialLoginButton" onclick="facebookSingIn()">
+                    <img src="" alt="">
+                    <span>Facebook</span>
+                </button>
+            </div>
+            
+        </div>
+    </div>
+    -->
+    
+    <div id="subscribeBg" class="modal-bg">
+        <div id="subscribe" class="modal-subscribe">
+            <div class="modalHeader">
+                <p>Preencha seus dados</p>
+                <button id="closeSubscribeBtn" class="closeModalButton">&times;</button>
+            </div>
+            <div class="inputDiv">
+                <input id="nameInput" type="text" placeholder="Nome Completo">
+            </div>
+            <div class="inputDiv">
+                <input id="emailInput" type="email" placeholder="E-mail">
+            </div>
+            <div class="inputDiv">
+                <input id="passwordInput" type="password" placeholder="Senha">
+            </div>
+
+
+            <div style="display: flex;">
+                <div class="inputDiv" style="margin-right: 10px;">
+                    <input id="telInput" type="tel" placeholder="Telefone">
+                </div>
+
+                <div class="inputDiv" style="margin-left: 10px;">                    
+                    <select name="estado" id="estadoInput"> 
+                        <option value="" disabled selected>Estado</option>                       
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                        <option value="DF">Distrito Federal</option>
+                    </select>                    
+                </div>
+            </div>
+
+            <div style="display: flex;">
+                <div class="inputDiv" style="margin-right: 10px;">                    
+                    <select id="generoInput" name="genero">
+                        <option value="" disabled selected>Gênero</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+
+                <div class="inputDiv" style="margin-left: 10px;">
+                    <input id="docInput" type="text" placeholder="CPF/CNPJ">
+                </div>
+            </div>
+
+            <div class="checkboxLine">
+                <input type="checkbox" id="checkboxAgree" name="agree" class="checkmark">
+                <label for="agree">Ao criar conta você autoriza o uso dos dados</label>
+            </div>   
+
+            <div class="modalFooter">
+                <button id="subscribeBtn" class="modalButton" onclick="authBtnClick()">Fazer Inscrição</button>
+                <a id="duvida" onclick="recoverPassword()">Você tem alguma dúvida?</a>
+            </div>
+            <!--
+            <span class="midText">Ou se conecte com</span>
+            <div class="socialButtonsPanel">
+                <button id="signInGoogle" class="socialLoginButton" onclick="googleSingIn()">
+                    <img src="" alt="">
+                    <span>Google</span>
+                </button>
+                <button id="signInFace" class="socialLoginButton" onclick="facebookSingIn()">
+                    <img src="" alt="">
+                    <span>Facebook</span>
+                </button>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <div id="loginbg" class="modal-bg">
+        <div id="login" class="modal-subscribe">
+            <div class="modalHeader">
+                <p>Entre com sua conta</p>
+                <button id="closeLoginBtn" class="closeModalButton">&times;</button>
+            </div>
+            <div class="inputDiv">
+                <input id="emailInputLogin" type="email" placeholder="E-mail">
+            </div>
+            <div class="inputDiv">
+                <input id="passwordInputLogin" type="password" placeholder="Senha">
+            </div>
+            <div class="modalFooter">
+                <button id="loginBtn" class="modalButton" onclick="login()">Entrar</button>
+                <a onclick="forgotPassword()">Esqueceu a senha?</a>
+            </div>
+            <!--
+            <span class="midText">Ou se conecte com</span>
+            <div class="socialButtonsPanel">
+                <button id="logInGoogle" class="socialLoginButton">
+                    <img src="" alt="">
+                    <span>Google</span>
+                </button>
+                <button id="logInFace" class="socialLoginButton">
+                    <img src="" alt="">
+                    <span>Facebook</span>
+                </button>
+            </div>
+            -->            
+        </div>
+    </div>
+    
+    <div id="recoverbg" class="modal-bg">
+        <div id="recover" class="modal-subscribe">
+            <div class="modalHeader">
+                <p>Digite seu e-mail</p>
+                <button id="closeRecoverBtn" class="closeModalButton" onclick="closeRecover()">&times;</button>
+            </div>
+            <div class="inputDiv">
+                <input id="emailInputRecover" type="email" placeholder="E-mail">
+            </div>
+            
+            <div class="modalFooter">
+                <button id="recoverBtn" class="modalButton" onclick="recoverPassword()">Recuperar</button>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div id="recoverFeedback" class="modal-bg">
+        <button class="subscribeConfirmation" onclick="finishFeedback()">
+            <span class="confirmationEnjoy">E-mail de recuperação enviado</span><br><br>
+            <span class="confirmationEnjoy">Verifique sua caixa de e-mail</span><br><br>            
+        </button>
+    </div>
+
+    <div id="signinFeedback" class="modal-bg">
+        <button class="subscribeConfirmation">
+            <span class="confirmationEnjoy">Cadastrando</span><br><br>
+            <div class="loadingSpinner"></div>
+        </button>
+    </div>
+
+    <div id="loginFeedback" class="modal-bg">
+        <button class="subscribeConfirmation">
+            <span class="confirmationEnjoy">Entrando</span><br><br>
+            <div class="loadingSpinner"></div>
+        </button>
+    </div>
+
+    <div id="loginError" class="modal-bg">
+        <button class="subscribeConfirmation">
+            <span class="confirmationEnjoy">⚠️ Atenção</span><br><br>
+            <span class="confirmationEnjoy">Senha ou email<br>não válidos</span><br><br>
+            <span class="confirmationEnjoy">Por favor, verifique se você<br>digitou corretamente</span>
+        </button>
+    </div>
+
+    <div id="subscribeConfirmationBg" class="modal-bg">
+        <button id="subscribeConfirmation" class="subscribeConfirmation">
+            <span class="confirmationWelcom">Seja bem-vindo à <br><b>Feira Nacional de <br>Artesanato e
+                    Cultura</b></span><br><br>
+            <span class="confirmationEnjoy">Entre, aproveite <br>e compartilhe 👏</span>
+            <br><br>
+            <span>Clique para continuar</span>
+        </button>
+    </div>
+
+    <div id="ajudaContainer" class="ajudaContainer">
+        <div id="sobre" class="sobrePanel">
+            <div class="sobreLabel">
+                <span id="sobreTitle">Sobre o evento</span>
+                <span id="closeSobreButton" class="closeSobreButton">&times;</span>
+            </div>
+            <span id="sobreText" class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
+                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
+        </div>
+        <!--
+        <div id="comoParticipar" class="sobrePanel">
+            <div class="sobreLabel">
+                <span>Como posso participar?</span>
+                <span class="closeAjudaButton">&times;</span>
+            </div>
+            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
+                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
+        </div>
+    
+        <div id="comoEntrar" class="sobrePanel">
+            <div class="sobreLabel">
+                <span>Como faço para entrar?</span>
+                <span class="closeAjudaButton">&times;</span>
+            </div>
+            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
+                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
+        </div>
+        -->
+        <div id="menuajuda" class="menuAjuda">
+            <div class="labelUp">
+                <span>Central de ajuda</span>
+                <span id="closeAjudaButton" class="closeAjudaButton" onclick="closeSobre()">&times;</span>
+            </div>
+            <div class="threeLinks">
+                <span id="sobreBtn">Sobre o evento</span><br>
+                <span id="comoParticiparBtn" style="display:none;">Como posso participar?</span><br>
+                <span id="comoEntrarBtn" style="display:none;">Como faço para entrar?</span><br>
+            </div>
+            <div class="ajudaBottom">
+                <!--
+                <button class="bottomElements">
+                    <img src="" alt="">
+                    <span>Minha conta</span>
+                </button>
+                -->
+                <button id="sairBtn" class="bottomElements" onclick="logout()">
+                    <img src="../icons/ic_outline-log-out.svg" alt="">
+                    <span>Sair</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
