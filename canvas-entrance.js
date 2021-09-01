@@ -16,12 +16,12 @@ window.onload = function () {
     
     if (date.getHours()>=18 || date.getHours()+8<=4){
         img.src = './3DImages/ExternaNoturnaR01V02.jpg';
-        imgBg.style.backgroundImage = "url('./3DImages/ExternaNoturnaR01V02.jpg')";
+        // imgBg.style.backgroundImage = "url('./3DImages/ExternaNoturnaR01V02.jpg')";
        
     }
     else{
         img.src = './3DImages/Externa_Diurna_R01_v02.jpg';
-        imgBg.style.backgroundImage = "url('./3DImages/Externa_Diurna_R01_v02.jpg')";
+        // imgBg.style.backgroundImage = "url('./3DImages/Externa_Diurna_R01_v02.jpg')";
 
     }
 
