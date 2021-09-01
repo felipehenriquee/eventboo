@@ -27,7 +27,7 @@ window.onload = function () {
 
     
     img.onload = function(){
-    // document.getElementById('comeceAqui').focus();
+    document.getElementById('comeceAqui').focus();
 
         console.log('loaded');
         ctx.drawImage(img, 0, 0, 1920, 1080);
