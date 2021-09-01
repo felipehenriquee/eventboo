@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     
-<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" /> -->
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="./uiStyle.css">      
     <script src="./scripts/logic.js"></script>
@@ -21,7 +20,9 @@
 
     <div id="bgImage" class="bg-image" ></div>
     
-    <canvas id="myCanvas" style="position:absolute;min-width: 1920px; max-height: 1080px; min-height: 920px; max-width: 1920px; width: 100%; height: 100vh;" width="1920" height="1080"></canvas>
+    <canvas id="myCanvas" 
+    style="position:absolute;min-width: 1920px; max-height: 1080px; min-height: 920px; max-width: 1920px; width: 100%; height: 100vh; transform-origin: center;" 
+    width="1920" height="1080"></canvas>
     
     <div class="containerObjetos2" style=" position:absolute;  max-width: 1920px; max-height: 1080px; min-height: 920px;  width: 100%; height: 100vh;  ">
         <img class="telaEntrada" src="./images/telaEntrada.png" alt="">
@@ -31,10 +32,18 @@
             <button id="assistaVideo" class="btnImage btnIndicadores" style="background-image: url('./icons/assistaVideo.png');" onclick="openCloseVideo(true)"></button>
 
         </div>
+        <div   class="comeceAqui">
+            <a href="./credenciamento/index.html" id ="comeceAqui">
+                <img class="entreAqui" src="./images/ComecePorAqui.png" alt="">
+            </a>
+        </div>
+       
+        
+
     </div>
     <div class="containerObjetos"  >
         
-        <div class="headerContainer" >
+        <div class="headerContainer" style="z-index: 110    ;">
             <div class="header">
                 
                 <a class="screenTitle">
@@ -109,12 +118,15 @@
             </ul>
     
             <div class="btnMenu">
-                <a href="./credenciamento/index.html" id="entrarNoEvento">
-                    <div class="bottomBtn redBtnBack">
-                        <span>Entrar no evento</span>
-                        <div class="bottomBtnIcon redBtnIcon">
-                            <img id="entrarIcon" src="./icons/enterTheaterWhite.svg" alt="">
-                        </div>
+                <a href="./credenciamento/index.html" id="fullscreen" class="ajudaBtn ajudaBtnEvento" style="width: 200px;">
+                    <div class="nomeButton nomeButtonEvento" style="height: 60px; width: 250px; margin-right: 20px;">
+                        <p>
+                        Entrar no Evento
+
+                        </p>
+                    </div>
+                    <div class="ajudaBtnIcon bottomBtnIcon redBtnBack">
+                        <img id="entrarIcon" src="./icons/enterTheaterWhite.svg" alt="">
                     </div>
                 </a>
             </div>

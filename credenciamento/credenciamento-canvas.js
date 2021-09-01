@@ -5,8 +5,10 @@ var ctx;
 
 var proportion = screen.width / screen.height;
 
+
+
 window.addEventListener('load',function(){
-    console.log('load canvas');
+    
 
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
@@ -14,13 +16,17 @@ window.addEventListener('load',function(){
     img.src = '../3DImages/Credenciamento_R02_V02.jpg';
     
     img.onload = function(){
+        document.getElementById('comeceAqui').focus();
+
         console.log('loaded');
-        ctx.drawImage(img, 0, 0, screen.width, screen.height);
+        ctx.drawImage(img, 0, 0, 1920, 1080);
         
-        //setInterval(loop, 100);
+        // setInterval(loop, 100);
     };
 });
 
 function loop() {
-    ctx.drawImage(img, 0, 0, screen.width, screen.height);
+    ctx.drawImage(img, 0, 0, 1920, 1080);
+    document.getElementById("myCanvas").scrollIntoView({block: "center"});
+
 }
