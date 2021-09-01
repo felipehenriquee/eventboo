@@ -2203,6 +2203,9 @@ button {
         
     }
 }
+.ajudaBtnEvento{
+    width: 200px;
+}
 @media screen and (max-width: 822px) {
     .nomeButton{
         
@@ -2213,11 +2216,13 @@ button {
     }
     .nomeButtonEvento{
         height: 60px; 
-        width: 200px; 
+        width: 100% !important; 
         margin-right: 100px;
+       
     }
     .ajudaBtnEvento{
-        width: 100%;;
+        width: 100%;
+       
     }
 }
 @media only screen and (orientation: landscape) and (max-height: 600px) {
