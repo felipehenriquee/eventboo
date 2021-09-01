@@ -8,7 +8,7 @@ var proportion = screen.width / screen.height;
 window.onload = function () {
     console.log('load canvas');
     canvas = document.getElementById("myCanvas");
-    imgBg = document.getElementById("bgImage");
+    // imgBg = document.getElementById("bgImage");
     ctx = canvas.getContext("2d");
 
     var date = new Date();
