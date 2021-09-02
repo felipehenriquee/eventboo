@@ -29,6 +29,7 @@ button {
     display: none;
     width: 100%;
     height: 100vh;
+    background-color: black;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -39,8 +40,11 @@ button {
     filter: blur(8px);
 }
 .containerObjetos{
+    position: absolute;
+    
     max-width: 1920px; max-height: 1080px; width: 100%; height: 100vh;
 }
+
 
 /*Header*/
 
@@ -233,10 +237,11 @@ button {
     justify-content: space-around;
     background: white;
     margin-left: 80px;
-    width: 410px;
+    min-width: 410px;
     height: 90px;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
     border-radius: 20px 20px 0px 0px;
+    z-index: 1000;
 }
 
 .menu li {
@@ -369,6 +374,7 @@ button {
 
 .roseBtnBack {
     background: #fdbebd;
+    color:#873e3d
 }
 
 .roseBtnIcon {
@@ -1241,7 +1247,7 @@ button {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     visibility: hidden;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .menuAjuda {    
@@ -1252,6 +1258,7 @@ button {
     background-color: white;
     transform: translate(100%, 0);
     transition: 0.5s;
+   
 }
 
 .labelUp {
@@ -1269,6 +1276,7 @@ button {
 
 .closeAjudaButton {
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .threeLinks {
@@ -1958,7 +1966,7 @@ button {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     visibility: hidden;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .menuAjuda {    
@@ -2129,7 +2137,9 @@ button {
     width: 200px;
     height: 400px;
     animation: pulse 2s infinite;
+    cursor: pointer;
     
+    z-index: 100;
     
 }
 .comeceAqui a{
@@ -2140,8 +2150,9 @@ button {
     width: 200px;
     height: 400px;
     animation: pulse 2s infinite;
+    cursor: pointer;
     
-    
+    z-index: 100;
 }
 .comeceAqui a img{
     width: 100%;
@@ -2161,6 +2172,7 @@ button {
     }
     .bg-image{
         display: block;
+        
     }
     .headerContainer {   
         position: absolute;
@@ -2174,10 +2186,7 @@ button {
     }
     
 }
-@media screen and (min-height: 700px) {
-    
-    
-}
+
 
 @media only screen and (orientation: landscape) and (max-height: 800px) {
     .listModal {
@@ -2233,17 +2242,30 @@ button {
     }
 }
 @media only screen and (orientation: landscape) and (max-height: 600px) {
+    .nomeButtonEvento{
+        display: none;
+       
+    }
+    .btnMenu{
+        position: fixed;
+        
+        left:80%;
+        top:80%;
+        
+    }
+    .nomeButton{
+        display: none !important;
+       
+    }
     .header {    
         margin: 20px 20px 0px 20px;
         height: 60px;
     }
 
-    .headerContainer {
-        height: 60px;
-    }
+    
 
     .footer {
-        position: absolute;
+        position: fixed;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;

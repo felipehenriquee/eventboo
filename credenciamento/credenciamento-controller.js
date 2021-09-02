@@ -12,6 +12,7 @@ var loginBg;
 var loginBtn;
 
 window.addEventListener('load', function(){
+    
     initCredentials();
     bindSingInInputs();
     bindLogInInputs();
@@ -80,19 +81,23 @@ function initCredentials() {
     });
 */
     var subscribeConfirmation = document.getElementById('subscribeConfirmation');
+    // redireciona depois de logar
     subscribeConfirmation.addEventListener('click', function() {
-        window.location.href = '../hall/hall.html';
+        window.location.href = '../credenciamento/index.html';
     });
     
     var duvida = document.getElementById('duvida');
     //duvida.addEventListener('click', help);
     
     if(hasLocalStorage) {
-        //openLoginBtn.classList.add('bottomBtnDisable');
-        openLoginBtn.children[0].innerHTML = 'Entrar';
-        openLoginBtn.addEventListener('click', function() {
-            window.location.href = '../hall/hall.html';
-        });        
+        hallBtn.classList.add('disabled');
+        auditoriosBtn.classList.add('disabled');
+        standsBtn.classList.add('disabled');  
+        openLoginBtn.classList.add('bottomBtnDisable');
+        // openLoginBtn.children[0].innerHTML = 'Entrar';
+        // openLoginBtn.addEventListener('click', function() {
+        //     window.location.href = '../credenciamento/index.html';
+        // });        
         
         document.getElementById('credenciar').classList.add('bottomBtnDisable');
         

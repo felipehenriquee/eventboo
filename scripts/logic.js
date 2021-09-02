@@ -544,6 +544,7 @@ function logout() {
     firebase.auth().signOut().then(() => {
         localStorage.removeItem('user');
         localStorage.removeItem('Token');
+        window.location.reload();
     });    
 }
 

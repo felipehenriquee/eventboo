@@ -45,30 +45,31 @@
             </a>
 
             <div>
-                <a id="ajudaC" class="ajudaBtn whiteBtnBack">
-                    <div class="ajudaBtnSpanBox">
-                        <span>Ajuda</span>
-                    </div>
-                    <div class="ajudaBtnIcon whiteBtnIcon">
-                        <img id="ajudaIconC" src="../icons/bx_bx-help-circle.svg" alt="">
-                    </div>
-                </a>
+                <div>
+                    <a id="ajuda" class="ajudaBtn " onclick="help()">
+                        <div class="nomeButton">
+                            <p>
+                            Ajuda
 
-                <a id="fullscreen" class="ajudaBtn whiteBtnBack" onclick="openFullScreen()">
-                    <div class="ajudaBtnSpanBox">
-                        <span>Tela cheia</span>
-                    </div>
-                    <div class="ajudaBtnIcon whiteBtnIcon">
-                        <img id="fullscreenIconC" src="../icons/ic_baseline-fullscreen.svg" alt="">
-                    </div>
-                </a>
+                            </p>
+                        </div>
+                        
+                        <div class="ajudaBtnIcon whiteBtnIcon">
+                            <img id="ajudaIcon" src="./../icons/bx_bx-help-circle.svg" alt="">
+                        </div>
+                    </a>
+    
+                    
+                </div>
+
+                
             </div>
             
         </div>
     </div>
 
-    <div class="footer">
-        <ul id="menu" class="menu">
+    <div class="footer" style="z-index: 110    ; ">
+        <ul id="menu" class="menu" >
             <li>
                 <a href="../index.html" id="entrada">
                     <div class="menuImgContainer">
@@ -111,20 +112,32 @@
             </li>
         </ul>
 
-        <div class="btnMenu">
-            <button id="login" class="bottomBtn roseBtnBack" onclick="openLoginPanel()">
-                <span style="color: #BC5957">Já sou inscrito</span>
-                <div class="bottomBtnIcon roseBtnIcon">
-                    <img id="loginIcon" src="../icons/JaSouCadastrado.svg" alt="">
+        <div class="btnMenu" style="width:100%;  display: flex; flex-direction: column; align-items: flex-end;">
+            
+            <button  id="login" class="ajudaBtn ajudaBtnEvento "  onclick="openLoginPanel()" style="width: 250px;">
+                <div class="nomeButton nomeButtonEvento roseBtnBack "  style="height: 60px; width: 100%; margin-right: 20px;">
+                    <p style="font-size: 18px;" >
+                        Login
+
+                    </p>
+                </div>
+                <div class="ajudaBtnIcon bottomBtnIcon redBtnBack" style="background-color: white;">
+                    <img id="signinIcon" src="../icons/JaSouCadastrado.svg" alt="">
                 </div>
             </button>
+            <a  id="credenciar" class="ajudaBtn ajudaBtnEvento"  onclick="openSubscribePanel()" style="width: 250px;">
+                <div class="nomeButton nomeButtonEvento" style="height: 60px; width: 100%; margin-right: 20px;">
+                    <p style="font-size: 18px;">
+                        Cadastre-se
 
-            <button id="credenciar" class="bottomBtn redBtnBack" onclick="openSubscribePanel()">
-                <span>cadastre-se</span>
-                <div class="bottomBtnIcon redBtnIcon">
+                    </p>
+                </div>
+                <div class="ajudaBtnIcon bottomBtnIcon redBtnBack">
                     <img id="signinIcon" src="../icons/TicketWhite.svg" alt="">
                 </div>
-            </button>
+            </a>
+
+            
         </div>
     </div>
     </div>
@@ -377,7 +390,7 @@
                 Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
         </div>
         -->
-        <div id="menuajuda" class="menuAjuda">
+        <div id="menuajuda" class="menuAjuda" >
             <div class="labelUp">
                 <span>Central de ajuda</span>
                 <span id="closeAjudaButton" class="closeAjudaButton" onclick="closeSobre()">&times;</span>

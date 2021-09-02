@@ -11,6 +11,7 @@ window.addEventListener('load',function(){
     
 
     canvas = document.getElementById("myCanvas");
+    imgBg = document.getElementById("bgImage");
     ctx = canvas.getContext("2d");
 
     img.src = '../3DImages/Credenciamento_R02_V02.jpg';
@@ -20,6 +21,7 @@ window.addEventListener('load',function(){
 
         console.log('loaded');
         ctx.drawImage(img, 0, 0, 1920, 1080);
+        imgBg.style.backgroundImage = "url('../3DImages/Credenciamento_R02_V02.jpg')";
         
         // setInterval(loop, 100);
     };
