@@ -2,7 +2,7 @@
 //123456
 
 //var userName, email, password;
-
+this.loginSympla();
 var nameInput, emailInput, passwordInput;
 var telInput, estadoInput, generoInput, docInput;
 var nameInputLogin, emailInputLogin, passwordInputLogin;
@@ -1736,3 +1736,29 @@ function help() {
     var menuajuda = document.getElementById('menuajuda');
     menuajuda.classList.add('ajudaActive');
 };
+
+function loginSympla(){
+    const myHeaders = new Headers();
+    myHeaders.append('s_token', '884ebf6e89a3cd8f1f62ca6fa2604ba208fa153fdcba0fc8b7b115e6b009fa03');
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+       
+    var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            
+            redirect: 'follow',
+
+        };
+
+        fetch("https://api.sympla.com.br/public/v3/events/1334881/participants?participant_email=elsonpegado@gmail.com", requestOptions)
+            .then(response => response.json())
+            .then(res => {
+                console.log(res)
+                // let newToken = res.id_token;
+                //console.log(newToken);
+                // localStorage.setItem('Token', JSON.stringify(newToken));
+            })
+            .catch(error => console.log('error', error));
+    
+}
