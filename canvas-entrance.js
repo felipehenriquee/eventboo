@@ -15,13 +15,13 @@ window.onload = function () {
     console.log(date.getHours())
     
     if (date.getHours()>=18 || date.getHours()<=4){
-        img.src = './3DImages/ExternaNoturnaR01V02.jpg';
-        imgBg.style.backgroundImage = "url('./3DImages/ExternaNoturnaR01V02.jpg')";
+        img.src = './3DImages/Externa2.jpg';
+        imgBg.style.backgroundImage = "url('./3DImages/Externa2.jpg')";
        
     }
     else{
-        img.src = './3DImages/Externa_Diurna_R01_v02.jpg';
-        imgBg.style.backgroundImage = "url('./3DImages/Externa_Diurna_R01_v02.jpg')";
+        img.src = './3DImages/Externa2.jpg';
+        imgBg.style.backgroundImage = "url('./3DImages/Externa2.jpg')";
 
     }
 
@@ -38,17 +38,4 @@ window.onload = function () {
 
 function loop() {
     ctx.drawImage(img, 0, 0, 1920, 1080);
-}
-function openCloseVideo(escolha){
-    const elemento = document.getElementById("vidBgH");
-    if (escolha){
-        
-        elemento.classList.add("bg-active");
-    }
-    else{
-        elemento.classList.remove("bg-active");
-
-    }
-    
-    
 }

@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" href="./uiStyle.css">      
+    <link rel="stylesheet" href="./uiStyle.css">     
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <script src="./scripts/logic.js"></script>
     <script src="./scripts/ajudaUI.js"></script>    
     <script src="./entrance-controller.js"></script>
@@ -14,6 +16,10 @@
 </head>   
 
 <body>
+    <?php 
+    
+    
+    ?>
     <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
     <script defer src="./scripts/init-firebase.js"></script>
@@ -25,16 +31,16 @@
     width="1920" height="1080"></canvas>
     
     <div class="containerObjetos2" style=" position:absolute;  max-width: 1920px; max-height: 1080px; min-height: 920px;  width: 100%; height: 100vh;  ">
-        <img class="telaEntrada" src="./images/telaEntrada.png" alt="">
-        <div class="divVideo">   
+        <!-- <img class="telaEntrada" src="./images/telaEntrada.png" alt=""> -->
+        <!-- <div class="divVideo">   
             <img class="telaEntradaVideo" src="./images/telaEntradaVideo.JPG" alt="" onclick="openCloseVideo(true)">
             <button class="btnImage btnPlay" title="Pressione para assistir o vídeo" onclick="openCloseVideo(true)"></button>
             <button id="assistaVideo" class="btnImage btnIndicadores" style="background-image: url('./icons/assistaVideo.png');" onclick="openCloseVideo(true)"></button>
 
-        </div>
+        </div> -->
         <div   class="comeceAqui">
             <a href="./credenciamento/index.html" id ="comeceAqui">
-                <img class="entreAqui" src="./images/ComecePorAqui.png" alt="">
+                <img class="entreAqui"   src="./images/ComecePorAqui.png" alt="">
             </a>
         </div>
        
@@ -135,18 +141,7 @@
             <span class="welcome">Seja bem vindo</span>-->
         </div>
         
-        <div id="vidBgH" class="modal-bg">        
-            <div id="vidBorder" class="videoBorder">
-                <span class="entranceIframeClose" onclick="openCloseVideo(false)">&times;</span>
-                
-                <iframe id="videoFrame" class="entranceIframe" src="https://www.youtube.com/embed/6AklbYpQqzw"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-               
-            </div>
-        </div>
+        
     
         <div id="ajudaContainer" class="ajudaContainer">
             <div id="sobre" class="sobrePanel">

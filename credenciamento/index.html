@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="../uiStyle.css">
+    <script src="https://unpkg.com/vanilla-masker@1.1.1/build/vanilla-masker.min.js"></script>
+
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
     <script src="../scripts/logic.js"></script>    
+
     <script src="./credenciamento-controller.js"></script>
     <script src="./credenciamento-canvas.js"></script>    
     <script src="../scripts/ajudaUI.js"></script>
@@ -24,10 +30,11 @@
        
         <div class="comeceAqui comeceAqui2" >
             
-            <button id="comeceAqui" style="display: flex; justify-content: flex-start;" onclick="openSubscribePanel()">
+            <button class="teste" id="comeceAqui" style="display: flex; justify-content: flex-start;" onclick="openLoginPanel()">
                 <img class="entreAqui" src="./../images/FacaSuaInscricao.png" alt="" style="width:200px; top: 0">
 
             </button>
+            
         </div>
        
         
@@ -125,7 +132,7 @@
                     <img id="signinIcon" src="../icons/JaSouCadastrado.svg" alt="">
                 </div>
             </button>
-            <a  id="credenciar" class="ajudaBtn ajudaBtnEvento"  onclick="openSubscribePanel()" style="width: 250px;">
+            <a  id="credenciar" class="ajudaBtn ajudaBtnEvento"  href="https://www.sympla.com.br/unieventos__1272032" style="width: 250px;">
                 <div class="nomeButton nomeButtonEvento" style="height: 60px; width: 100%; margin-right: 20px;">
                     <p style="font-size: 18px;">
                         Cadastre-se
@@ -276,19 +283,24 @@
 
     <div id="loginbg" class="modal-bg">
         <div id="login" class="modal-subscribe">
-            <div class="modalHeader">
-                <p>Entre com sua conta</p>
+            <div class="modalHeader" >
+                <div style="display: flex; flex-direction: column;">
+                    <p>Entre com sua conta:</p>
+                    <p style="font-size: 11px;">Utilize o email e cpf cadastrado na compra do ingresso</p>
+                </div>
+                
                 <button id="closeLoginBtn" class="closeModalButton">&times;</button>
             </div>
             <div class="inputDiv">
                 <input id="emailInputLogin" type="email" placeholder="E-mail">
             </div>
             <div class="inputDiv">
-                <input id="passwordInputLogin" type="password" placeholder="Senha">
+                <input id="passwordInputLogin" type="text" placeholder="CPF">
             </div>
             <div class="modalFooter">
                 <button id="loginBtn" class="modalButton" onclick="login()">Entrar</button>
-                <a onclick="forgotPassword()">Esqueceu a senha?</a>
+                <button id="loginBtn" class="modalButton" onclick="location.href = 'https://www.sympla.com.br/unieventos__1272032';">Cadastre-se</button>
+                
             </div>
             <!--
             <span class="midText">Ou se conecte com</span>
@@ -414,7 +426,12 @@
             </div>
         </div>
     </div>
-
+    <script>
+        var el = document.querySelector('#passwordInputLogin');
+        VMasker(el).maskPattern("999.999.999-999");
+        
+       
+    </script>
 </body>
 
 </html>

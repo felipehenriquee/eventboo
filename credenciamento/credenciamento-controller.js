@@ -11,6 +11,9 @@ var closeLoginBtn;
 var loginBg;
 var loginBtn;
 
+
+
+
 window.addEventListener('load', function(){
     
     initCredentials();
@@ -52,7 +55,7 @@ function initCredentials() {
     subscribeBtn = document.getElementById('subscribeBtn');
     subscribeConfirmationBg = document.getElementById('subscribeConfirmationBg');
 
-    openSubscribeBtn.addEventListener('click', openSubscribePanel);
+    
 
     closeSubscribeBtn.addEventListener('click', function () {
         subscribeBg.classList.remove('bg-active');
@@ -100,6 +103,8 @@ function initCredentials() {
         // });        
         
         document.getElementById('credenciar').classList.add('bottomBtnDisable');
+        
+        
         
         /*
         if(hallBtn) hallBtn.addEventListener('click', function() {

@@ -18,6 +18,11 @@ window.addEventListener('load',function(){
     
     img.onload = function(){
         document.getElementById('comeceAqui').focus();
+        if(window.localStorage.getItem("Token")) {
+            const elemento = document.querySelector('#comeceAqui');
+            elemento.parentNode.removeChild(elemento);
+            
+           }
 
         console.log('loaded');
         ctx.drawImage(img, 0, 0, 1920, 1080);

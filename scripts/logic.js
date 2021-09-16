@@ -2,7 +2,9 @@
 //123456
 
 //var userName, email, password;
-this.loginSympla();
+
+
+
 var nameInput, emailInput, passwordInput;
 var telInput, estadoInput, generoInput, docInput;
 var nameInputLogin, emailInputLogin, passwordInputLogin;
@@ -10,7 +12,8 @@ var subscribeConfirmationBg;
 
 var utcHour;
 
-var baseApi = 'http://147.182.210.54:5001/v1';
+// var baseApi = 'http://localhost:3000/v1';
+var baseApi = 'http://147.182.210.54:4006/v1';
 
 var eventData;
 
@@ -180,9 +183,9 @@ function bindSingInInputs() {
 
 function bindLogInInputs() {
     emailInputLogin = document.getElementById('emailInputLogin');
-    console.log(emailInputLogin);
+    
     passwordInputLogin = document.getElementById('passwordInputLogin');
-    console.log(passwordInputLogin);
+    
     //loginBtn = document.getElementById('loginBtn');
     //loginBtn.addEventListener('click', login);
 }
@@ -410,50 +413,9 @@ async function login() {
 
     let loginFeedback = document.getElementById('loginFeedback');
     loginFeedback.classList.add('bg-active');
+    autenticaLoginSympla(email, password);
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(cred => {
-            if (cred) {
-                localStorage.setItem('user', JSON.stringify(cred.user));
-                cred.user.getIdToken()
-                    .then(token => {
-                        //console.log(token);
-                        localStorage.setItem('Token', JSON.stringify(token));
-                        autenticaLogin(cred.user);
-
-                    });
-            } else {
-                localStorage.removeItem('user');
-                localStorage.removeItem('Token');
-            }
-        })
-        .catch(function (error) {
-            loginFeedback.classList.remove('bg-active');
-            let loginError = document.getElementById('loginError');
-            loginError.classList.add('bg-active');
-            loginError.addEventListener('click', function () {
-                loginError.classList.remove('bg-active');
-            });
-            // Handle Errors here.
-            let errorCode = error.code;
-            let errorMessage = error.message;
-
-            switch (errorCode) {
-                case 'auth/user-not-found':
-                    loginError.children[0].children[3].innerHTML = 'Usuário não encontrado';
-                    break;
-                case 'auth/wrong-password':
-                    loginError.children[0].children[3].innerHTML = 'Senha incorreta';
-                    break;
-                case 'auth/invalid-email':
-                    loginError.children[0].children[3].innerHTML = 'E-mail inválido';
-                    break;
-            }
-
-            console.log(errorCode);
-            console.log(errorMessage);
-            // ...
-        });
+    
 }
 
 async function autenticaLogin(user, userName, tel, estado, genero, cpf) {
@@ -791,7 +753,7 @@ async function createPalestraElement(scene, i, response) {
         };
 
         //console.log('requisoção de hora');
-        let hourRequest = new Request('http://147.182.210.54:5001/v1/ferramentas/getdate', hourInit);
+        let hourRequest = new Request('http://147.182.210.54:4006/v1/ferramentas/getdate', hourInit);
         let utcHour = await fetch(hourRequest)
             .then(res => {
                 if (res.ok) {
@@ -961,6 +923,7 @@ function showDropDown() {
 }
 */
 async function requestStandFilters() {
+    
     let token = JSON.parse(localStorage.getItem('Token'));
     let myHeaders = new Headers();
     myHeaders.append('Authorization', 'Bearer ' + token);
@@ -973,25 +936,28 @@ async function requestStandFilters() {
         mode: 'cors'
     };
 
-    let request = new Request(`${baseApi}/estandecategoria/GetAll`, myInit);
+    let request = new Request(`${baseApi}/categoria`, myInit);
 
     listOfStandFilters = await fetch(request)
         .then(res => {
+            
             if (res.ok) {
                 return res.json();
             } else {
                 console.log('Fail');
             }
         });
-    //console.log(listOfStandFilters);
+    // console.log(listOfStandFilters.user.rows);
 
     let adjust = new Array()
-    for (let i = 0; i < listOfStandFilters.length; i++) {
-        adjust.push(listOfStandFilters[i]);        
+    
+    for (let i = 0; i < listOfStandFilters.user.rows.length; i++) {
+       
+        adjust.push(listOfStandFilters.user.rows[i]);        
     }
 
-    adjust[0] = listOfStandFilters[6];
-    adjust[6] = listOfStandFilters[0];
+    adjust[0] = listOfStandFilters.user.rows[6];
+    adjust[6] = listOfStandFilters.user.rows[0];
     listOfStandFilters = adjust;
 
 
@@ -1004,17 +970,19 @@ async function requestStandFilters() {
             filterBtn.classList.add('filterButtonLocked')
             listFiltersContainer.append(filterBtn);
             //console.log(listOfStandFilters[i].idEstandeCategoria);
-            filterBtn.addEventListener('click', () => { selectStandFilters(filterBtn, listOfStandFilters[i].idEstandeCategoria, standSearch) });
+            filterBtn.addEventListener('click', () => { selectStandFilters(filterBtn, listOfStandFilters[i].Id, standSearch) });
         }
     }
 }
 
 function selectState(state) {
+    
     standStateFilter = state;
     selectStandFilters(null, null, standSearch);
 }
 
 async function selectStandFilters(element, filter, search) {
+    
     if (filter != null && filter != undefined) standFilter = filter;
     if (standStateFilter == null || standStateFilter == undefined) standStateFilter = 'all';
 
@@ -1060,8 +1028,8 @@ async function selectStandFilters(element, filter, search) {
         //console.log(stateFilteredStands);
     } else {
         for (let i = 0; i < filteredStands.length; i++) {
-            for (let j = 0; j < filteredFromServer[i].Estados.length; j++) {
-                if (filteredFromServer[i].Estados[j] == standStateFilter) {
+            for (let j = 0; j < filteredFromServer[i].estados.length; j++) {
+                if (filteredFromServer[i].estados[j].Id == standStateFilter) {
                     stateFilteredStands.push(filteredStands[i]);
                     filteredFromState.push(filteredFromServer[i]);
                     break;
@@ -1134,7 +1102,7 @@ async function requestStands(abort = false, scene) {
         mode: 'cors'
     };
 
-    let baseseUrl = `${baseApi}/estande/GetAll/`;
+    let baseseUrl = `${baseApi}/estande`;
     let request = new Request(baseseUrl, myInit)
 
     standFromServer = await fetch(request)
@@ -1145,7 +1113,10 @@ async function requestStands(abort = false, scene) {
                 console.log('Fail');
             }
         });
-    //console.log(standFromServer[0]);
+    
+    standFromServer = standFromServer.result.rows;
+    
+
 
     if (standFromServer) {
         //console.log('response not null');
@@ -1166,7 +1137,7 @@ async function requestStands(abort = false, scene) {
 }
 
 function createStandElement(scene, i, response) {
-    //console.log('creating');
+    
     let listBodyS = document.getElementById(`listBody${scene}`);
 
     let listElement = document.createElement("div");
@@ -1188,8 +1159,10 @@ function createStandElement(scene, i, response) {
     leftContainer.appendChild(imgContainer);
 
     let logo = document.createElement("img");
-    if (response.imgLogo) {
-        logo.src = `${response.imgLogo.Caminho}`;
+    
+    if (response.images[0]) {
+        logo.src = `${response.images[0].Path}`;
+        
     }
     imgContainer.appendChild(logo);
 
@@ -1222,12 +1195,12 @@ function createStandElement(scene, i, response) {
 
     let toTalk = document.createElement("span");
     toTalk.classList.add('commandtext');
-    toTalk.innerHTML = 'Visitar';
+    toTalk.innerHTML = 'Ir para o Stand';
     rightSide.appendChild(toTalk);
 
     let icon = document.createElement("img");
     icon.classList.add('listIcon');
-    icon.src = '../extraIcons/entrarRed.svg';
+    icon.src = '../icons/EnterRed.svg';
     rightSide.appendChild(icon);
 
     let separator = document.createElement("div");
@@ -1235,28 +1208,30 @@ function createStandElement(scene, i, response) {
     listElement.appendChild(separator);
 
     listElement.addEventListener('click', function () {
+        
         standData = response;
         hallSearch = null;
         standSearch = null;
         //console.log(standData);
         //console.log(standData.idModelo);
-
+        console.log(standData)
+        window.localStorage.setItem("idStand", standData.Id)
         if (scene == 'S') {
-            switch (standData.idModelo) {
-                case 'expositor individual':
-                    visitStand();
+            switch (standData.Modelo) {
+                case 'Vermelho':
+                    visitVermelho();
                     break;
-                case 'prefeituras':
-                    visitPrefeituras();
+                case 'Azul':
+                    visitAzul();
                     break;
-                case 'pab/FEDERAÇÃO':
-                    visitFederacoes();
+                case 'Verde':
+                    visitVerde();
                     break;
-                case 'patrocinadores':
-                    visitPatrocinadores();
+                case 'Roxo':
+                    visitRoxo();
                     break;
                 default:
-                    visitStand();
+                    visitVermelho();
                     break;
             }
 
@@ -1554,7 +1529,7 @@ async function createPalestraStageElement(i, response) {
         };
 
         //console.log('requisoção de hora');
-        let hourRequest = new Request('http://147.182.210.54:5001/v1/ferramentas/getdate', hourInit);
+        let hourRequest = new Request('http://147.182.210.54:4006/v1/ferramentas/getdate', hourInit);
         let utcHour = await fetch(hourRequest)
             .then(res => {
                 if (res.ok) {
@@ -1738,28 +1713,171 @@ function help() {
 };
 
 function loginSympla(){
-    let header = new Headers();
-    // header.append('Accept', 'application/json')
-    // header.append('Content-Type', 'application/json')
-    header.append('s_token', '884ebf6e89a3cd8f1f62ca6fa2604ba208fa153fdcba0fc8b7b115e6b009fa03')
-    header.append('Access-Control-Allow-Origin', '*');
-    header.append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-    header.append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
-
-    const options = {
-        method:"get",
-        credentials: 'include',
-        headers: header,
-        
+    
+    axios.get(this.baseApi, {
+    headers: {
+        's_token': '884ebf6e89a3cd8f1f62ca6fa2604ba208fa153fdcba0fc8b7b115e6b009fa03',
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
     }
+   })
+  .then(response => {
+    console.log(response.data);
+    
+    return response;
+  })
+  .catch(error => {
+    console.log(error);
+  });
+    
+}
 
-   
-    fetch("https://api.sympla.com.br/public/v3/events/1334881/participants?participant_email=elsonpegado@gmail.com", options)
-    .then(res => {res.json()})
-    .then(users => {
-        console.log(users)
-    }).catch(err=>{
-        console.log(err)
+async function autenticaLoginSympla(Email, CPF) {
+    console.log(CPF)
+    let loginError = document.getElementById('loginError');
+    
+    let result;
+    let token = JSON.parse(localStorage.getItem('Token'));
+    let myHeaders = new Headers();
+    //myHeaders.append('Authorization', `Bearer ${token}`);
+    //myHeaders.append('Content-Type', 'application/json');
+    //console.log(`Bearer ${token}`);
+
+    let myInit = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        
+        mode: 'cors'
+
+    };
+    console.log(myInit.body);
+    let request = new Request(`${baseApi}/auth`, myInit)
+
+    axios.post(this.baseApi+"/auth", {
+        headers: {
+            's_token': '884ebf6e89a3cd8f1f62ca6fa2604ba208fa153fdcba0fc8b7b115e6b009fa03',
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+        },
+        
+        Email, CPF
+        
+       })
+      .then(response => {
+        console.log(response.data);
+          if (response.data.result == false){
+            loginFeedback.classList.remove('bg-active');
+            signinFeedback.classList.remove('bg-active');
+            loginError.classList.add('bg-active');
+            loginError.children[0].children[3].innerHTML = response.data.msg;
+          }
+          else{
+              createFireBase(Email, CPF);
+            loginFeedback.classList.remove('bg-active');
+            signinFeedback.classList.remove('bg-active');
+            subscribeConfirmationBg.classList.add('bg-active');
+          }
+          
+        
+        
+        return response;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    
+}
+
+async function createFireBase(email, cpf){
+    
+    firebase.auth().createUserWithEmailAndPassword(email, cpf)
+    .then(result =>{
+        
+        loginFireBase(email,cpf);
+        
     })
+    .catch(function (error){
+        
+        loginFireBase(email,cpf);
+    })
+    
+}
+
+async function loginFireBase(email, cpf){
+    console.log("login fire")
+    firebase.auth().signInWithEmailAndPassword(email, cpf)
+        .then(cred => {
+            if (cred) {
+                localStorage.setItem('user', JSON.stringify(cred.user));
+                cred.user.getIdToken()
+                    .then(token => {
+                        //console.log(token);
+                        localStorage.setItem('Token', JSON.stringify(token));
+                    });
+            } else {
+                localStorage.removeItem('user');
+                localStorage.removeItem('Token');
+            }
+        })
+        .catch(function (error) {
+            loginFeedback.classList.remove('bg-active');
+            let loginError = document.getElementById('loginError');
+            loginError.classList.add('bg-active');
+            loginError.addEventListener('click', function () {
+                loginError.classList.remove('bg-active');
+            });
+            // Handle Errors here.
+            let errorCode = error.code;
+            let errorMessage = error.message;
+
+            switch (errorCode) {
+                case 'auth/user-not-found':
+                    loginError.children[0].children[3].innerHTML = 'Usuário não encontrado';
+                    break;
+                case 'auth/wrong-password':
+                    loginError.children[0].children[3].innerHTML = 'Senha incorreta';
+                    break;
+                case 'auth/invalid-email':
+                    loginError.children[0].children[3].innerHTML = 'E-mail inválido';
+                    break;
+            }
+
+            console.log(errorCode);
+            console.log(errorMessage);
+            // ...
+        });
+}
+function openCloseVideo(escolha){
+    console.log("fecha")
+    const elemento = document.getElementById("vidBgH2");
+    if (escolha){
+        
+        elemento.classList.add("bg-active");
+    }
+    else{
+        elemento.classList.remove("bg-active");
+
+    }
+    
+    
+}
+function openClosePDF(escolha){
+    console.log("fecha")
+    const elemento = document.getElementById("vidBgH2");
+    if (escolha){
+        
+        elemento.classList.add("bg-active");
+    }
+    else{
+        elemento.classList.remove("bg-active");
+
+    }
+    
     
 }
