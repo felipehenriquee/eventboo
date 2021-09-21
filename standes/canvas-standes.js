@@ -23,5 +23,11 @@ window.addEventListener('load', function () {
 });
 
 function loop() {
-    ctx.drawImage(img, 0, 0, screen.width, screen.height);
+    if(window.innerHeight > window.innerWidth){
+        ctx.drawImage(img, 0, 0, screen.width, screen.height);
+    }
+    else{
+        ctx.drawImage(img, 0, 0, 1920, 1080);
+    }
+    
 }
