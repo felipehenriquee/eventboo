@@ -83,23 +83,23 @@ function populateListElements(list) {
 };
     
 function visitVermelho() {
-    window.location.href = './stand-padrao/stand-vermelho.html';
+    window.location.href = '../standes/stand-padrao/stand-vermelho.html';
 };
 
 function visitVerde() {
-    window.location.href = './stand-padrao/stand-verde.html';
+    window.location.href = '../standes/stand-padrao/stand-verde.html';
 
     //TODO: Abrir stand Federação
 };
 
 function visitRoxo() {
-    window.location.href = './stand-padrao/stand-roxo.html';
+    window.location.href = '../standes/stand-padrao/stand-roxo.html';
 
     //TODO: Abrir stand Patrocinadore
 };
 
 function visitAzul() {
-    window.location.href = './stand-padrao/stand-azul.html';
+    window.location.href = '../standes/stand-padrao/stand-azul.html';
 
     //TODO: Abrir stand Prefeitura
 };

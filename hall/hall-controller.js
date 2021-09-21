@@ -48,7 +48,7 @@ function bindHall() {
     listBg = document.getElementById('listBgH');
     listCloseButton = document.getElementById('listCloseButtonH');
     //lecture0 = document.getElementById('lectureH0');
-    videoDetailBg = document.getElementById('videoDetailBgH');
+    videoDetailBg = document.getElementById('videoDetailBgA');
 
     screenTitle.addEventListener('click', function(){
         listBg.classList.add('bg-active');

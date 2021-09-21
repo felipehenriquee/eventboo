@@ -49,25 +49,27 @@ window.addEventListener('load', function () {
     ctx = canvas.getContext("2d");
     
     if(cor=="Vermelho"){
-        img.src = './../../3DImages/Stand_Vermelho.png';
+        img.src = './../../3DImages/Stand_Vermelho.jpg';
 
     }
     else if(cor=="Verde"){
-        img.src = './../../3DImages/Stand_Verde.png';
+        img.src = './../../3DImages/Stand_Verde.jpg';
 
     }
     else if(cor=="Roxo"){
-        img.src = './../../3DImages/Stand_Roxo.png';
+        img.src = './../../3DImages/Stand_Roxo.jpg';
 
     }
     else if(cor=="Azul"){
-        img.src = './../../3DImages/Stand_Azul.png';
+        img.src = './../../3DImages/Stand_Azul.jpg';
 
     }
     
     img.onload = function(){
         console.log('loaded');
-        ctx.drawImage(img, 0, 0, screen.width, screen.height);
+        document.getElementById('comeceAqui').focus();
+
+        ctx.drawImage(img, 0, 0, 1920, 1080);
         
         //setInterval(loop, 100);
     };
@@ -122,6 +124,22 @@ function preencheDados(dado){
     portfolioStand.href = dado.Portfolio
     pageTitle.innerHTML = "Stand "+dado.Nome;
     videoYoutube.src = dado.Youtube;
+
+    if (!dado.Twitter){
+        buttonTwitter.classList.add("bottomBtnDisable");
+    }
+    if (!dado.Facebook){
+        buttonFacebook.classList.add("bottomBtnDisable");
+        
+    }
+    if (!dado.Instagram){
+        buttonInstagram.classList.add("bottomBtnDisable");
+        
+    }
+    if (!dado.Wpp){
+        buttonWpp.classList.add("bottomBtnDisable");
+        
+    }
     
     logoStand.style.backgroundImage = `url('${dado.images[0].Path}')`;
     console.log(logoStand.src)

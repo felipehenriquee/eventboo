@@ -16,10 +16,7 @@
 </head>   
 
 <body>
-    <?php 
     
-    
-    ?>
     <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
     <script defer src="./scripts/init-firebase.js"></script>
@@ -55,7 +52,7 @@
                 <a class="screenTitle">
                     <div>
                         <img id="titleIcon0" class="screenTitleLeft" src="./icons/ID_Icon.svg" alt="">
-                        <span class="page-title">Feira Nacional de Artesanato e Cultura</span>
+                        <span class="page-title">Unieventos</span>
                     </div>                               
                 </a>
                 
@@ -106,7 +103,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./auditorios/auditorios.html" id="auditorios" class="disabled">
+                    <a href="./auditorios/auditorios.html" id="auditorios"  class="disabled">
                         <div class="menuImgContainer">
                             <img id="auditoriosIcon" src="./icons/theaterBlack.svg" alt="">
                         </div>
@@ -114,7 +111,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./standes/standes.html" id="standes" class="disabled">
+                    <a href="./standes/standes.html" id="standes"  class="disabled">
                         <div class="menuImgContainer">
                             <img id="standesIcon" src="./icons/StandBlack.svg" alt="">
                         </div>
@@ -196,7 +193,14 @@
             </div>
         </div>
     </div>
-
+    <script>
+        if(!window.localStorage.getItem("Token")){
+    
+            document.getElementById("hall").classList.add("disabled");
+            document.getElementById("auditorios").classList.add("disabled");
+            document.getElementById("standes").classList.add("disabled");
+        }
+    </script>
     
 </body>
 

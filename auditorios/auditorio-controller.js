@@ -12,6 +12,7 @@ function initAuditorios() {
     console.log('init audit');
     bindAuditorios();
     requestPalestraStage(true);
+    requestPalestra();
 };
 
 function bindAuditorios() {
@@ -57,9 +58,10 @@ function bindAuditorios() {
         window.location.href = '../standes/standes.html'
     });
     
-    var detailCloseButton = document.getElementById('detailCloseButtonA');
+    var detailCloseButton = document.getElementById('videoDetailCloseButtonH');
     detailCloseButton.addEventListener('click', function(){
-        videoDetailBg.classList.remove('bg-active');
+        const videoDetailB = document.getElementById("videoDetailBgA")
+        videoDetailB.classList.remove('bg-active');
     });
     /*
     var stageLecture0 = document.getElementById('stageLectureA0');

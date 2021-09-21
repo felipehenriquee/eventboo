@@ -14,7 +14,9 @@ window.addEventListener('load', function () {
     
     img.onload = function(){
         console.log('loaded');
-        ctx.drawImage(img, 0, 0, screen.width, screen.height);
+        document.getElementById('comeceAqui').focus();
+
+        ctx.drawImage(img, 0, 0, 1920, 1080);
         
         //setInterval(loop, 100);
     };

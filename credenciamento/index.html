@@ -41,7 +41,7 @@
 
     </div>
     <div class="containerObjetos">
-        <div class="headerContainer">
+        <div class="headerContainer" style="z-index: 110    ; ">
         <div class="header">
 
             <a class="screenTitle">
@@ -94,7 +94,7 @@
                 </a>
             </li>
             <li>
-                <a href="../hall/hall.html" id="hall">
+                <a href="../hall/hall.html" id="hall" class="disabled">
                     <div class="menuImgContainer">
                         <img id="HallIcon" src="../icons/HallBlack.svg" alt="">
                     </div>
@@ -102,7 +102,7 @@
                 </a>
             </li>
             <li>
-                <a href="../auditorios/auditorios.html" id="auditorios">
+                <a href="../auditorios/auditorios.html" id="auditorios" class="disabled">
                     <div class="menuImgContainer">
                         <img id="auditoriosIcon" src="../icons/theaterBlack.svg" alt="">
                     </div>
@@ -110,7 +110,7 @@
                 </a>
             </li>
             <li>
-                <a href="../standes/standes.html" id="standes">
+                <a href="../standes/standes.html" id="standes" class="disabled">
                     <div class="menuImgContainer">
                         <img id="standesIcon" src="../icons/StandBlack.svg" alt="">
                     </div>
@@ -119,9 +119,9 @@
             </li>
         </ul>
 
-        <div class="btnMenu" style="width:100%;  display: flex; flex-direction: column; align-items: flex-end;">
+        <div class="btnMenu" style="width:95%;  display: flex; flex-direction: column; align-items: flex-end; margin-left: 5%;">
             
-            <button  id="login" class="ajudaBtn ajudaBtnEvento "  onclick="openLoginPanel()" style="width: 250px;">
+            <button  id="login" class="ajudaBtn ajudaBtnEvento "  onclick="openLoginPanel()" style="min-width: 250px;">
                 <div class="nomeButton nomeButtonEvento roseBtnBack "  style="height: 60px; width: 100%; margin-right: 20px;">
                     <p style="font-size: 18px;" >
                         Login
@@ -132,8 +132,8 @@
                     <img id="signinIcon" src="../icons/JaSouCadastrado.svg" alt="">
                 </div>
             </button>
-            <a  id="credenciar" class="ajudaBtn ajudaBtnEvento"  href="https://www.sympla.com.br/unieventos__1272032" style="width: 250px;">
-                <div class="nomeButton nomeButtonEvento" style="height: 60px; width: 100%; margin-right: 20px;">
+            <a  id="credenciar" class="ajudaBtn ajudaBtnEvento"  href="https://www.sympla.com.br/unieventos__1272032" target="_blank" style="min-width: 250px;">
+                <div class="nomeButton nomeButtonEvento" style="height: 60px;  margin-right: 20px;">
                     <p style="font-size: 18px;">
                         Cadastre-se
 
@@ -281,7 +281,7 @@
         </div>
     </div>
 
-    <div id="loginbg" class="modal-bg">
+    <div id="loginbg" class="modal-bg" style="position: fixed;">
         <div id="login" class="modal-subscribe">
             <div class="modalHeader" >
                 <div style="display: flex; flex-direction: column;">
@@ -299,7 +299,7 @@
             </div>
             <div class="modalFooter">
                 <button id="loginBtn" class="modalButton" onclick="login()">Entrar</button>
-                <button id="loginBtn" class="modalButton" onclick="location.href = 'https://www.sympla.com.br/unieventos__1272032';">Cadastre-se</button>
+                <button id="loginBtn" class="modalButton" onclick="location.href = 'https://www.sympla.com.br/unieventos__1272032'">Cadastre-se</button>
                 
             </div>
             <!--
@@ -318,7 +318,7 @@
         </div>
     </div>
     
-    <div id="recoverbg" class="modal-bg">
+    <div id="recoverbg" class="modal-bg" style="position: fixed;">
         <div id="recover" class="modal-subscribe">
             <div class="modalHeader">
                 <p>Digite seu e-mail</p>
@@ -335,28 +335,28 @@
         </div>
     </div>
     
-    <div id="recoverFeedback" class="modal-bg">
+    <div id="recoverFeedback" class="modal-bg" style="position: fixed;">
         <button class="subscribeConfirmation" onclick="finishFeedback()">
             <span class="confirmationEnjoy">E-mail de recuperação enviado</span><br><br>
             <span class="confirmationEnjoy">Verifique sua caixa de e-mail</span><br><br>            
         </button>
     </div>
 
-    <div id="signinFeedback" class="modal-bg">
+    <div id="signinFeedback" class="modal-bg" style="position: fixed;">
         <button class="subscribeConfirmation">
             <span class="confirmationEnjoy">Cadastrando</span><br><br>
             <div class="loadingSpinner"></div>
         </button>
     </div>
 
-    <div id="loginFeedback" class="modal-bg">
+    <div id="loginFeedback" class="modal-bg" style="position: fixed;">
         <button class="subscribeConfirmation">
             <span class="confirmationEnjoy">Entrando</span><br><br>
             <div class="loadingSpinner"></div>
         </button>
     </div>
 
-    <div id="loginError" class="modal-bg">
+    <div id="loginError" class="modal-bg" style="position: fixed;">
         <button class="subscribeConfirmation">
             <span class="confirmationEnjoy">⚠️ Atenção</span><br><br>
             <span class="confirmationEnjoy">Senha ou email<br>não válidos</span><br><br>
@@ -364,7 +364,7 @@
         </button>
     </div>
 
-    <div id="subscribeConfirmationBg" class="modal-bg">
+    <div id="subscribeConfirmationBg" class="modal-bg" style="position: fixed;">
         <button id="subscribeConfirmation" class="subscribeConfirmation">
             <span class="confirmationWelcom">Seja bem-vindo à <br><b>Feira Nacional de <br>Artesanato e
                     Cultura</b></span><br><br>
@@ -430,8 +430,14 @@
         var el = document.querySelector('#passwordInputLogin');
         VMasker(el).maskPattern("999.999.999-999");
         
-       
+        if(!window.localStorage.getItem("Token")){
+    
+    document.getElementById("hall").classList.add("disabled");
+    document.getElementById("auditorios").classList.add("disabled");
+    document.getElementById("standes").classList.add("disabled");
+}
     </script>
+    
 </body>
 
 </html>

@@ -86,16 +86,14 @@ function initCredentials() {
     var subscribeConfirmation = document.getElementById('subscribeConfirmation');
     // redireciona depois de logar
     subscribeConfirmation.addEventListener('click', function() {
-        window.location.href = '../credenciamento/index.html';
+        window.location.href = '../hall/hall.html';
     });
     
     var duvida = document.getElementById('duvida');
     //duvida.addEventListener('click', help);
     
     if(hasLocalStorage) {
-        hallBtn.classList.add('disabled');
-        auditoriosBtn.classList.add('disabled');
-        standsBtn.classList.add('disabled');  
+         
         openLoginBtn.classList.add('bottomBtnDisable');
         // openLoginBtn.children[0].innerHTML = 'Entrar';
         // openLoginBtn.addEventListener('click', function() {
@@ -115,9 +113,7 @@ function initCredentials() {
         
         //if(standsBtn) standsBtn.addEventListener('click', this.toStands, false);
     } else {        
-        hallBtn.classList.add('disabled');
-        auditoriosBtn.classList.add('disabled');
-        standsBtn.classList.add('disabled');        
+              
         
         console.log(openLoginBtn);
         openLoginBtn.addEventListener('click', function () {

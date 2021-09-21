@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
     <link rel="stylesheet" href="../../uiStyle.css">
     <link rel="stylesheet" href="./vermelho.css">
 
@@ -27,6 +28,21 @@
     width="1920" height="1080"></canvas>
 
     <div class="containerObjetos2" style=" position:absolute;  max-width: 1920px; max-height: 1080px; min-height: 920px;  width: 100%; height: 100vh;  ">
+       
+        <div class="comeceAqui comeceAqui3" >
+            
+            <button class="comeceAqui3" id="comeceAqui" style="display: flex; justify-content: flex-start; top:28%; left: 850px;" >
+                
+
+            </button>
+            
+        </div>
+       
+        
+
+    </div>
+
+    <div class="containerObjetos2" style=" position:absolute;  max-width: 1920px; max-height: 1080px; min-height: 920px;  width: 100%; height: 100vh;  ">
         
         <div   class="logoStand">
             <a href="./credenciamento/index.html" id ="comeceAqui" >
@@ -37,18 +53,23 @@
             </a>
         </div>
         <div class="divVideoStand">   
-            <img class="telaEntradaVideo telaEntradaVideoStand" src="./../../images/telaEntradaVideo.JPG" alt="" onclick="openCloseVideo(true)">
             <button class="btnImageStand btnPlayStand" title="Pressione para assistir o vídeo" onclick="openCloseVideo(true)"></button>
             <button id="assistaVideo" class="btnImageStand btnIndicadores" style="background-image: url('../../icons/assistaVideo.png');" onclick="openCloseVideo(true)"></button>
 
         </div> 
         <a id="siteStand" class="divSiteStand" target="_blank">   
-            <img class="telaEntradaVideo telaEntradaLinkStand" src="./../../images/telaEntradaVideo.JPG" alt="" >
+            <div class="saibaMais">
+                <div ><p>Saiba Mais</p></div>
+                <img class="telaEntradaVideo telaEntradaLinkStand" src="./../../icons/linkVermelho.png" alt="">
+            </div>
+            
+
+            
             <button id="assistaVideo" class="btnImageStand btnIndicadores btnImageStandLink"  style="background-image: url('../../icons/acesseSite.png');"></button>
 
         </a> 
         <a id="portfolioStand"  target="_blank" class="divPdfStand">   
-            <img class="telaEntradaVideo telaEntradaLinkStand" src="./../../images/telaEntradaVideo.JPG" alt="" >
+            <img class="telaEntradaVideo telaEntradaPdfStand" src="./../../icons/portfolioVermelho.png" alt="" >
             <button id="assistaVideo" class="btnImageStand btnIndicadores btnImageStandPdf"  style="background-image: url('../../icons/vejaPorfolio.png');" ></button>
 
         </a> 
@@ -56,117 +77,165 @@
 
     </div>
 
-    <div class="headerContainer">
-        <div class="header">
-
-            <a id="openTalkSearchS1" class="screenTitle">
-                <div>
-                    <img id="titleIconS1-0" class="screenTitleLeft" src="" alt="">
-                    <span class="page-title" id="page-title">Stand</span>
-                </div>
-                <img id="titleIconS1-1" style="display: none;" class="screenTitleRight" src="" alt="">
-            </a>
-
-            <div>
-                
-                
-                
-                <!-- <a id="fullscreen" class="ajudaBtn whiteBtnBack" onclick="openFullScreen()">
-                    <div class="ajudaBtnSpanBox">
-                        <span>Tela cheia</span>
+    <div class="containerObjetos">
+        <div class="headerContainer" style="z-index: 110    ;">
+            <div class="header">
+    
+                <a id="openTalkSearchS1" class="screenTitle">
+                    <div>
+                        <img id="titleIconS1-0" class="screenTitleLeft" src="" alt="">
+                        <span class="page-title" id="page-title">Stand</span>
                     </div>
-                    <div class="ajudaBtnIcon whiteBtnIcon">
-                        <img id="fullscreenIconS1" src="" alt="">
+                    <img id="titleIconS1-1" style="display: none;" class="screenTitleRight" src="" alt="">
+                </a>
+    
+                <div>
+                    
+                    
+                    
+                    <!-- <a id="fullscreen" class="ajudaBtn whiteBtnBack" onclick="openFullScreen()">
+                        <div class="ajudaBtnSpanBox">
+                            <span>Tela cheia</span>
+                        </div>
+                        <div class="ajudaBtnIcon whiteBtnIcon">
+                            <img id="fullscreenIconS1" src="" alt="">
+                        </div>
+                    </a> -->
+                </div>
+                
+            </div>
+        </div>
+    
+        <div class="footer" style="z-index: 110    ;">
+            <ul id="menu" class="menu menuCelular" >
+                <li>
+                    <a href="../../index.html" id="entrada">
+                        <div class="menuImgContainer">
+                            <img id="entradaIcon" src="../../icons/EnterBlack.svg" alt="">
+                        </div>
+                        <span>Entrada</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../credenciamento/index.html" id="credenciamento">
+                        <div class="menuImgContainer">
+                            <img id="credenciamentoIcon" src="../../icons/TicketBlack.svg" alt="">
+                        </div>
+                        <span >Cadastre-se</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../hall/hall.html" id="hall">
+                        <div class="menuImgContainer">
+                            <img id="HallIcon" src="../../icons/HallBlack.svg" alt="">
+                        </div>
+                        <span>Hall</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../auditorios/auditorios.html" id="auditorios">
+                        <div class="menuImgContainer">
+                            <img id="auditoriosIcon" src="../../icons/theaterBlack.svg" alt="">
+                        </div>
+                        <span >Auditórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../standes.html" id="standes">
+                        <div class="menuImgContainer">
+                            <img id="standesIcon" src="../../icons/StandRed.svg" alt="">
+                        </div>
+                        <span class="selected">Standes</span>
+                    </a>
+                </li>
+            </ul>
+            <a href="../standes.html" id="backButtonS1" class="backBtn blackBtnBack">
+                <div class="backBtnIcon blackBtnIcon">
+                    <img id="backButtonIconS1" src="../../icons/Return.svg" style="width: 50%;" alt="">
+                </div>
+                <span>Voltar</span>                         
+            </a>
+    
+            <div class="socials">
+                <a id="instagramBtn" class="socialButton" target="_blank">
+                    <img id="instaIcon" src="../../icons/Instagram.svg" alt="">
+                </a>
+                <a id="facebookBtn" class="socialButton" target="_blank">
+                    <img id="faceIcon" src="../../icons/Facebook.svg" alt="">
+                </a>
+                <a id="twitterBtn" class="socialButton"  target="_blank">
+                    <img id="twitterIcon" src="../../icons/twitter.svg" alt="">
+                </a>
+                <a id="whatappButton" class="socialButton"  target="_blank">
+                    <img id="twitterIcon" src="../../icons/Whataspp.svg" alt="">
+                </a>
+            </div>
+    
+            <div class="btnMenu">
+                <!-- <a id="catalogo">
+                    <div id="catalogoBtn" class="bottomBtn catalogBtn">
+                        <span style="color: #BC5957">Acesse a loja</span>
+                        <div class="bottomBtnIcon whiteBtnIcon">
+                            <img id="catalogoIcon" src="" alt="">
+                        </div>
+                    </div>
+                </a> -->
+    
+                <!-- <a id="whatappButton">
+                    <div class="bottomBtn redBtnBack">
+                        <span>Entre em contato</span>
+                        <div class="bottomBtnIcon redBtnIcon">
+                            <img id="whatsIcon" src="../../icons/Whataspp.svg" alt="">
+                        </div>
                     </div>
                 </a> -->
             </div>
-            
-        </div>
-    </div>
-
-    <div class="footer">
-        <a href="../standes.html" id="backButtonS1" class="backBtn blackBtnBack">
-            <div class="backBtnIcon blackBtnIcon">
-                <img id="backButtonIconS1" src="../../icons/Return.svg" alt="" style="width: 30%;">
-            </div>
-            <span>Voltar</span>                         
-        </a>
-
-        <div class="socials">
-            <a id="instagramBtn" class="socialButton">
-                <img id="instaIcon" src="../../icons/Instagram.svg" alt="">
-            </a>
-            <a id="facebookBtn" class="socialButton">
-                <img id="faceIcon" src="../../icons/Facebook.svg" alt="">
-            </a>
-            <a id="twitterBtn" class="socialButton"  target="_blank">
-                <img id="twitterIcon" src="../../icons/twitter.svg" alt="">
-            </a>
-        </div>
-
-        <div class="btnMenu">
-            <!-- <a id="catalogo">
-                <div id="catalogoBtn" class="bottomBtn catalogBtn">
-                    <span style="color: #BC5957">Acesse a loja</span>
-                    <div class="bottomBtnIcon whiteBtnIcon">
-                        <img id="catalogoIcon" src="" alt="">
+        </div>    
+    
+        <div id="listBg" class="modal-bg">
+            <div class="listModal">
+                <div class="listHeader">
+                    <div class="listHeaderInputContainer">
+                        <img src="" alt="">
+                        <input type="text" placeholder="Procure a palestra...">
                     </div>
+                    <button id="listCloseButtonS1" class="listCloseBtn">&times;</button>
                 </div>
-            </a> -->
-
-            <a id="whatappButton">
-                <div class="bottomBtn redBtnBack">
-                    <span>Entre em contato</span>
-                    <div class="bottomBtnIcon redBtnIcon">
-                        <img id="whatsIcon" src="../../icons/Whataspp.svg" alt="">
-                    </div>
+                
+                <div class="listBody">
+                    Catálogo aqui
                 </div>
-            </a>
-        </div>
-    </div>    
-
-    <div id="listBg" class="modal-bg">
-        <div class="listModal">
-            <div class="listHeader">
-                <div class="listHeaderInputContainer">
-                    <img src="" alt="">
-                    <input type="text" placeholder="Procure a palestra...">
-                </div>
-                <button id="listCloseButtonS1" class="listCloseBtn">&times;</button>
+    
             </div>
-            
-            <div class="listBody">
-                Catálogo aqui
+        </div>
+        
+        <div id="vidBgH" class="modal-bg">        
+            <div id="vidBorder" class="videoBorder">
+                <span class="entranceIframeClose">&times;</span>
+                <!--
+                <iframe id="videoFrame" class="entranceIframe" src="https://www.youtube.com/embed/6AklbYpQqzw"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+                -->
             </div>
-
         </div>
-    </div>
-    
-    <div id="vidBgH" class="modal-bg">        
-        <div id="vidBorder" class="videoBorder">
-            <span class="entranceIframeClose">&times;</span>
-            <!--
-            <iframe id="videoFrame" class="entranceIframe" src="https://www.youtube.com/embed/6AklbYpQqzw"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            -->
+        
+        
+        <div id="vidBgH2" class="modal-bg">        
+            <div id="vidBorder" class="videoBorder">
+                <span class="entranceIframeClose" onclick="openCloseVideo(false)">&times;</span>
+                
+                <iframe id="videoFrame" class="entranceIframe" src="https://www.youtube.com/embed/6AklbYpQqzw"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+               
+            </div>
         </div>
-    </div>
     
-    
-    <div id="vidBgH2" class="modal-bg">        
-        <div id="vidBorder" class="videoBorder">
-            <span class="entranceIframeClose" onclick="openCloseVideo(false)">&times;</span>
-            
-            <iframe id="videoFrame" class="entranceIframe" src="https://www.youtube.com/embed/6AklbYpQqzw"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-           
-        </div>
     </div>
 
     <script src="./standes.js"></script>

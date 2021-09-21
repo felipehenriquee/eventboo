@@ -25,6 +25,7 @@ window.addEventListener('load',function(){
            }
 
         console.log('loaded');
+        
         ctx.drawImage(img, 0, 0, 1920, 1080);
         imgBg.style.backgroundImage = "url('../3DImages/Credenciamento_R02_V02.jpg')";
         

@@ -47,12 +47,29 @@
     
     width: 50px;
     height: 50px;
-    background-image: url("./../../icons/PlayIcon.png");
+    background-image: url("./../../icons/playAzul.png");
     
     border-radius: 50%;
     animation: pulseShadow 2s infinite;
     box-shadow: 0 0 0 0 rgb(255, 153, 0);
 }
+@keyframes pulseShadow {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgb(27, 0,108,0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgb(255, 153, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
 .divVideoStand{
     position: absolute;
     z-index:1;
@@ -61,25 +78,22 @@
     top: 34%;
     width: 168px;
     height: 95px;
-    background-color: black;
+    
     transition: 1s;
 }
 .divSiteStand{
     position: absolute;
     z-index:1;
     
-    left:720px;
-    top: 65%;
+    left:680px;
+    top: 75%;
     width: 95px;
     height: 95px;
-    background-color: black;
+   
     transition: 1s;
     
 }
-.btnImageStandLink {
-    left:-50px;
-    top: -90%;
-}
+
 .divPdfStand{
     position: absolute;
     z-index:1;
@@ -88,11 +102,35 @@
     top: 38%;
     width: 188px;
     height: 125px;
-    background-color: black;
+    
     transition: 1s;
     
 }
 .btnImageStandPdf {
     left:-7px;
     top: -70%;
+}
+.btnImageStandLink {
+    left:-10px;
+    top: -90%;
+}
+.saibaMais div{
+    display: flex;
+    
+    align-items: center;
+    border-radius: 25px;
+    width: 180px;
+    height: 40px;
+    background-color: rgb(27, 0, 180);
+    color: aliceblue;
+    font-size: 20px;
+}
+.saibaMais div p{
+    margin-left: 20px;
+}
+.telaEntradaLinkStand{
+    
+    width: 40px;
+    height: 40px;
+    margin-left: 142px;
 }

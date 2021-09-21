@@ -4,7 +4,7 @@
 //var userName, email, password;
 
 
-
+let lista = [];
 var nameInput, emailInput, passwordInput;
 var telInput, estadoInput, generoInput, docInput;
 var nameInputLogin, emailInputLogin, passwordInputLogin;
@@ -12,8 +12,8 @@ var subscribeConfirmationBg;
 
 var utcHour;
 
-// var baseApi = 'http://localhost:3000/v1';
-var baseApi = 'http://147.182.210.54:4006/v1';
+var baseApi = 'http://localhost:3000/v1';
+// var baseApi = 'http://147.182.210.54:4006/v1';
 
 var eventData;
 
@@ -78,6 +78,9 @@ const controller = new AbortController();
 const signal = controller.signal;
 
 setInterval(refreshToken, 10 * 60 * 1000);
+
+
+
 
 function refreshToken() {
     let user = JSON.parse(localStorage.getItem('user'));
@@ -618,7 +621,8 @@ function hallFilter(element, filter, search) {
 }
 
 async function requestPalestra(abort = false, scene) {
-    let detailCloseBtn = document.getElementById(`videoDetailCloseButton${'H'}`);
+    let detailCloseBtn = document.getElementById(`videoDetailCloseButtonH`);
+    
     detailCloseBtn.addEventListener('click', function () {
         let thumbContainer = document.getElementById('thumbContainer');
         let count = thumbContainer.children.length;
@@ -645,7 +649,7 @@ async function requestPalestra(abort = false, scene) {
         mode: 'cors'
     };
 
-    let request = new Request(`${baseApi}/palestra/GetAll/`, myInit);
+    let request = new Request(`${baseApi}/palestra?passou=true`, myInit);
 
     let response = await fetch(request)
         .then(res => {
@@ -655,8 +659,8 @@ async function requestPalestra(abort = false, scene) {
                 console.log('Fail');
             }
         });
-    //console.log(response);
-
+    console.log(response.result.rows);
+    response = response.result.rows;
     if (response) {
         //console.log('response not null');
         talks = new Array(response.length);
@@ -670,7 +674,7 @@ async function requestPalestra(abort = false, scene) {
     } else {
         console.log('response null');
     }
-
+    console.log(talksFromServer)
     talksFromServer = response;
     //unlockFilterButtons('hallFilterBtns');
 }
@@ -695,7 +699,7 @@ async function createPalestraElement(scene, i, response) {
 
     let eventHour = document.createElement("span");
     eventHour.classList.add('eventHour');
-    eventHour.innerHTML = talkTime(response.dtInicio, response.dtFim);
+    eventHour.innerHTML = talkTime(response.HoraInicio, response.HoraFim);
     leftSide.appendChild(eventHour);
 
     let eventTitle = document.createElement("span");
@@ -704,13 +708,13 @@ async function createPalestraElement(scene, i, response) {
     leftSide.appendChild(eventTitle);
 
     let pLabel;
-    if (response.idsPalestrantes[0] != "8c8cfd038d1a2aa803e8cb03") {
+    if (response.palestrantes[0].Id != "8c8cfd038d1a2aa803e8cb03") {
         let palestranteList = new Array();
         
-        if (response.idsPalestrantes.length > 0) {
-            palestranteList = await createPalestrantesList(response.idsPalestrantes);
-
-            pLabel = formatPalestrantesName(palestranteList)
+        if (response.palestrantes.length > 0) {
+            palestranteList = await createPalestrantesList(response.palestrantes);
+            console.log(response.palestrantes)
+            pLabel = formatPalestrantesName(response.palestrantes)
         }
 
         let eventSpeaker = document.createElement("span");
@@ -719,10 +723,7 @@ async function createPalestraElement(scene, i, response) {
         leftSide.appendChild(eventSpeaker);
     }
 
-    let eventStage = document.createElement("span");
-    eventStage.classList.add('eventSpeaker');
-    eventStage.innerHTML = `${response.nomeAuditorio}`;
-    leftSide.appendChild(eventStage);
+    
 
     //RightSide
     let rightSide = document.createElement("div");
@@ -731,13 +732,8 @@ async function createPalestraElement(scene, i, response) {
 
     let toTalk = document.createElement("span");
     toTalk.classList.add('commandtext');
-    toTalk.innerHTML = 'Assistir';
+    toTalk.innerHTML = 'Ir para a palestra';
     rightSide.appendChild(toTalk);
-
-    let icon = document.createElement("img");
-    icon.classList.add('listIcon');
-    icon.src = '../extraIcons/entrarRed.svg';
-    rightSide.appendChild(icon);
 
     let separator = document.createElement("div");
     separator.classList.add('separator');
@@ -746,58 +742,74 @@ async function createPalestraElement(scene, i, response) {
     listElement.addEventListener('click', async function () {
         //console.log(watchBtn);
         talkData = response;
-
+        utcHour = new Date();
         let hourInit = {
             method: 'POST',
             mode: 'cors'
         };
 
         //console.log('requisoção de hora');
-        let hourRequest = new Request('http://147.182.210.54:4006/v1/ferramentas/getdate', hourInit);
-        let utcHour = await fetch(hourRequest)
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    console.log('Fail');
-                }
-            });
+        // let hourRequest = new Request('http://147.182.210.54:4006/v1/ferramentas/getdate', hourInit);
+        // let utcHour = await fetch(hourRequest)
+        //     .then(res => {
+        //         if (res.ok) {
+        //             return res.json();
+        //         } else {
+        //             console.log('Fail');
+        //         }
+        //     });
 
         //console.log(utcHour);
-
-        let videoDetailBg = document.getElementById(`videoDetailBg${scene}`);
+        console.log(scene)
+        let videoDetailBg = document.getElementById(`videoDetailBgA`);
         videoDetailBg.classList.add('bg-active');
 
         let thumbContainer = document.getElementById('thumbContainer');
 
-        for (let i = 0; i < response.idsPalestrantes.length; i++) {
-            let usePhoto = false;
-            if (usePhoto) {
-                let videoThumb = document.createElement('img');
+        try {
+            let videoThumb = document.createElement('img');
                 videoThumb.classList.add('videoThumbnail');
-                videoThumb.src = `${palestrante.foto.Caminho}`;
-                thumbContainer.append(videoThumb);
-            }
+                
+                videoThumb.src = `${response.palestrantes[0].Foto}`;
+                thumbContainer.append(videoThumb); 
+        } catch (error) {
+            
+        }
+
+        
+
+        
+        
+        for (let i = 0; i < response.palestrantes.length; i++) {
+            let usePhoto = false;
+            
+                lista.push(" "+response.palestrantes[i].Nome)
+        
+
+                document.getElementsByClassName('lectureSpeaker')[0].innerHTML = `${lista}`;
         }
 
         let videoDetailCloseButtonH = document.getElementById('videoDetailCloseButtonH');
+        console.log(videoDetailCloseButtonH)
         videoDetailCloseButtonH.addEventListener('click', function () {
             watchBtn.id = 'assitirH';
         });
 
         document.getElementsByClassName('videoTitle')[0].innerHTML = `${response.Nome}`;
-        document.getElementsByClassName('videoHour')[0].innerHTML = talkTime(response.dtInicio, response.dtFim);
-        if (response.idsPalestrantes[0] == "8c8cfd038d1a2aa803e8cb03") {
-            document.getElementsByClassName('lectureSpeaker')[0].innerHTML = '';
-        } else {
-            document.getElementsByClassName('lectureSpeaker')[0].innerHTML = `${pLabel}`;
-        }
-        document.getElementsByClassName('synopsisText')[0].innerHTML = `${response.descricao}`;
+        document.getElementsByClassName('videoHour')[0].innerHTML = talkTime(response.HoraInicio, response.HoraFim);
+        // if (response.palestrantes[0].Id == "8c8cfd038d1a2aa803e8cb03") {
+        //     document.getElementsByClassName('lectureSpeaker')[0].innerHTML = '';
+        // } else {
+            
+        // }
+        
+        document.getElementsByClassName('synopsisText')[0].innerHTML = `${response.Descricao}`;
 
         //console.log(utcHour);
-        let talkActive = calculateTalkActive(utcHour, response.dtInicio);
-        isCurrentTalkLate = calculateTalkLate(utcHour, response.dtFim);
-        //console.log('isCurrentTalkLate ' + isCurrentTalkLate);
+        console.log(response)
+        let talkActive = calculateTalkActive(utcHour, response.HoraInicio, response.HoraFim);
+        isCurrentTalkLate = calculateTalkLate(utcHour, response.HoraFim);
+        
 
         if (talkActive) {
             watchBtn.id += `: ${listElement.id}`;
@@ -809,7 +821,8 @@ async function createPalestraElement(scene, i, response) {
             watchBtn.addEventListener('click', function() {
                 hallSearch = null;
                 standSearch = null;
-                HallUi.prototype.toWatchTalk
+                location.href = "/auditorios/palestra/palestra.html"
+                window.localStorage.setItem("video", response.LinkPalestra)
             });
         } else {
             watchBtn.classList.remove('redBtnBack');
@@ -861,7 +874,7 @@ function watchTalk() {
     //console.log(talkData.linkPalestra);
 
     //console.log('isCurrentTalkLate ' + isCurrentTalkLate);
-    if (isCurrentTalkLate) {
+    if (!isCurrentTalkLate) {
         let chat = document.getElementById('chat');
         //console.log('chat ' + chat);
         chat.remove();
@@ -947,25 +960,25 @@ async function requestStandFilters() {
                 console.log('Fail');
             }
         });
-    // console.log(listOfStandFilters.user.rows);
+    console.log(listOfStandFilters);
 
     let adjust = new Array()
     
-    for (let i = 0; i < listOfStandFilters.user.rows.length; i++) {
+    for (let i = 0; i < listOfStandFilters.result.rows.length; i++) {
        
-        adjust.push(listOfStandFilters.user.rows[i]);        
+        adjust.push(listOfStandFilters.result.rows[i]);        
     }
 
-    adjust[0] = listOfStandFilters.user.rows[6];
-    adjust[6] = listOfStandFilters.user.rows[0];
+    
     listOfStandFilters = adjust;
-
+    
 
     if (listOfStandFilters.length > 0) {
         let listFiltersContainer = document.getElementById('listFiltersContainer');
 
         for (let i = 0; i < listOfStandFilters.length; i++) {
             let filterBtn = document.createElement('button');
+           
             filterBtn.innerHTML = listOfStandFilters[i].Nome;
             filterBtn.classList.add('filterButtonLocked')
             listFiltersContainer.append(filterBtn);
@@ -1236,21 +1249,21 @@ function createStandElement(scene, i, response) {
             }
 
         } else if (scene == 'H') {
-            switch (standData.idModelo) {
-                case 'expositor individual':
-                    visitStandFromHall();
+            switch (standData.Modelo) {
+                case 'Vermelho':
+                    visitVermelho();
                     break;
-                case 'prefeituras':
-                    visitPrefeiturasFromHall();
+                case 'Azul':
+                    visitAzul();
                     break;
-                case 'pab/FEDERAÇÃO':
-                    visitFederacoesFromHall();
+                case 'Verde':
+                    visitVerde();
                     break;
-                case 'patrocinadores':
-                    visitPatrocinadoresFromHall();
+                case 'Roxo':
+                    visitRoxo();
                     break;
                 default:
-                    visitStandFromHall();
+                    visitVermelho();
                     break;
             }
         }
@@ -1364,17 +1377,21 @@ async function requestStandImage(img) {
 function palestraStageFilter() {
     let dataDropdown = document.getElementById('dataDropdown');
     let date = dataDropdown.value;
+    console.log(date)
     let filteredTalks = new Array();
 
     if (date == 'all') {
         filteredTalks = talks;
     } else {
         for (let i = 0; i < talks.length; i++) {
-            let talkDate = new Date(talksFromServer[i].dtInicio);
+            console.log(talksFromServer[i].HoraInicio)
+            let talkDate = new Date(talksFromServer[i].HoraInicio);
             let dropDate = new Date(date);
             let talkDateDM = `${talkDate.getDate()}/${talkDate.getMonth()}`;
             let dropDateDM = `${dropDate.getDate()}/${dropDate.getMonth()}`;
+            console.log(talkDateDM, dropDateDM)
             if (talkDateDM == dropDateDM) {
+                console.log(talks[i])
                 filteredTalks.push(talks[i]);
             }
         }
@@ -1392,8 +1409,10 @@ function palestraStageFilter() {
 }
 
 async function requestPalestraStage(abort = false) {
-    let detailCloseBtn = document.getElementById(`detailCloseButtonA`);
+    let detailCloseBtn = document.getElementById(`videoDetailCloseButtonH`);
     detailCloseBtn.addEventListener('click', function () {
+        lista = [];
+        document.getElementsByClassName('lectureSpeaker')[0].innerHTML = `${lista}`;
         let thumbContainer = document.getElementById('thumbContainer');
         let count = thumbContainer.children.length;
 
@@ -1401,7 +1420,7 @@ async function requestPalestraStage(abort = false) {
             thumbContainer.children[0].remove();
         }
 
-        watchBtn.removeEventListener('click', HallUi.prototype.toWatchTalk);
+        // watchBtn.removeEventListener('click', HallUi.prototype.toWatchTalk);
     });
 
     if (abort)
@@ -1419,7 +1438,7 @@ async function requestPalestraStage(abort = false) {
         mode: 'cors'
     };
 
-    let request = new Request(`${baseApi}/palestra/GetAll/`, myInit)
+    let request = new Request(`${baseApi}/palestra/`, myInit)
 
     let response = await fetch(request)
         .then(res => {
@@ -1529,15 +1548,15 @@ async function createPalestraStageElement(i, response) {
         };
 
         //console.log('requisoção de hora');
-        let hourRequest = new Request('http://147.182.210.54:4006/v1/ferramentas/getdate', hourInit);
-        let utcHour = await fetch(hourRequest)
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    console.log('Fail');
-                }
-            });
+        // let hourRequest = new Request('http://147.182.210.54:4006/v1/ferramentas/getdate', hourInit);
+        // let utcHour = await fetch(hourRequest)
+        //     .then(res => {
+        //         if (res.ok) {
+        //             return res.json();
+        //         } else {
+        //             console.log('Fail');
+        //         }
+        //     });
 
         //console.log(utcHour)
 
@@ -1556,10 +1575,10 @@ async function createPalestraStageElement(i, response) {
             }
         }
 
-        let videoDetailCloseButtonH = document.getElementById('detailCloseButtonA');
-        videoDetailCloseButtonH.addEventListener('click', function () {
-            watchBtn.id = 'assitirH';
-        });
+        // let videoDetailCloseButtonH = document.getElementById('detailCloseButtonH');
+        // videoDetailCloseButtonH.addEventListener('click', function () {
+        //     watchBtn.id = 'assitirH';
+        // });
 
         document.getElementsByClassName('videoTitle')[0].innerHTML = `${response.Nome}`;
         document.getElementsByClassName('videoHour')[0].innerHTML = talkTime(response.dtInicio, response.dtFim);
@@ -1571,8 +1590,10 @@ async function createPalestraStageElement(i, response) {
         document.getElementsByClassName('synopsisText')[0].innerHTML = `${response.descricao}`;
 
         //console.log(utcHour);
-        let talkActive = calculateTalkActive(utcHour, response.dtInicio);
-        isCurrentTalkLate = calculateTalkLate(utcHour, response.dtFim);
+        console.log(response.HoraInicio)
+
+        let talkActive = calculateTalkActive(utcHour, response.HoraInicio, response.HoraFim);
+        isCurrentTalkLate = calculateTalkLate(utcHour, response.HoraFim);
         //console.log(talkActive);
 
         if (talkActive) {
@@ -1589,7 +1610,7 @@ async function createPalestraStageElement(i, response) {
             watchBtn.children[0].innerHTML = 'Assista em breve';
             watchBtn.children[1].classList.remove('redBtnIcon');
             watchBtn.children[1].classList.add('videoButtonIconDisabled');
-            //watchBtn.removeEventListener('click', HallUi.prototype.toWatchTalk);
+            // watchBtn.removeEventListener('click', HallUi.prototype.toWatchTalk);
         }
     });
 
@@ -1598,6 +1619,18 @@ async function createPalestraStageElement(i, response) {
 
 function openChat() {
     let chatFrame = document.getElementById('chat');
+    openChat
+    let back = document.getElementById('backButtonP');
+    
+    back.classList.add("bottomBtnDisable")
+
+    let header = document.getElementById('headerAuditorio');
+
+    header.classList.add("bottomBtnDisable")
+    let footer = document.getElementById('footer');
+
+    footer.classList.add("bottomBtnDisable")
+    
     chatFrame.classList.add('chatFrameActive');
 
     let closeChatBtn = document.getElementById('closeChat');
@@ -1607,8 +1640,17 @@ function openChat() {
 function closeChat(elem) {
     let chatFrame = document.getElementById('chat');
     chatFrame.classList.remove('chatFrameActive');
-
+    let back = document.getElementById('backButtonP');
+    back.classList.remove("bottomBtnDisable")
     elem.classList.remove('closeChatBtnActive');
+
+    let header = document.getElementById('headerAuditorio');
+
+    header.classList.remove("bottomBtnDisable")
+
+    let footer = document.getElementById('footer');
+
+    footer.classList.remove("bottomBtnDisable")
 }
 
 
@@ -1656,8 +1698,8 @@ function formatPalestrantesName(palestrantes) {
         } else if (i > 0) {
             palestrantesLabel += ', ';
         }
-
-        palestrantesLabel += palestrantes[i].nome;
+        console.log(palestrantes)
+        palestrantesLabel += palestrantes[i].Nome;
         //console.log(palestrantesLabel);
     }
 
@@ -1682,19 +1724,23 @@ function talkTime(startTime, endTime) {
     return `Dia ${day} de ${formatDate(startTime)} às ${formatDate(endTime)}`;
 }
 
-function calculateTalkActive(utcHour, talkStartHour) {
+function calculateTalkActive(utcHour, talkStartHour, talkEndHour) {
+    console.log(utcHour)
     let utc = new Date(utcHour);
+    console.log(utc)
     let talk = new Date(talkStartHour);
+    let end = new Date(talkEndHour);
     //console.log(`${utc} > ${talkHour}: ${utc.getTime() > talk.getTime()}`)
-    let active = utc.getTime() - (3 * 60 * 60 * 1000) > talk.getTime() - 15 * 60 * 1000;
-    //console.log(`${utc.getTime() - (3 * 60 * 60 * 1000)} ${talk.getTime()} - ${utc.getTime() - (3 * 60 * 60 * 1000) > talk.getTime()}`)
+    const active = utc>talk && utc<end;
+    console.log(active)
+    // console.log(`${utc.getTime() - (3 * 60 * 60 * 1000)} ${talk.getTime()} - ${utc.getTime() - (3 * 60 * 60 * 1000) > talk.getTime()}`)
     return active;
 }
 
 function calculateTalkLate(utcHour, talkEndHour) {
     let utc = new Date(utcHour);
     let talk = new Date(talkEndHour);
-    //console.log(`${utc} > ${talkHour}: ${utc.getTime() > talk.getTime()}`)
+    // console.log(`${utc} > ${talkHour}: ${utc.getTime() > talk.getTime()}`)
     let active = utc.getTime() > (talk.getTime() + (24 * 60 * 60000));
     //console.log('talk is late');
     return active;
@@ -1778,9 +1824,7 @@ async function autenticaLoginSympla(Email, CPF) {
           }
           else{
               createFireBase(Email, CPF);
-            loginFeedback.classList.remove('bg-active');
-            signinFeedback.classList.remove('bg-active');
-            subscribeConfirmationBg.classList.add('bg-active');
+            
           }
           
         
@@ -1817,8 +1861,11 @@ async function loginFireBase(email, cpf){
                 localStorage.setItem('user', JSON.stringify(cred.user));
                 cred.user.getIdToken()
                     .then(token => {
-                        //console.log(token);
+                        console.log(token);
                         localStorage.setItem('Token', JSON.stringify(token));
+                        loginFeedback.classList.remove('bg-active');
+                        signinFeedback.classList.remove('bg-active');
+                        subscribeConfirmationBg.classList.add('bg-active');
                     });
             } else {
                 localStorage.removeItem('user');
