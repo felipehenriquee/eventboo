@@ -13,8 +13,9 @@ window.addEventListener('load', function () {
     img.src = '../3DImages/standes.png';
     
     img.onload = function(){
-        console.log('loaded');
-        document.getElementById('comeceAqui').focus();
+        const tagA = document.getElementById('comeceAqui');
+        tagA.focus();
+        tagA.removeAttribute("href")
         ctx.drawImage(img, 0, 0, 1920, 1080);
         
         //setInterval(loop, 100);
