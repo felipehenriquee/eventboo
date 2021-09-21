@@ -18,7 +18,7 @@ window.addEventListener('load', function () {
         tagA.removeAttribute("href")
         ctx.drawImage(img, 0, 0, 1920, 1080);
         
-        //setInterval(loop, 100);
+        setInterval(loop, 100);
     };
 });
 
