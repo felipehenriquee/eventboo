@@ -2136,7 +2136,7 @@ button {
     
     transition: 1s;
 }
-.comeceAqui button{
+.comeceAqui .teste{
     position: absolute;
     
     left:810px;
@@ -2164,9 +2164,43 @@ button {
 .comeceAqui a img{
     width: 100%;
 }
+.comeceAqui .teste img{
+    width: 200px;
+    height: 15%;
+}
 /* fim tela Entrada */
 /* fim imagens */
 
+.landscape, .landscapeBack{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.landscape{
+    width: 100%;
+    height: 100vh;
+    
+    
+}
+.landscapeImage{
+    display: none;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.landscapeBack{
+    position: absolute;
+    top: 0%;
+    left: 0;
+    filter: blur(5px);
+}
 @media screen and (min-width: 1919px) {
     body{
         display: flex;
@@ -2249,9 +2283,71 @@ button {
     }
 }
 @media only screen and (orientation: landscape) and (max-height: 600px) {
+
+    #myCanvas, .containerObjetos2{
+        display: none;
+    }
     .nomeButtonEvento{
         display: none;
        
+    }
+    .entreAquiEntrada{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 50.5%;
+        width: 180px;
+        height: 110px;
+        
+        left: 42%;
+    }
+    .assistirVideoLand{
+        position: absolute;
+        width: 100px;
+        height: 150px;
+        
+        left: 16%;
+        top:40%
+
+    }
+    .btnPlayLand{
+        
+        
+        left: 20%;
+        top: 32%;
+        width: 45px;
+        height: 45px;
+    }
+    .btnIndicadoresLand{
+        top: -30%;
+        left: -50%;
+    }
+    .entreAquiEntrada img{
+        position: absolute;
+        top:0%;
+
+        width: 90%;
+        animation: pulse 2s infinite;
+    }
+    .landscapeImage{
+        display: block;
+        width: 100%;
+        height: 100vh;
+        max-width: 1200px;
+        min-width: 820px;
+        position: relative;
+    }
+    body{
+        overflow: hidden;
+    }
+    .landscape, .landscapeBack{
+        display: block;
+        
+    }
+    .landscape{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .btnMenu{
         position: fixed;
@@ -2280,6 +2376,7 @@ button {
         width: calc(100%) ;
         height: 60px;
         padding: 20px 0;
+
     }
 
     .menu {
@@ -2364,173 +2461,173 @@ button {
 
     /*Video detail*/
 
-.videoDetail { 
-    width: calc(100% - 50px);
-    height: calc(100% - 100px);
-    padding: 50px 25px;
-}
+    .videoDetail { 
+        width: calc(100% - 50px);
+        height: calc(100% - 100px);
+        padding: 50px 25px;
+    }
 
-.videoDetailCloseButton {
-    position: fixed;
-    top: 25px;
-}
+    .videoDetailCloseButton {
+        position: fixed;
+        top: 25px;
+    }
 
-.videoThumbContainer {
-    display: none;
-}
+    .videoThumbContainer {
+        display: none;
+    }
 
-.videoTitle {
-    position: fixed;
-    top: 50px;
-    width: 40%;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 29px;
-}
+    .videoTitle {
+        position: fixed;
+        top: 50px;
+        width: 40%;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+    }
 
-.videoHour {
-    position: fixed;
-    top: 25px;
-    width: 40%;
-}
+    .videoHour {
+        position: fixed;
+        top: 25px;
+        width: 40%;
+    }
 
-.lectureSpeaker {  
-    position: fixed;
-    top: 150px;
-    max-width: 40%;
-}
+    .lectureSpeaker {  
+        position: fixed;
+        top: 150px;
+        max-width: 40%;
+    }
 
-.synopsis {
-    position: fixed;
-    top: 25px;
-    left: 50%;
-}
+    .synopsis {
+        position: fixed;
+        top: 25px;
+        left: 50%;
+    }
 
-.synopsisText{
-    position: fixed;
-    top: 65px;
-    left: 50%;
-}
+    .synopsisText{
+        position: fixed;
+        top: 65px;
+        left: 50%;
+    }
 
-.videoButton {
-    position: fixed;
-    right: 20px;
-    bottom: 33px;
-    align-self: flex-end;
-    margin: 0px 0px;
-}
+    .videoButton {
+        position: fixed;
+        right: 20px;
+        bottom: 33px;
+        align-self: flex-end;
+        margin: 0px 0px;
+    }
 
-/*Fim do hall*/
+    /*Fim do hall*/
 
-/*Auditótios*/
-.stageListModal {
-    position: fixed;
-    width: calc(100% - 40px);
-    height: calc(100% - 100px);     
-    padding: 0px;
-    margin: 60px 0 20px 0;
-}
+    /*Auditótios*/
+    .stageListModal {
+        position: fixed;
+        width: calc(100% - 40px);
+        height: calc(100% - 100px);     
+        padding: 0px;
+        margin: 60px 0 20px 0;
+    }
 
-/*Stands*/
-/*Fim Standes*/
+    /*Stands*/
+    /*Fim Standes*/
 
-/*TalkPanel*/
-.talkPanel {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: calc(100% - 150px);
-    z-index: 1;
-    top: 75px;
-}
+    /*TalkPanel*/
+    .talkPanel {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: calc(100% - 150px);
+        z-index: 1;
+        top: 75px;
+    }
 
-.talkPanel div {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    margin: 0 20px;
-}
+    .talkPanel div {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin: 0 20px;
+    }
 
-.youtubeFrame {        
-    width: 50%;
-    height: 100%;
-    margin: 0;    
-    z-index: 1;
-    top: 60px;
-}
+    .youtubeFrame {        
+        width: 50%;
+        height: 100%;
+        margin: 0;    
+        z-index: 1;
+        top: 60px;
+    }
 
-.chatFrame {   
-    position: fixed; 
-    width: 100%;
-    height: 80vh;
-    top: 0px;
-    right: 0px;
-    border: none;
-    z-index: 1;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.25s;
-}
+    .chatFrame {   
+        position: fixed; 
+        width: 100%;
+        height: 80vh;
+        top: 0px;
+        right: 0px;
+        border: none;
+        z-index: 1;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.25s;
+    }
 
-.chatFrameActive {
-    visibility: visible;
-    opacity: 1;
-}
+    .chatFrameActive {
+        visibility: visible;
+        opacity: 1;
+    }
 
-.closeChatBtn {
-    position: fixed;
-    display: none;
-    visibility: hidden;
-    font-size: 30px;
-    top: 2px;
-    right: 10px;
-    z-index: 2;
-}
+    .closeChatBtn {
+        position: fixed;
+        display: none;
+        visibility: hidden;
+        font-size: 30px;
+        top: 2px;
+        right: 10px;
+        z-index: 2;
+    }
 
-.closeChatBtnActive {
-    display: flex;
-    visibility: visible;
-}
+    .closeChatBtnActive {
+        display: flex;
+        visibility: visible;
+    }
 
-.backBtn {        
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;    
-    width: 147px;
-    height: 50px;
-    border-radius: 32px;
-    margin: 0px 20px;
-}
+    .backBtn {        
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;    
+        width: 147px;
+        height: 50px;
+        border-radius: 32px;
+        margin: 0px 20px;
+    }
 
-.blueBtnBack {
-    visibility: visible; 
-    margin: 0 20px; 
-}
+    .blueBtnBack {
+        visibility: visible; 
+        margin: 0 20px; 
+    }
 
-.socials {
-    display: flex;
-    justify-content: space-between;
-    margin: 0px;
-}
+    .socials {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px;
+    }
 
-.socialButton {
-    margin: 0px 9px;    
-}
-    
-.pdfBorder {
-    display: flex;
-    background-color: white;
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    flex-flow: column;
-}
+    .socialButton {
+        margin: 0px 9px;    
+    }
+        
+    .pdfBorder {
+        display: flex;
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+        flex-flow: column;
+    }
 
 }
 #comeceAqui:focus {
-    outline:solid 1px green;
+    outline:solid 0px green;
 }
 .bottomBtnDisable2:focus{
     outline:solid 0px green;
@@ -2541,14 +2638,14 @@ button {
 }
 .comeceaqui3{
     position: absolute;
-    
+
     left:500px;
     top: 52%;
     width: 200px;
     height: 400px;
     animation: pulse 2s infinite;
-    cursor: pointer;
-    
+
+
     z-index: 100;
 }
 

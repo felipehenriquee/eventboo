@@ -32,10 +32,17 @@ window.onload = function () {
         console.log('loaded');
         ctx.drawImage(img, 0, 0, 1920, 1080);
         
-        // setInterval(loop, 100);
+        setInterval(loop, 100);
     };
 };
 
 function loop() {
-    ctx.drawImage(img, 0, 0, 1920, 1080);
+    // if (window.matchMedia("(orientation: landscape)").matches) {
+        
+    //     document.getElementById("myCanvas").style.display = "none"
+    // }
+    // else{
+    //     ctx.drawImage(img, 0, 0, 1920, 1080);
+    // }
+    
 }

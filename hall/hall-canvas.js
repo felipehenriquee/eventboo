@@ -13,9 +13,11 @@ window.addEventListener('load', function () {
     img.src = '../3DImages/Hall_R02_v02.jpg';
     
     img.onload = function(){
-        console.log('loaded');
+        
         ctx.drawImage(img, 0, 0, 1920, 1080);
-        document.getElementById('comeceAqui').focus();
+        const tagA = document.getElementById('comeceAqui');
+        tagA.focus();
+        tagA.removeAttribute("href")
         //setInterval(loop, 100);
     };
 });

@@ -14,7 +14,9 @@ window.addEventListener('load', function () {
     
     img.onload = function(){
         console.log('loaded');
-        document.getElementById('comeceAqui').focus();
+        const tagA = document.getElementById('comeceAqui');
+        tagA.focus();
+        tagA.removeAttribute("href")
 
         ctx.drawImage(img, 0, 0, 1920, 1080);
         

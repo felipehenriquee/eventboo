@@ -32,7 +32,8 @@ function bindAjuda() {
     sobreTitle = document.getElementById('sobreTitle');
     sobreText = document.getElementById('sobreText');
     
-    var sobre = document.getElementById('sobre');    
+    var sobre = document.getElementById('sobre'); 
+      
     var comoParticipar = document.getElementById('comoParticipar');    
     var comoEntrar = document.getElementById('comoEntrar'); 
     
@@ -84,7 +85,7 @@ function bindAjuda() {
 };
 
 function closeAjuda() {
-    sobre.classList.remove('ajudaActive');
+    document.getElementById('sobre').classList.remove('ajudaActive');
     setTimeout(function () {
         menuajuda.classList.remove('ajudaActive');
         

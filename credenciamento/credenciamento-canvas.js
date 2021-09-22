@@ -17,7 +17,9 @@ window.addEventListener('load',function(){
     img.src = '../3DImages/Credenciamento_R02_V02.jpg';
     
     img.onload = function(){
-        document.getElementById('comeceAqui').focus();
+        const tagA = document.getElementById('comeceAqui');
+        tagA.focus();
+        tagA.removeAttribute("href")
         if(window.localStorage.getItem("Token")) {
             const elemento = document.querySelector('#comeceAqui');
             elemento.parentNode.removeChild(elemento);
