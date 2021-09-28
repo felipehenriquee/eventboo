@@ -18,8 +18,14 @@ window.addEventListener('load',function(){
     
     img.onload = function(){
         const tagA = document.getElementById('comeceAqui');
+        const tagB = document.getElementById('comeceAqui2');
         tagA.focus();
+        tagB.focus();
+
+    
+
         tagA.removeAttribute("href")
+        tagB.removeAttribute("href")
         if(window.localStorage.getItem("Token")) {
             const elemento = document.querySelector('#comeceAqui');
             elemento.parentNode.removeChild(elemento);
