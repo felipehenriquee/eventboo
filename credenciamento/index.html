@@ -45,11 +45,99 @@
     <div class="landscapeBack" style="background-image: url('./../3DImages/Credenciamento_R02_V02.jpg');" >
 
     </div>
-    
-    
     <canvas id="myCanvas" class="canvas"
     
     width="1920" height="1080"></canvas>
+    <div id="ajudaContainer" class="ajudaContainer">
+        <div id="sobre" class="sobrePanel">
+            <div class="sobreLabel">
+                <span id="sobreTitle">Sobre o evento</span>
+                <span id="closeSobreButton" class="closeSobreButton">&times;</span>
+            </div>
+            <span id="sobreText" class="sobreText">Unieventos – o Futuro do Mercado de Eventos!  É sobre empatia e sustentabilidade para os que fazem e promovem a indústria de eventos e seus promotores.  Objetivando fomentar a geração de novos negócios para os 52 elos de sua cadeia produtiva, que foram bastante afetados em virtude da pandemia de Covid-19.
+                O evento marcará a retomada dos eventos no Ceará. Corporativo, social e entretenimento, segmentos unidos para o retorno das atividades dessa extensa rede de profissionais.
+                A UNIEVENTOS é um evento híbrido e gratuito. Com um rico conteúdo de painéis, rodas de conversa e espaço para as empresas divulgarem e venderem seus produtos e serviços aos promotores de eventos.
+                Na programação, seminários técnicos e rodas de conversa e palestras além da feira virtual, com o objetivo de debater assuntos pertinentes ao setor neste momento, tais como: sustentabilidade econômica e ambiental através dos eventos; novas tecnologias e marketing para eventos; capacitação e o perfil de novos profissionais; entretenimento para além das lives; captação de patrocínio cultural, eventos sociais e os novos desafios, além de outros temas.
+                Unieventos, a feira da cadeia produtiva de eventos!!<br>
+                 
+                
+                </span>
+                <span class="sobreText" style="text-align: start;">
+                    UNIEVENTOS<br>
+                Dias 28 e 29 de setembro (híbrido – online e presencial na Fábrica de Negócios –Av. Monsenhor Tabosa, 740)<br>
+                Dias 30 de setembro a 02 de outubro (online)<br>
+                
+                </span>
+        </div>
+        <!--
+        <div id="comoParticipar" class="sobrePanel">
+            <div class="sobreLabel">
+                <span>Como posso participar?</span>
+                <span class="closeAjudaButton">&times;</span>
+            </div>
+            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
+                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
+        </div>
+    
+        <div id="comoEntrar" class="sobrePanel">
+            <div class="sobreLabel">
+                <span>Como faço para entrar?</span>
+                <span class="closeAjudaButton">&times;</span>
+            </div>
+            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
+                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
+        </div>
+        -->
+        <div id="menuajuda" class="menuAjuda" >
+            <div class="labelUp">
+                <span>Central de ajuda</span>
+                <span id="closeAjudaButton" class="closeAjudaButton" onclick="closeSobre()">&times;</span>
+            </div>
+            <div class="threeLinks">
+                <span id="sobreBtn">Sobre o evento</span><br>
+                <span id="comoParticiparBtn" style="display:none;">Como posso participar?</span><br>
+                <span id="comoEntrarBtn" style="display:none;">Como faço para entrar?</span><br>
+            </div>
+            <div class="ajudaBottom">
+                <!--
+                <button class="bottomElements">
+                    <img src="" alt="">
+                    <span>Minha conta</span>
+                </button>
+                -->
+                <button id="sairBtn" class="bottomElements" onclick="logout()">
+                    <img src="../icons/ic_outline-log-out.svg" alt="">
+                    <span>Sair</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="landscape"  >
+        
+        
+        <div class="landscapeImage" style="background-image: url('./../3DImages/Credenciamento_R02_V02.jpg');">
+            <a onclick="openLoginPanel()" class="entreAquiEntrada" style="left: 40%; z-index: 10;">
+                <img  src="./../images/FacaSuaInscricaoLand.png" alt="">
+            </a>
+
+            
+            
+        </div>
+        <div class="patrocinadoresCred">
+            <div class="patrocinador1Land" style="background-image: url('../images/Patrocinadores.gif');">
+
+            </div>
+            <div class="patrocinador2Land" style="background-image: url('../images/Patrocinadores.gif');">
+
+            </div>
+            <div class="patrocinador3Land" style="background-image: url('../images/Patrocinadores.gif');">
+
+            </div>
+            
+        </div>
+        
+    </div>
+    
 
     
 
@@ -58,14 +146,11 @@
        
         <div class="comeceAqui comeceAqui2" >
             
-            <a href="#" class="teste" id="comeceAqui" style="display: flex; justify-content: flex-start; top:50vh; height: 200px;" onclick="openLoginPanel()">
-                <img class="entreAqui" src="./../images/FacaSuaInscricao.png" alt="" style="top: 0; height: 50px; ">
+            <a href="#" class="teste" id="comeceAqui"  onclick="openLoginPanel()">
+                <img class="entreAqui" src="./../images/FacaSuaInscricaoLand.png" alt="" style="top: 0; height: 50px; ">
 
             </a>
-            <a href="#" class="testePortrait" id="comeceAqui2" style="display: flex; justify-content: flex-start; top:40vh; height: 200px; left: 815px" onclick="openLoginPanel()">
-                <img class="entreAqui" src="./../images/FacaSuaInscricao.png" alt="" style="top: 0; height: 50px; ">
-
-            </a>
+            
             
             
         </div>
@@ -186,7 +271,7 @@
                     <img id="signinIcon" src="../icons/JaSouCadastrado.svg" alt="">
                 </div>
             </button>
-            <a  id="credenciar" class="ajudaBtn ajudaBtnEvento"  href="https://www.sympla.com.br/unieventos__1272032" >
+            <a  id="credenciar" class="ajudaBtn ajudaBtnEvento"  href="https://www.sympla.com.br/unieventos__1272032" target="_blank">
                 <div class="nomeButton nomeButtonEvento" style="height: 60px;  margin-right: 20px;">
                     <p style="font-size: 15px; margin-left: 10px;">
                         Cadastre-se
@@ -380,7 +465,7 @@
             </div>
             <div class="modalFooter">
                 <button id="loginBtn" class="modalButton" onclick="login()">Entrar</button>
-                <button id="loginBtn" class="modalButton" onclick="location.href = 'https://www.sympla.com.br/unieventos__1272032'">Cadastre-se</button>
+                <a id="loginBtn" class="modalButton" style="display: flex; justify-content: center; align-items: center;" target="_blank" href = 'https://www.sympla.com.br/unieventos__1272032'><p> Cadastre-se</p></a>
                 
             </div>
             <!--
@@ -454,96 +539,9 @@
         </button>
     </div>
 
-    <div id="ajudaContainer" class="ajudaContainer">
-        <div id="sobre" class="sobrePanel">
-            <div class="sobreLabel">
-                <span id="sobreTitle">Sobre o evento</span>
-                <span id="closeSobreButton" class="closeSobreButton">&times;</span>
-            </div>
-            <span id="sobreText" class="sobreText">Unieventos – o Futuro do Mercado de Eventos!  É sobre empatia e sustentabilidade para os que fazem e promovem a indústria de eventos e seus promotores.  Objetivando fomentar a geração de novos negócios para os 52 elos de sua cadeia produtiva, que foram bastante afetados em virtude da pandemia de Covid-19.
-                O evento marcará a retomada dos eventos no Ceará. Corporativo, social e entretenimento, segmentos unidos para o retorno das atividades dessa extensa rede de profissionais.
-                A UNIEVENTOS é um evento híbrido e gratuito. Com um rico conteúdo de painéis, rodas de conversa e espaço para as empresas divulgarem e venderem seus produtos e serviços aos promotores de eventos.
-                Na programação, seminários técnicos e rodas de conversa e palestras além da feira virtual, com o objetivo de debater assuntos pertinentes ao setor neste momento, tais como: sustentabilidade econômica e ambiental através dos eventos; novas tecnologias e marketing para eventos; capacitação e o perfil de novos profissionais; entretenimento para além das lives; captação de patrocínio cultural, eventos sociais e os novos desafios, além de outros temas.
-                Unieventos, a feira da cadeia produtiva de eventos!!<br>
-                 
-                
-                </span>
-                <span class="sobreText" style="text-align: start;">
-                    UNIEVENTOS<br>
-                Dias 28 e 29 de setembro (híbrido – online e presencial na Fábrica de Negócios –Av. Monsenhor Tabosa, 740)<br>
-                Dias 30 de setembro a 02 de outubro (online)<br>
-                
-                </span>
-        </div>
-        <!--
-        <div id="comoParticipar" class="sobrePanel">
-            <div class="sobreLabel">
-                <span>Como posso participar?</span>
-                <span class="closeAjudaButton">&times;</span>
-            </div>
-            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
-                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
-        </div>
     
-        <div id="comoEntrar" class="sobrePanel">
-            <div class="sobreLabel">
-                <span>Como faço para entrar?</span>
-                <span class="closeAjudaButton">&times;</span>
-            </div>
-            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
-                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
-        </div>
-        -->
-        <div id="menuajuda" class="menuAjuda" >
-            <div class="labelUp">
-                <span>Central de ajuda</span>
-                <span id="closeAjudaButton" class="closeAjudaButton" onclick="closeSobre()">&times;</span>
-            </div>
-            <div class="threeLinks">
-                <span id="sobreBtn">Sobre o evento</span><br>
-                <span id="comoParticiparBtn" style="display:none;">Como posso participar?</span><br>
-                <span id="comoEntrarBtn" style="display:none;">Como faço para entrar?</span><br>
-            </div>
-            <div class="ajudaBottom">
-                <!--
-                <button class="bottomElements">
-                    <img src="" alt="">
-                    <span>Minha conta</span>
-                </button>
-                -->
-                <button id="sairBtn" class="bottomElements" onclick="logout()">
-                    <img src="../icons/ic_outline-log-out.svg" alt="">
-                    <span>Sair</span>
-                </button>
-            </div>
-        </div>
-    </div>
 
-    <div class="landscape"  >
-        
-        
-        <div class="landscapeImage" style="background-image: url('./../3DImages/Credenciamento_R02_V02.jpg');">
-            <a onclick="openLoginPanel()" class="entreAquiEntrada" style="left: 40%; z-index: 10;">
-                <img  src="./../images/FacaSuaInscricaoLand.png" alt="">
-            </a>
-
-            
-            
-        </div>
-        <div class="patrocinadoresCred">
-            <div class="patrocinador1Land" style="background-image: url('../images/Patrocinadores.gif');">
-
-            </div>
-            <div class="patrocinador2Land" style="background-image: url('../images/Patrocinadores.gif');">
-
-            </div>
-            <div class="patrocinador3Land" style="background-image: url('../images/Patrocinadores.gif');">
-
-            </div>
-            
-        </div>
-        
-    </div>
+    
     <script>
         var el = document.querySelector('#passwordInputLogin');
         VMasker(el).maskPattern("999.999.999-999");

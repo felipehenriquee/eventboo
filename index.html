@@ -50,7 +50,98 @@
     <div class="landscapeBack" style="background-image: url('./3DImages/Externa2.jpg');" >
 
     </div>
+    <div id="ajudaContainer" class="ajudaContainer" style="z-index: 120    ;">
+        <div id="sobre" class="sobrePanel">
+            <div class="sobreLabel">
+                <span id="sobreTitle">Sobre o evento</span>
+                <span id="closeSobreButton" class="closeSobreButton">&times;</span>
+            </div>
+            <span id="sobreText" class="sobreText">Unieventos – o Futuro do Mercado de Eventos!  É sobre empatia e sustentabilidade para os que fazem e promovem a indústria de eventos e seus promotores.  Objetivando fomentar a geração de novos negócios para os 52 elos de sua cadeia produtiva, que foram bastante afetados em virtude da pandemia de Covid-19.
+                O evento marcará a retomada dos eventos no Ceará. Corporativo, social e entretenimento, segmentos unidos para o retorno das atividades dessa extensa rede de profissionais.
+                A UNIEVENTOS é um evento híbrido e gratuito. Com um rico conteúdo de painéis, rodas de conversa e espaço para as empresas divulgarem e venderem seus produtos e serviços aos promotores de eventos.
+                Na programação, seminários técnicos e rodas de conversa e palestras além da feira virtual, com o objetivo de debater assuntos pertinentes ao setor neste momento, tais como: sustentabilidade econômica e ambiental através dos eventos; novas tecnologias e marketing para eventos; capacitação e o perfil de novos profissionais; entretenimento para além das lives; captação de patrocínio cultural, eventos sociais e os novos desafios, além de outros temas.
+                Unieventos, a feira da cadeia produtiva de eventos!!<br>
+                 
+                
+                </span>
+                <span class="sobreText" style="text-align: start;">
+                    UNIEVENTOS<br>
+                Dias 28 e 29 de setembro (híbrido – online e presencial na Fábrica de Negócios –Av. Monsenhor Tabosa, 740)<br>
+                Dias 30 de setembro a 02 de outubro (online)<br>
+                
+                </span>
+        </div>
+        <!--
+        <div id="comoParticipar" class="sobrePanel">
+            <div class="sobreLabel">
+                <span>Como posso participar?</span>
+                <span class="closeAjudaButton">&times;</span>
+            </div>
+            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
+                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
+        </div>
     
+        <div id="comoEntrar" class="sobrePanel">
+            <div class="sobreLabel">
+                <span>Como faço para entrar?</span>
+                <span class="closeAjudaButton">&times;</span>
+            </div>
+            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
+                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
+        </div>
+        -->
+        
+        <div id="menuajuda" class="menuAjuda">
+            <div class="labelUp">
+                <span>Central de ajuda</span>
+                <span id="closeAjudaButton" class="closeAjudaButton">&times;</span>
+            </div>
+            <div class="threeLinks">
+                <span id="sobreBtn">Sobre o evento</span><br>
+                <span id="comoParticiparBtn" style="display:none;">Como posso participar?</span><br>
+                <span id="comoEntrarBtn" style="display:none;">Como faço para entrar?</span><br>
+            </div>
+            <div class="ajudaBottom">
+                <!--
+                <button class="bottomElements">
+                    <img src="" alt="">
+                    <span>Minha conta</span>
+                </button>
+                -->
+                <button id="sairBtn" class="bottomElements" onclick="logout()">
+                    <img src="./icons/ic_outline-log-out.svg" alt="">
+                    <span>Sair</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="landscape"  >
+        
+        <div id="vidBgH2" class="modal-bg">        
+            <div id="vidBorder" class="videoBorder">
+                <span class="entranceIframeClose" onclick="openCloseVideo(false)">&times;</span>
+                
+                <iframe id="videoFrame" class="entranceIframe" src="https://www.youtube.com/embed/rLufc62tCWU"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+               
+            </div>
+        </div>
+        <div class="landscapeImage" style="background-image: url('./3DImages/Externa2.jpg');">
+            <a href="./credenciamento/index.html" class="entreAquiEntrada">
+                <img  src="./images/ComecePorAquiLand.png" alt="">
+            </a>
+
+            <div class="assistirVideoLand">
+                <button id="assistaVideo" class="btnImage btnIndicadores btnIndicadoresLand" style="background-image: url('./icons/assistaVideo.png');" onclick="openCloseVideo(true)"></button>
+
+                <button class="btnImage btnPlay btnPlayLand" title="Pressione para assistir o vídeo" onclick="openCloseVideo(true)"></button>
+            </div>
+        </div>
+        
+    </div>
     <div class="containerObjetos2">
         <!-- <img class="telaEntrada" src="./images/telaEntrada.png" alt=""> -->
         <div class="divVideo">   
@@ -61,7 +152,7 @@
         </div>
         <div   class="comeceAqui">
             <a href="./credenciamento/index.html" id ="comeceAqui">
-                <img class="entreAqui"   src="./images/ComecePorAqui.png" alt="">
+                <img class="entreAqui"   src="./images/ComecePorAquiLand.png" alt="">
             </a>
         </div>
        
@@ -179,98 +270,8 @@
         
     </div>
 
-    <div id="ajudaContainer" class="ajudaContainer" style="z-index: 120    ;">
-        <div id="sobre" class="sobrePanel">
-            <div class="sobreLabel">
-                <span id="sobreTitle">Sobre o evento</span>
-                <span id="closeSobreButton" class="closeSobreButton">&times;</span>
-            </div>
-            <span id="sobreText" class="sobreText">Unieventos – o Futuro do Mercado de Eventos!  É sobre empatia e sustentabilidade para os que fazem e promovem a indústria de eventos e seus promotores.  Objetivando fomentar a geração de novos negócios para os 52 elos de sua cadeia produtiva, que foram bastante afetados em virtude da pandemia de Covid-19.
-                O evento marcará a retomada dos eventos no Ceará. Corporativo, social e entretenimento, segmentos unidos para o retorno das atividades dessa extensa rede de profissionais.
-                A UNIEVENTOS é um evento híbrido e gratuito. Com um rico conteúdo de painéis, rodas de conversa e espaço para as empresas divulgarem e venderem seus produtos e serviços aos promotores de eventos.
-                Na programação, seminários técnicos e rodas de conversa e palestras além da feira virtual, com o objetivo de debater assuntos pertinentes ao setor neste momento, tais como: sustentabilidade econômica e ambiental através dos eventos; novas tecnologias e marketing para eventos; capacitação e o perfil de novos profissionais; entretenimento para além das lives; captação de patrocínio cultural, eventos sociais e os novos desafios, além de outros temas.
-                Unieventos, a feira da cadeia produtiva de eventos!!<br>
-                 
-                
-                </span>
-                <span class="sobreText" style="text-align: start;">
-                    UNIEVENTOS<br>
-                Dias 28 e 29 de setembro (híbrido – online e presencial na Fábrica de Negócios –Av. Monsenhor Tabosa, 740)<br>
-                Dias 30 de setembro a 02 de outubro (online)<br>
-                
-                </span>
-        </div>
-        <!--
-        <div id="comoParticipar" class="sobrePanel">
-            <div class="sobreLabel">
-                <span>Como posso participar?</span>
-                <span class="closeAjudaButton">&times;</span>
-            </div>
-            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
-                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
-        </div>
     
-        <div id="comoEntrar" class="sobrePanel">
-            <div class="sobreLabel">
-                <span>Como faço para entrar?</span>
-                <span class="closeAjudaButton">&times;</span>
-            </div>
-            <span class="sobreText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim nascetur lectus iaculis viverra magna diam et. Pulvinar aenean diam amet neque, quis. Tellus amet euismod pellentesque vel mollis egestas hendrerit. Leo felis, quisque metus ut orci habitant etiam. Ultrices ultrices arcu at hendrerit condimentum. Diam sapien sed proin massa.
-                Turpis nam dui non porttitor nunc luctus aliquam suscipit tortor. Vestibulum, urna, odio ut pulvinar. Tincidunt elit diam gravida odio id venenatis, ipsum tincidunt urna. Maecenas mauris nibh erat amet luctus nisi, faucibus. Volutpat nisl nunc eu risus sed augue. A, adipiscing aliquam vulputate vel euismod. Facilisis ultricies id dictum ut quis sollicitudin lectus. Urna, amet eu urna suspendisse non aliquam, purus. Mattis vulputate orci nibh vitae sed. Viverra augue volutpat facilisi turpis. Luctus velit diam tristique bibendum eu. Ipsum in etiam egestas pellentesque. Nisl morbi enim amet ut luctus lectus sit adipiscing semper.</span>
-        </div>
-        -->
-        
-        <div id="menuajuda" class="menuAjuda">
-            <div class="labelUp">
-                <span>Central de ajuda</span>
-                <span id="closeAjudaButton" class="closeAjudaButton">&times;</span>
-            </div>
-            <div class="threeLinks">
-                <span id="sobreBtn">Sobre o evento</span><br>
-                <span id="comoParticiparBtn" style="display:none;">Como posso participar?</span><br>
-                <span id="comoEntrarBtn" style="display:none;">Como faço para entrar?</span><br>
-            </div>
-            <div class="ajudaBottom">
-                <!--
-                <button class="bottomElements">
-                    <img src="" alt="">
-                    <span>Minha conta</span>
-                </button>
-                -->
-                <button id="sairBtn" class="bottomElements" onclick="logout()">
-                    <img src="./icons/ic_outline-log-out.svg" alt="">
-                    <span>Sair</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="landscape"  >
-        
-        <div id="vidBgH2" class="modal-bg">        
-            <div id="vidBorder" class="videoBorder">
-                <span class="entranceIframeClose" onclick="openCloseVideo(false)">&times;</span>
-                
-                <iframe id="videoFrame" class="entranceIframe" src="https://www.youtube.com/embed/rLufc62tCWU"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-               
-            </div>
-        </div>
-        <div class="landscapeImage" style="background-image: url('./3DImages/Externa2.jpg');">
-            <a href="./credenciamento/index.html" class="entreAquiEntrada">
-                <img  src="./images/ComecePorAquiLand.png" alt="">
-            </a>
-
-            <div class="assistirVideoLand">
-                <button id="assistaVideo" class="btnImage btnIndicadores btnIndicadoresLand" style="background-image: url('./icons/assistaVideo.png');" onclick="openCloseVideo(true)"></button>
-
-                <button class="btnImage btnPlay btnPlayLand" title="Pressione para assistir o vídeo" onclick="openCloseVideo(true)"></button>
-            </div>
-        </div>
-        
-    </div>
+    
     <script>
         if(!window.localStorage.getItem("Token")){
     

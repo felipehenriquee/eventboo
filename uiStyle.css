@@ -44,10 +44,7 @@ button {
     position: relative;
     width: 100%; 
     height:100vh;;
-    max-width: 1920px; 
-    max-height: 1080px; 
-    min-height: 812px;
-    min-width: 1920px;
+    
 }
 .containerObjetos2{
     position:absolute;  
@@ -1399,35 +1396,7 @@ button {
 
 /*--MOBILE PORTRAIT--*/
 @media only screen and (orientation: portrait) {
-    .patrocinadores div{
-       
-        background-size: contain !important;
-        width: 192px;
-        height:9vh !important ;
-        background-color: #b4b4b4 !important;
-        top:27vh !important;
     
-    }
-    .patrocinador1{
-        left:680px;
-    }
-    .patrocinador2{
-        left:969px;
-    }
-    .patrocinador3{
-        left:1250px;
-        display: none;
-    }
-    .patrocinador4{
-        left:400px;
-        display: none;
-    }
-    .patrocinador5{
-        display: none;
-    }
-    .patrocinador6{
-        display: block !important;
-    }
     .canvas{
         height: 90vh;
     }
@@ -2268,7 +2237,7 @@ button {
 .landscape{
     width: 100%;
     height: 100vh;
-    
+    background-color: blue;
     
 }
 .landscapeImage{
@@ -2442,7 +2411,7 @@ button {
     }
     .landscapeImage{
         display: block;
-       
+        background-color: beige;
         height: 100vh;
         width: 812px;
        
@@ -2454,13 +2423,15 @@ button {
     }
         
     .landscape, .landscapeBack{
-        display: block;
+        display: flex !important;
         
     }
     .landscape{
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: blue;
+        
     }
     .btnMenu{
         position: fixed;
@@ -2858,22 +2829,16 @@ html, body{
     height: 52px  !important;
     background-color: #1e1e1e;
 }
-.testePortrait{
-    display: none !important;
-}
+
 @media screen and (max-width:750px) {
-    .testePortrait{
-        display: block !important;
-    }
-    .teste{
-        display: none !important;
-    }
+   
 
     .containerObjetos{
         position: absolute;
         width: 100%; 
-        height:100vh;
-        background-color: #ad504e5b;
+        height:100vh;;
+        
+        
         
     }
     .containerObjetos2{
@@ -2883,7 +2848,7 @@ html, body{
         max-height: 812px; 
         min-height: 540px; 
         max-width: 1920px;  
-        background-color: rgba(0, 0, 255, 0.205);
+        /* background-color: #1e1e1e; */
     }
     
     .canvas{
@@ -2901,8 +2866,8 @@ html, body{
         position: absolute;
         z-index:1;
         
-        left:40px;
-        top: 42vh;
+        left:5%;
+        top: 42%;
         width: 430px;
         height: 21.5%;
         
@@ -2911,9 +2876,43 @@ html, body{
     .comeceAqui a{
         
         
-        left:500px;
+        left:67vh;
         top: 48vh;
         
+    }
+
+    /* credenciamento */
+    .patrocinadores div{
+       
+        width: 15.8vh;
+        height: 10vh;
+        background-color: #b9b9b9;
+        top:30%;
+        background-size: contain;
+    }
+    .patrocinador1{
+        left:57vh;
+    }
+    .patrocinador2{
+        left:81vh;
+    }
+    .patrocinador3{
+        left:1250px;
+        display: none;
+    }
+    .patrocinador4{
+        left:400px;
+        display: none;
+    }
+    .patrocinador5{
+        top: 44.8vh !important;
+        left:69.5vh;
+        width: 18vh  !important;
+        height: 11.8vh !important;
+    }
+    .teste{
+        top:50vh !important;
+        left: 64vh !important;
     }
     
 }
