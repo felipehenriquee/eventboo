@@ -2872,13 +2872,9 @@ html, body{
     .containerObjetos{
         position: absolute;
         width: 100%; 
-        height:100vh;;
-        min-width:160vh; 
-        max-height: 812px; 
-        min-height: 540px; 
-        max-width: 1920px; 
+        height:100vh;
         background-color: #ad504e5b;
-	overflow: hidden;
+        
     }
     .containerObjetos2{
         position:absolute;  
