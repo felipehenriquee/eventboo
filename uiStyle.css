@@ -2877,7 +2877,7 @@ html, body{
         max-height: 812px; 
         min-height: 540px; 
         max-width: 1920px; 
-        
+        background-color: #ad504e5b;
     }
     .containerObjetos2{
         position:absolute;  
@@ -2886,7 +2886,7 @@ html, body{
         max-height: 812px; 
         min-height: 540px; 
         max-width: 1920px;  
-        
+        background-color: rgba(0, 0, 255, 0.205);
     }
     
     .canvas{
