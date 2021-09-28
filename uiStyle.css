@@ -686,6 +686,7 @@ button {
     align-items: center;
     margin: 10px 0px;
     font-size: 1.5rem;
+    background-color: blue;
 }
 
 .listHeaderInputContainer{
@@ -705,7 +706,7 @@ button {
     border-radius: 30px;
 }
 .filterStande{
-    width: 95%;
+    width: 80%;
     
     display: flex;
     justify-content: space-between;
@@ -1384,9 +1385,9 @@ button {
        
         background-size: contain !important;
         width: 192px;
-        height: 11vh;
+        height:9vh !important ;
         background-color: #b4b4b4 !important;
-        top:25vh !important;
+        top:27vh !important;
     
     }
     .patrocinador1{
@@ -1915,7 +1916,7 @@ button {
 .chatFrame {   
     position: absolute; 
     width: 100%;
-    height: 98%;
+    height: 90%;
     top: 5px;
     right: 0px;
     border: none;
@@ -2215,12 +2216,12 @@ button {
     position: absolute;
     
     left:855px;
-    top: 20vh;
+    top: 50%;
     width: 200px;
     height: 200px;
     animation: pulse 2s infinite;
     cursor: pointer;
-    background-color: rgba(83, 83, 83, 0.52) ;
+    
     z-index: 100;
 }
 
@@ -2659,7 +2660,7 @@ button {
     .chatFrame {   
         position: fixed; 
         width: 95%;
-        height: 100vh;
+        height: 80%;
         top: 0px;
         left: -25px;
         border: none;
@@ -2725,7 +2726,7 @@ button {
 
 }
 #comeceAqui:focus {
-    outline:solid 1px green;
+    outline:solid 0px green;
 }
 .bottomBtnDisable2:focus{
     outline:solid 1px green;
