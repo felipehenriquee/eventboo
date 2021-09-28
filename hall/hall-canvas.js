@@ -5,6 +5,12 @@ var ctx;
 
 var proportion = screen.width / screen.height;
 
+
+
+if (!window.localStorage.getItem("Token")){
+    window.location.href
+}
+
 window.addEventListener('load', function () {
     console.log('load canvas');
     canvas = document.getElementById("myCanvas");

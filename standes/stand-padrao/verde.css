@@ -7,7 +7,7 @@
     position: absolute;
     
     left:914px;
-    top: 29%;
+    top: 29vh;
     width: 166px;
     height: 101px;
    /* background-color: rebeccapurple; */
@@ -69,9 +69,9 @@
     z-index:1;
     
     left:1470px;
-    top: 88.5%;
+    top: 72vh;
     width: 95px;
-    height: 95px;
+    height: 10vh;
     
     transition: 1s;
     
@@ -86,9 +86,9 @@
     z-index:1;
     
     left:890px;
-    top: 63%;
+    top: 62vh;
     width: 151px;
-    height: 101px;
+    height: 12vh;
     
     transition: 1s;
     
@@ -132,5 +132,123 @@
     width: 40px;
     height: 40px;
     margin-left: 142px;
+}
+@media only screen and (orientation: landscape) and (max-height: 600px) {
+
+    /* logo */
+    .logoStand{
+        
+        
+        left:46%;
+        top: 22%;
+        width:  103px;
+        height: 63px;
+        
+        
+       
+        
+        cursor: pointer;
+        
+        z-index: 100;
+    }
+    .logoStand a{
+        width: 100%;
+    }
+    
+    .imgLogoStand{
+        background-position: center;
+        background-size: contain;
+        width: 103px;
+        height: 63px;
+          
+        background-repeat: no-repeat;
+    }
+    /* fim logo */
+
+    /* video */
+    .divVideoStand{
+        
+        
+        left:30%;
+        top: 40%;
+        width: 168px;
+        height: 95px;
+        
+    }
+    
+    
+    .btnImageStand{
+        
+        left:-5px;
+        top: -60%;
+        width: 150px;
+        height: 100px;
+    }
+    .btnPlayStand{
+        
+        left:55px;
+        top: 18px;
+        
+        
+        width: 30px;
+        height: 30px;
+        
+        
+        border-radius: 100%;
+        
+    }
+
+    /* fim video */
+    /* site */
+    .divSiteStand{
+        
+        
+        left:32%;
+        top: 86%;
+        
+        z-index: 200;
+    }
+    .saibaMais div{
+        
+        width: 90px;
+        height: 20px;
+       
+        font-size:10px;
+    }
+    .saibaMais div p{
+        margin-left: 10px;
+    }
+    .telaEntradaLinkStand{
+    
+        width: 20px;
+        height: 20px;
+        margin-left: 70px;
+    }
+    .btnImageStandLink {
+        width: 150%;
+        left:-28px;
+        top: -80%;
+    }
+    /* fim site */
+    /* pdf */
+    .divPdfStand{
+        
+        
+        left:46.5%;
+        top: 66%;
+        width: 70px;
+        height: 47px;
+        
+        
+        
+    }
+    .btnImageStandPdf {
+        left:-40px;
+        top: -158%;
+        width: 150px;
+    }
+   
+    /* fim pdf */
+    
 }
 

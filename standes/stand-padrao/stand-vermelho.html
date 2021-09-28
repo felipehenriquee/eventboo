@@ -11,10 +11,30 @@
     <script>
         const cor = "Vermelho";
     </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <script src="../../scripts/logic.js"></script>
     <script src="../../scripts/ajudaUI.js"></script>
     <script src="../../scripts/init-firebase.js"></script>
     <title>Stages</title>
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:2618013,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMFGFTPQLZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-YMFGFTPQLZ');
+    </script>
 </head>
     
 <!-- <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=M6syfvZsoKZQjHpYEasx4hAEFNE31loGeKjPMfohW7ldiZlbDaWDDJ4tFNesF9uTY0sVTk6PC9UZV0vXH-SSUSm2IwLHxk0HpZEVtYuDbDHp7PW0IaHbU6crh6JPtc4-aoKgziJ5Z5-tV937iuzQAw3N9F9PMSnQuXDtPVAiD8E" charset="UTF-8"></script></head> -->
@@ -24,17 +44,20 @@
     <script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
 
     <canvas id="myCanvas" 
-    style="position:absolute;min-width: 1920px; max-height: 1080px; min-height: 920px; max-width: 1920px; width: 100%; height: 100vh;" 
+    style="position:absolute;min-width: 1920px; max-height: 1080px;  max-width: 1920px; width: 100%; height: 100vh;" 
     width="1920" height="1080"></canvas>
+    <div class="landscapeBack" style="background-image: url('./../../3DImages/Stand_Vermelho.png');" >
 
-    <div class="containerObjetos2" style=" position:absolute;  max-width: 1920px; max-height: 1080px; min-height: 920px;  width: 100%; height: 100vh;  ">
+    </div>
+
+    <div class="containerObjetos2" style=" position:absolute;  max-width: 1920px; max-height: 1080px;  width: 100%; height: 100vh;  ">
        
         <div class="comeceAqui comeceAqui3" >
             
-            <button class="comeceAqui3" id="comeceAqui" style="display: flex; justify-content: flex-start; top:28%; left: 850px;" >
+            <a href="#" class="comeceAqui3" id="comeceAqui" style="display: flex; justify-content: flex-start; top:28%; left: 850px; cursor:default;" >
                 
 
-            </button>
+            </a>
             
         </div>
        
@@ -45,14 +68,14 @@
     <div class="containerObjetos2" style=" position:absolute;  max-width: 1920px; max-height: 1080px; min-height: 920px;  width: 100%; height: 100vh;  ">
         
         <div   class="logoStand">
-            <a href="./credenciamento/index.html" id ="comeceAqui" >
+            <a  id ="comeceAqui" >
                 <div id="logoStand"  class="imgLogoStand">
 
                 </div>
                 
             </a>
         </div>
-        <div class="divVideoStand">   
+        <div id="videoStand" class="divVideoStand">   
             <button class="btnImageStand btnPlayStand" title="Pressione para assistir o vídeo" onclick="openCloseVideo(true)"></button>
             <button id="assistaVideo" class="btnImageStand btnIndicadores" style="background-image: url('../../icons/assistaVideo.png');" onclick="openCloseVideo(true)"></button>
 
@@ -223,9 +246,9 @@
         </div>
         
         
-        <div id="vidBgH2" class="modal-bg">        
+        <div id="vidBgH2" class="modal-bg" style="z-index: 1000; position: fixed;" >        
             <div id="vidBorder" class="videoBorder">
-                <span class="entranceIframeClose" onclick="openCloseVideo(false)">&times;</span>
+                <span class="entranceIframeClose" onclick="openCloseVideo(false, 'videoFrame')">&times;</span>
                 
                 <iframe id="videoFrame" class="entranceIframe" src="https://www.youtube.com/embed/6AklbYpQqzw"
                     frameborder="0"
@@ -237,7 +260,45 @@
         </div>
     
     </div>
-
+    <div class="landscape"  >
+        
+        
+        <div class="landscapeImage" style="background-image: url('./../../3DImages/Stand_Vermelho.jpg');">
+            <div   class="logoStand">
+                <div id ="c" >
+                    <div id="logoStandLand"  class="imgLogoStand">
+    
+                    </div>
+                    
+                </div>
+            </div>
+            <a id="siteStandLand" class="divSiteStand" target="_blank" style=>   
+                <div class="saibaMais">
+                    <div ><p>Saiba Mais</p></div>
+                    <img class="telaEntradaVideo telaEntradaLinkStand" src="./../../icons/linkVermelho.png" alt="">
+                </div>
+                
+    
+                
+                <button  class="btnImageStand btnIndicadores btnImageStandLink"  style="background-image: url('../../icons/acesseSite.png');"></button>
+    
+            </a> 
+            <div id="videoStandLand"  class="divVideoStand">   
+                <button class="btnImageStand btnPlayStand" title="Pressione para assistir o vídeo" onclick="openCloseVideo(true)"></button>
+                <button id="assistaVideo" class="btnImageStand btnIndicadores" style="background-image: url('../../icons/assistaVideo.png');" onclick="openCloseVideo(true)"></button>
+    
+            </div> 
+            <a id="portfolioStandLand"  target="_blank" class="divPdfStand">   
+                <img class="telaEntradaVideo telaEntradaPdfStand" src="./../../icons/portfolioVermelho.png" alt="" >
+                <button id="assistaVideo" class="btnImageStand btnIndicadores btnImageStandPdf"  style="background-image: url('../../icons/vejaPorfolio.png');" ></button>
+    
+            </a> 
+            
+        </div>
+        
+        
+        
+    </div>
     <script src="./standes.js"></script>
 
 </body>

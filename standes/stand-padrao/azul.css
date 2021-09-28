@@ -7,7 +7,7 @@
     position: absolute;
     
     left:867px;
-    top: 14.5%;
+    top: 14vh;
     width: 220px;
     height: 134px;
    
@@ -24,7 +24,7 @@
     background-position: center;
     background-size: contain;
     width: 220px;
-    height: 134px;
+    height: 10vh;
     background-repeat: no-repeat;
 }
 .btnImageStand{
@@ -75,7 +75,7 @@
     z-index:1;
     
     left:1071px;
-    top: 34%;
+    top: 33vh;
     width: 168px;
     height: 95px;
     
@@ -86,7 +86,7 @@
     z-index:1;
     
     left:680px;
-    top: 75%;
+    top: 65vh;
     width: 95px;
     height: 95px;
    
@@ -98,16 +98,16 @@
     position: absolute;
     z-index:1;
     
-    left:676px;
-    top: 38%;
-    width: 188px;
-    height: 125px;
+    left:700px;
+    top: 35vh;
+    width: 151px;
+    height: 12vh;
     
     transition: 1s;
     
 }
 .btnImageStandPdf {
-    left:-7px;
+    left:-20px;
     top: -70%;
 }
 .btnImageStandLink {
@@ -133,4 +133,122 @@
     width: 40px;
     height: 40px;
     margin-left: 142px;
+}
+@media only screen and (orientation: landscape) and (max-height: 600px) {
+
+    /* logo */
+    .logoStand{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        
+        left:37.5%;
+        top: -2%;
+        width: 220px;
+        height: 134px;
+       
+        
+        cursor: pointer;
+        
+        z-index: 100;
+    }
+    .logoStand a{
+        width: 100%;
+    }
+    
+    .imgLogoStand{
+        background-position: center;
+        background-size: contain;
+        width: 83px;
+        height: 51px;
+        background-repeat: no-repeat;
+    }
+    /* fim logo */
+
+    /* video */
+    .divVideoStand{
+        
+        
+        left:52%;
+        top: 27.2%;
+        width: 168px;
+        height: 95px;
+        
+    }
+    
+    
+    .btnImageStand{
+        
+        left:-5px;
+        top: -60%;
+        width: 150px;
+        height: 100px;
+    }
+    .btnPlayStand{
+        
+        left:55px;
+        top: 18px;
+        
+        
+        width: 30px;
+        height: 30px;
+        
+        
+        border-radius: 100%;
+        
+    }
+
+    /* fim video */
+    /* site */
+    .divSiteStand{
+        
+        
+        left:34.5%;
+        top: 75%;
+        
+        z-index: 200;
+    }
+    .saibaMais div{
+        
+        width: 90px;
+        height: 20px;
+       
+        font-size:10px;
+    }
+    .saibaMais div p{
+        margin-left: 10px;
+    }
+    .telaEntradaLinkStand{
+    
+        width: 20px;
+        height: 20px;
+        margin-left: 70px;
+    }
+    .btnImageStandLink {
+        width: 150%;
+        left:-28px;
+        top: -80%;
+    }
+    /* fim site */
+    /* pdf */
+    .divPdfStand{
+        
+        
+        left:36%;
+        top: 38%;
+        width: 70px;
+        height: 47px;
+        
+        
+        
+    }
+    .btnImageStandPdf {
+        left:-40px;
+        top: -158%;
+        width: 150px;
+    }
+   
+    /* fim pdf */
+    
 }

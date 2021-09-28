@@ -45,7 +45,7 @@ function bindAjuda() {
         sobre.classList.add('ajudaActive');
         //sobre.classList.add('ajudaContainerActive');
         sobreTitle.innerHTML = titles[0];
-        sobreText.innerHTML = texts[0];
+        // sobreText.innerHTML = texts[0];
     });
     
     var comoParticiparBtn = document.getElementById('comoParticiparBtn');
@@ -61,7 +61,7 @@ function bindAjuda() {
         sobre.classList.add('ajudaActive');
         sobre.classList.add('ajudaContainerActive');
         sobreTitle.innerHTML = titles[2];
-        sobreText.innerHTML = texts[2];
+        // sobreText.innerHTML = texts[2];
     });
     
     

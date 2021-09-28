@@ -701,7 +701,12 @@ button {
     box-sizing: border-box;
     border-radius: 30px;
 }
-
+.filterStande{
+    width: 95%;
+    
+    display: flex;
+    justify-content: space-between;
+}
 .listHeaderInputContainer div {
     display: flex;
 }
@@ -871,7 +876,9 @@ button {
     background: #1E1E1E;
     color: white;
     padding: 50px 25px;
-    flex-flow: column
+    flex-flow: column;
+    overflow: auto;
+    
 }
 
 .videoDetailCloseButton {
@@ -885,20 +892,21 @@ button {
 
 .videoThumbContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     
     width: 100%;
-    height: 400px;
+    height:300px;
+    
 }
 
 .videoThumbnail {
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
+   position: relative;
+    
     border-radius: 7px;
     padding: 0px 25px;
-   
-    
+    width: 30%;
+    margin-top: 2%;
 }
 
 .lectureTitle {
@@ -916,6 +924,8 @@ button {
 .videoHour {
     font-size: 20px;
     line-height: 24px;
+    margin-top: 8%;
+
 }
 
 .lectureSpeaker {    
@@ -951,15 +961,12 @@ button {
 /*Auditorios*/
 
 .stageListModal {
-    position: fixed;
-    width: 812px;
-    height: 686px;     
-    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.575); width: 100vw; height: 100vh; display: flex; justify-content: center;
 }
 
 .stageListBody {
     overflow-y: scroll;
-    height: 85%;
+    height: 65%;
 }
 
 .stageListBody::-webkit-scrollbar {
@@ -1059,7 +1066,7 @@ button {
 */
 .dropdown {    
     display: flex;
-    width: 100%;
+    width: 98%;
     margin-top: 12px;
 }
 
@@ -1290,7 +1297,12 @@ button {
     flex-flow: column;
     margin: 45px 18px;
 }
-
+.threeLinks span{
+    cursor: pointer;
+}
+.closeSobreButton{
+    cursor: pointer;
+}
 .ajudaBottom {
     position: absolute;
     display: flex;
@@ -1330,7 +1342,9 @@ button {
     /*visibility: hidden;*/
     transition: visible 0s, transform 0.5s;
 }
-
+.btnMenuLand{
+    display: none;
+}
 
 
 .sobreLabel {
@@ -1364,7 +1378,17 @@ button {
 /*--MOBILE PORTRAIT--*/
 @media only screen and (orientation: portrait) {
     /*Header*/
-
+    .filterStande{
+        flex-direction: column;
+    }
+    .filterStande .stateFilterDropDown{
+        margin-top: 1%;
+        width: 100%;
+        
+    }
+    .filterStande  .stageSearchBox{
+        width: 100%;
+    }
     .header {    
         display: flex;
         flex-direction: column;
@@ -1739,6 +1763,8 @@ button {
     display: flex;
     justify-content: space-around;
     margin-top: 30px;
+    height: 300px;
+    flex-wrap: wrap;
 }
 
 .lectureTitle {
@@ -1751,7 +1777,7 @@ button {
 .lectureSpeaker {    
     margin: 0px 25px;
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 12px;
     line-height: 22px;
 }
 
@@ -1759,7 +1785,7 @@ button {
     align-self: center;
     width: calc(100% - 40px);
     margin: auto;
-    bottom: 20px;
+    margin-bottom: 100px;
 }
 
 /*Fim do hall*/
@@ -1768,9 +1794,7 @@ button {
 
 .stageListModal {
     position: fixed;
-    width: 100%;
-    height: 100vh;     
-    padding: 0px;
+    background-color: rgba(0, 0, 0, 0.575); width: 100vw; height: 100vh; display: flex; justify-content: center;
 }
 
 .stageListBody {
@@ -1872,13 +1896,13 @@ button {
 }
 
 .closeChatBtn {
-    position: fixed;
-    display: none;
-    visibility: hidden;
-    font-size: 30px;
-    top: 2px;
-    right: 10px;
-    z-index: 2;
+    position: absolute; top:1%; width: 30px; height: 30px; right: 2%; background-color: transparent;
+    z-index: 200;
+    background-color: #873e3d;
+    border-radius: 30px;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .closeChatBtnActive {
@@ -2073,8 +2097,11 @@ button {
 .btnIndicadores{
     animation: pulse 2s infinite;
 }
-#assistaVideo{
-    
+.synopsisText{
+    font-size: 12px;
+}
+.videoTitle{
+    font-size: 15px;
 }
 @keyframes pulseShadow {
 	0% {
@@ -2153,16 +2180,18 @@ button {
     position: absolute;
     
     left:855px;
-    top: 50%;
+    top: 20vh;
     width: 200px;
-    height: 400px;
+    height: 200px;
     animation: pulse 2s infinite;
     cursor: pointer;
-    
+    background-color: rgba(83, 83, 83, 0.52) ;
     z-index: 100;
 }
+
 .comeceAqui a img{
     width: 100%;
+
 }
 .comeceAqui .teste img{
     width: 200px;
@@ -2200,6 +2229,15 @@ button {
     top: 0%;
     left: 0;
     filter: blur(5px);
+}
+.hallMask{
+    position: absolute;
+    width: 1920px;
+    height: 98.4%;
+     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 @media screen and (min-width: 1919px) {
     body{
@@ -2241,17 +2279,15 @@ button {
     
     .stageListModal {
         position: absolute;
-        width: 812px;
-        height: 686px;
-        max-height: 65%;
-        padding: 0;
-        margin: auto;
+        background-color: rgba(0, 0, 0, 0.575); width: 100vw; height: 100vh; display: flex; justify-content: center;
     }
 
     .stageListBody {
         overflow-y: scroll;
-        height: 100%;
+        height: 200px;
         margin: auto;
+        margin-top: 100px !important;
+        
     }
 }
 @media screen and (min-width: 822px) {
@@ -2283,14 +2319,18 @@ button {
     }
 }
 @media only screen and (orientation: landscape) and (max-height: 600px) {
-
+    .btnMenuLand{
+        position: absolute;
+        left: 85%;
+        top: -30%;
+        display: flex;
+        flex-direction: column;
+        
+    }
     #myCanvas, .containerObjetos2{
         display: none;
     }
-    .nomeButtonEvento{
-        display: none;
-       
-    }
+ 
     .entreAquiEntrada{
         display: flex;
         justify-content: center;
@@ -2300,6 +2340,16 @@ button {
         height: 110px;
         
         left: 42%;
+    }
+    .vaAuditorio{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 50.5%;
+        width: 180px;
+        height: 110px;
+        
+        right: 1%;
     }
     .assistirVideoLand{
         position: absolute;
@@ -2329,17 +2379,28 @@ button {
         width: 90%;
         animation: pulse 2s infinite;
     }
+    .vaAuditorio img{
+        position: absolute;
+        top:0%;
+
+        width: 90%;
+        animation: pulse 2s infinite;
+    }
     .landscapeImage{
         display: block;
-        width: 100%;
+       
         height: 100vh;
-        max-width: 1200px;
-        min-width: 820px;
+        width: 812px;
+       
         position: relative;
     }
-    body{
-        overflow: hidden;
+    .hallMaskLand{
+        position: absolute;
+        
     }
+        body{
+            overflow: hidden;
+        }
     .landscape, .landscapeBack{
         display: block;
         
@@ -2471,43 +2532,47 @@ button {
         position: fixed;
         top: 25px;
     }
-
-    .videoThumbContainer {
-        display: none;
+    .videoThumbContainer{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0px;
+        height: 300px;
+        flex-wrap: wrap;
+        margin-bottom: 5%;
+    }
+    .synopsis {
+        
+        
+        left: 50%;
+        font-size: 15px;
+    }
+    .synopsisText{
+        
+        
+        left: 50%;
+        font-size: 12px;
     }
 
     .videoTitle {
-        position: fixed;
-        top: 50px;
-        width: 40%;
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 29px;
+        
+        font-size: 18px;
+        margin-top: 7%;
+        
     }
 
     .videoHour {
-        position: fixed;
-        top: 25px;
-        width: 40%;
+        font-size: 15px;
+
     }
 
     .lectureSpeaker {  
-        position: fixed;
-        top: 150px;
-        max-width: 40%;
+        font-size: 12px;
+
     }
 
-    .synopsis {
-        position: fixed;
-        top: 25px;
-        left: 50%;
-    }
+    
 
-    .synopsisText{
-        position: fixed;
-        top: 65px;
-        left: 50%;
-    }
+    
 
     .videoButton {
         position: fixed;
@@ -2521,11 +2586,11 @@ button {
 
     /*Auditótios*/
     .stageListModal {
-        position: fixed;
-        width: calc(100% - 40px);
-        height: calc(100% - 100px);     
-        padding: 0px;
-        margin: 60px 0 20px 0;
+        background-color: rgba(0, 0, 0, 0.575); 
+        width: 100vw;
+        height: 100vh;
+        display: flex; 
+        justify-content: center;
     }
 
     /*Stands*/
@@ -2560,10 +2625,10 @@ button {
 
     .chatFrame {   
         position: fixed; 
-        width: 100%;
-        height: 80vh;
+        width: 95%;
+        height: 100vh;
         top: 0px;
-        right: 0px;
+        left: -25px;
         border: none;
         z-index: 1;
         visibility: hidden;
@@ -2577,13 +2642,13 @@ button {
     }
 
     .closeChatBtn {
-        position: fixed;
-        display: none;
-        visibility: hidden;
-        font-size: 30px;
-        top: 2px;
-        right: 10px;
-        z-index: 2;
+        position: absolute; top:-70px; width: 30px; height: 30px; right: 7%; background-color: transparent;
+    z-index: 200;
+    background-color: #873e3d;
+    border-radius: 30px;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
     }
 
     .closeChatBtnActive {
@@ -2627,10 +2692,10 @@ button {
 
 }
 #comeceAqui:focus {
-    outline:solid 0px green;
+    outline:solid 1px green;
 }
 .bottomBtnDisable2:focus{
-    outline:solid 0px green;
+    outline:solid 1px green;
 
 }
 .bottomBtnDisable {
@@ -2649,4 +2714,91 @@ button {
     z-index: 100;
 }
 
+html, body{
+    
+    position: relative;
+    height: 100%;
+    overflow-y: hidden;
+}
 
+.patrocinadores div{
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 192px;
+    height: 11vh;
+    background-color: #1e1e1e;
+    top:29.5vh;
+
+}
+.patrocinador1{
+    left:680px;
+}
+.patrocinador2{
+    left:969px;
+}
+.patrocinador3{
+    left:1250px;
+    display: none;
+}
+.patrocinador4{
+    left:400px;
+    display: none;
+}
+.patrocinador5{
+    top: 44.8vh !important;
+    left:832px;
+    width: 217px  !important;
+    height: 11.8vh !important;
+}
+.hallMaskPatrocinadores{
+    left:480px;
+    top:41%;
+    width: 470px ;
+    opacity: 1;
+    height: 27%;
+}
+
+
+.imagePatrocinadores{
+    position: absolute;
+    left: 155px;
+    top:-40px;
+    width: 300px;
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.patrocinadoresCred{
+    position: absolute;
+    
+    width: 812px;
+    height: 375px;
+}
+.patrocinadoresCred div{
+    position: absolute;
+    width: 80px;
+    height: 46px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.patrocinador1Land{
+    top:96px;
+    left: 289px;
+}
+.patrocinador2Land{
+    top:96px;
+    left: 411px;
+}
+
+.patrocinador3Land{
+    top:165px;
+    left: 353px;
+    width: 90px !important;
+    height: 52px  !important;
+    background-color: #1e1e1e;
+}

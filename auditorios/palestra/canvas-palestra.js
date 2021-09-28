@@ -14,7 +14,10 @@ window.addEventListener('load', function () {
 
     if (window.localStorage.getItem("video")){
         video = document.getElementById("videoFrame");
+        titulo = document.getElementById("tituloPalestra");
+        console.log(titulo)
         video.src = window.localStorage.getItem("video");
+        titulo.innerHTML = window.localStorage.getItem("tituloPalestra")
     }
    
     

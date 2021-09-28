@@ -12,8 +12,9 @@ var subscribeConfirmationBg;
 
 var utcHour;
 
-var baseApi = 'http://localhost:3000/v1';
+// var baseApi = 'http://localhost:3000/v1';
 // var baseApi = 'http://147.182.210.54:4006/v1';
+var baseApi = 'https://bugabooserver.com.br:4006/v1'
 
 var eventData;
 
@@ -79,6 +80,9 @@ const signal = controller.signal;
 
 setInterval(refreshToken, 10 * 60 * 1000);
 
+if (window.localStorage.getItem("code")){
+    setInterval(verificaLocalLogin, 1 * 60 * 1000);
+}
 
 
 
@@ -107,7 +111,7 @@ function refreshToken() {
             .then(response => response.json())
             .then(res => {
                 let newToken = res.id_token;
-                //console.log(newToken);
+                // console.log(newToken);
                 localStorage.setItem('Token', JSON.stringify(newToken));
             })
             .catch(error => console.log('error', error));
@@ -408,7 +412,7 @@ async function login() {
     let password = passwordInputLogin.value;
     if (password == null || password == undefined || password == '') {
         loginError.classList.add('bg-active');
-        loginError.children[0].children[3].innerHTML = 'Senha inválido';
+        loginError.children[0].children[3].innerHTML = 'CPF inválido';
         //loginError.children[0].children[6].innerHTML = '';
         return;
     }
@@ -659,7 +663,7 @@ async function requestPalestra(abort = false, scene) {
                 console.log('Fail');
             }
         });
-    console.log(response.result.rows);
+    
     response = response.result.rows;
     if (response) {
         //console.log('response not null');
@@ -713,7 +717,7 @@ async function createPalestraElement(scene, i, response) {
         
         if (response.palestrantes.length > 0) {
             palestranteList = await createPalestrantesList(response.palestrantes);
-            console.log(response.palestrantes)
+            
             pLabel = formatPalestrantesName(response.palestrantes)
         }
 
@@ -766,15 +770,35 @@ async function createPalestraElement(scene, i, response) {
 
         let thumbContainer = document.getElementById('thumbContainer');
 
-        try {
+        let larguraImage = 40;
+        let totalImagens = response.palestrantes.length;
+
+        if (checkDevice()){
+            larguraImage = totalImagens>=6 ? larguraImage - (totalImagens * 3) : larguraImage - (totalImagens * 4.5);
+
+        }
+        else{
+            larguraImage = larguraImage - (totalImagens * 5);
+
+        }
+
+        
+
+        for (let i = 0; i < response.palestrantes.length; i++) {
+            try {
             let videoThumb = document.createElement('img');
                 videoThumb.classList.add('videoThumbnail');
+                videoThumb.style.width = larguraImage.toString()+"%"
                 
-                videoThumb.src = `${response.palestrantes[0].Foto}`;
+                videoThumb.src = `${response.palestrantes[i].Foto}`;
                 thumbContainer.append(videoThumb); 
         } catch (error) {
             
         }
+            
+        }
+
+        
 
         
 
@@ -790,7 +814,7 @@ async function createPalestraElement(scene, i, response) {
         }
 
         let videoDetailCloseButtonH = document.getElementById('videoDetailCloseButtonH');
-        console.log(videoDetailCloseButtonH)
+        
         videoDetailCloseButtonH.addEventListener('click', function () {
             watchBtn.id = 'assitirH';
         });
@@ -806,7 +830,7 @@ async function createPalestraElement(scene, i, response) {
         document.getElementsByClassName('synopsisText')[0].innerHTML = `${response.Descricao}`;
 
         //console.log(utcHour);
-        console.log(response)
+       
         let talkActive = calculateTalkActive(utcHour, response.HoraInicio, response.HoraFim);
         isCurrentTalkLate = calculateTalkLate(utcHour, response.HoraFim);
         
@@ -823,6 +847,7 @@ async function createPalestraElement(scene, i, response) {
                 standSearch = null;
                 location.href = "/auditorios/palestra/palestra.html"
                 window.localStorage.setItem("video", response.LinkPalestra)
+                window.localStorage.setItem("tituloPalestra", response.Nome)
             });
         } else {
             watchBtn.classList.remove('redBtnBack');
@@ -964,10 +989,10 @@ async function requestStandFilters() {
 
     let adjust = new Array()
     
-    for (let i = 0; i < listOfStandFilters.result.rows.length; i++) {
+    // for (let i = 0; i < listOfStandFilters.result.rows.length; i++) {
        
-        adjust.push(listOfStandFilters.result.rows[i]);        
-    }
+    //     adjust.push(listOfStandFilters.result.rows[i]);        
+    // }
 
     
     listOfStandFilters = adjust;
@@ -1177,6 +1202,10 @@ function createStandElement(scene, i, response) {
         logo.src = `${response.images[0].Path}`;
         
     }
+    if (response.Imagem) {
+        logo.src = `${response.Imagem}`;
+        
+    }
     imgContainer.appendChild(logo);
 
     let leftSide = document.createElement("div");
@@ -1192,12 +1221,12 @@ function createStandElement(scene, i, response) {
     standCategory.classList.add('eventSpeaker');
     standCategory.innerHTML = `Categoria: `;
 
-    for (let i = 0; i < response.categorias.length; i++) {
-        standCategory.innerHTML += `${response.categorias[i].Nome}`;
-        if(i != response.categorias.length - 1) {
-            standCategory.innerHTML += ' / ';
-        }        
-    }
+    // for (let i = 0; i < response.categorias.length; i++) {
+    //     standCategory.innerHTML += `${response.categorias[i].Nome}`;
+    //     if(i != response.categorias.length - 1) {
+    //         standCategory.innerHTML += ' / ';
+    //     }        
+    // }
 
     leftSide.appendChild(standCategory);
 
@@ -1377,26 +1406,27 @@ async function requestStandImage(img) {
 function palestraStageFilter() {
     let dataDropdown = document.getElementById('dataDropdown');
     let date = dataDropdown.value;
-    console.log(date)
+    
     let filteredTalks = new Array();
 
     if (date == 'all') {
         filteredTalks = talks;
     } else {
         for (let i = 0; i < talks.length; i++) {
-            console.log(talksFromServer[i].HoraInicio)
+            
             let talkDate = new Date(talksFromServer[i].HoraInicio);
             let dropDate = new Date(date);
             let talkDateDM = `${talkDate.getDate()}/${talkDate.getMonth()}`;
             let dropDateDM = `${dropDate.getDate()}/${dropDate.getMonth()}`;
-            console.log(talkDateDM, dropDateDM)
+            
             if (talkDateDM == dropDateDM) {
-                console.log(talks[i])
+                
                 filteredTalks.push(talks[i]);
             }
         }
 
         for (let i = 0; i < talks.length; i++) {
+            console.log(talks[i])
             talks[i].remove();
         }
     }
@@ -1698,7 +1728,7 @@ function formatPalestrantesName(palestrantes) {
         } else if (i > 0) {
             palestrantesLabel += ', ';
         }
-        console.log(palestrantes)
+        
         palestrantesLabel += palestrantes[i].Nome;
         //console.log(palestrantesLabel);
     }
@@ -1780,7 +1810,7 @@ function loginSympla(){
 }
 
 async function autenticaLoginSympla(Email, CPF) {
-    console.log(CPF)
+    const Local = Math.random().toString(36).substring(0, 16)
     let loginError = document.getElementById('loginError');
     
     let result;
@@ -1802,8 +1832,8 @@ async function autenticaLoginSympla(Email, CPF) {
     };
     console.log(myInit.body);
     let request = new Request(`${baseApi}/auth`, myInit)
-
-    axios.post(this.baseApi+"/auth", {
+    
+    axios.post(baseApi+"/auth", {
         headers: {
             's_token': '884ebf6e89a3cd8f1f62ca6fa2604ba208fa153fdcba0fc8b7b115e6b009fa03',
             "Access-Control-Allow-Origin": "*",
@@ -1811,11 +1841,12 @@ async function autenticaLoginSympla(Email, CPF) {
             "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
         },
         
-        Email, CPF
+        Email, CPF, Local
         
        })
       .then(response => {
         console.log(response.data);
+        window.localStorage.setItem("idUsuario", response.data.idUser)
           if (response.data.result == false){
             loginFeedback.classList.remove('bg-active');
             signinFeedback.classList.remove('bg-active');
@@ -1823,7 +1854,8 @@ async function autenticaLoginSympla(Email, CPF) {
             loginError.children[0].children[3].innerHTML = response.data.msg;
           }
           else{
-              createFireBase(Email, CPF);
+            window.localStorage.setItem("code", Local)
+            createFireBase(Email, CPF);
             
           }
           
@@ -1861,11 +1893,12 @@ async function loginFireBase(email, cpf){
                 localStorage.setItem('user', JSON.stringify(cred.user));
                 cred.user.getIdToken()
                     .then(token => {
-                        console.log(token);
+                        
                         localStorage.setItem('Token', JSON.stringify(token));
                         loginFeedback.classList.remove('bg-active');
                         signinFeedback.classList.remove('bg-active');
                         subscribeConfirmationBg.classList.add('bg-active');
+                        setInterval(verificaLocalLogin, 1 * 60 * 1000);
                     });
             } else {
                 localStorage.removeItem('user');
@@ -1900,7 +1933,7 @@ async function loginFireBase(email, cpf){
             // ...
         });
 }
-function openCloseVideo(escolha){
+function openCloseVideo(escolha, iframe){
     console.log("fecha")
     const elemento = document.getElementById("vidBgH2");
     if (escolha){
@@ -1908,6 +1941,7 @@ function openCloseVideo(escolha){
         elemento.classList.add("bg-active");
     }
     else{
+        document.getElementById(iframe).contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
         elemento.classList.remove("bg-active");
 
     }
@@ -1928,3 +1962,69 @@ function openClosePDF(escolha){
     
     
 }
+
+function verificaLocalLogin(){
+    axios.get(baseApi+`/usuario/local?local=${window.localStorage.getItem("code")}&id=${window.localStorage.getItem('idUsuario')}`, {
+        headers: {
+            
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+        },  
+        
+       })
+      .then(response => {
+       
+
+        if (response.data.result){
+            setInterval(verificaLocalLogin, 1 * 60 * 1000);
+        }
+        else{
+            localStorage.removeItem('user');
+            localStorage.removeItem('Token');
+            localStorage.removeItem('idUsuario');
+            localStorage.removeItem('code');
+            alert("Sua conta logou em outro dispositivo, só é permitido 1 dispositivo por vez");
+            window.location.reload();
+        }
+        return response;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+}
+
+function contaEstande(acesso, id){
+    console.log("contou")
+    axios.get(baseApi+`/estande/acesso?acesso=${acesso}&id=${id}`, {
+        headers: {
+            
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+        },  
+        
+       })
+      .then(response => {
+       
+        return response;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+}
+function checkDevice() { 
+    if( navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)
+    ){
+       return true; // está utilizando celular
+     }
+    else {
+       return false; // não é celular
+     }
+   }

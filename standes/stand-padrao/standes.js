@@ -66,8 +66,9 @@ window.addEventListener('load', function () {
     }
     
     img.onload = function(){
-        console.log('loaded');
-        document.getElementById('comeceAqui').focus();
+        const tagA = document.getElementById('comeceAqui');
+        tagA.focus();
+        tagA.removeAttribute("href")
 
         ctx.drawImage(img, 0, 0, 1920, 1080);
         
@@ -106,24 +107,33 @@ function verificaCor(modelo){
 }
 function preencheDados(dado){
     var buttonTwitter = document.getElementById('twitterBtn');
+    buttonTwitter.href = dado.Twitter;
+
+    
     var buttonFacebook = document.getElementById('facebookBtn');
     var buttonInstagram = document.getElementById('instagramBtn');
     var buttonWpp = document.getElementById('whatappButton');
     var pageTitle = document.getElementById('page-title');
     var logoStand = document.getElementById('logoStand');
+    var logoStandLand = document.getElementById('logoStandLand');
     var siteStand = document.getElementById('siteStand');
+    var siteStandLand = document.getElementById('siteStandLand');
     var portfolioStand = document.getElementById('portfolioStand');
+    var portfolioStandLand = document.getElementById('portfolioStandLand');
     var videoYoutube = document.getElementById('videoFrame');
+    var videoStand = document.getElementById('videoStand');
+    var videoStandLand = document.getElementById('videoStandLand');
     
-    
-    buttonTwitter.href = dado.Twitter;
     buttonFacebook.href = dado.Facebook;
     buttonInstagram.href = dado.Instagram;
     buttonWpp.href = dado.Wpp;
     siteStand.href = dado.Site;
+    siteStandLand.href = dado.Site;
     portfolioStand.href = dado.Portfolio
-    pageTitle.innerHTML = "Stand "+dado.Nome;
-    videoYoutube.src = dado.Youtube;
+    portfolioStandLand.href = dado.Portfolio
+    pageTitle.innerHTML = "Estande "+dado.Nome;
+    videoYoutube.src = dado.Youtube+"?enablejsapi=1";
+    document.title = "Estande "+dado.Nome;
 
     if (!dado.Twitter){
         buttonTwitter.classList.add("bottomBtnDisable");
@@ -140,8 +150,36 @@ function preencheDados(dado){
         buttonWpp.classList.add("bottomBtnDisable");
         
     }
+
+    if (!dado.Site){
+        siteStand.classList.add("bottomBtnDisable");
+        siteStandLand.classList.add("bottomBtnDisable");
+    }
+    if (!dado.Portfolio){
+        portfolioStand.classList.add("bottomBtnDisable");
+        portfolioStandLand.classList.add("bottomBtnDisable");
+        
+    }
+    if (!dado.Youtube){
+        videoStand.classList.add("bottomBtnDisable");
+        videoStandLand.classList.add("bottomBtnDisable");
+        
+    }
     
-    logoStand.style.backgroundImage = `url('${dado.images[0].Path}')`;
-    console.log(logoStand.src)
+
+    if (dado.images[0]) {
+        logoStand.style.backgroundImage = `url('${dado.images[0].Path}')`;
+        logoStandLand.style.backgroundImage = `url('${dado.images[0].Path}')`;
+        
+    }
+    if (dado.Imagem) {
+        logoStand.style.backgroundImage = `url('${dado.Imagem}')`;
+        logoStandLand.style.backgroundImage = `url('${dado.Imagem}')`;
+        
+    }
+    
+    
+    
+    contaEstande(dado.Acessos+1, dado.Id);
 
 }
