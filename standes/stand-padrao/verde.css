@@ -68,8 +68,8 @@
     position: absolute;
     z-index:1;
     
-    left:1470px;
-    top: 72vh;
+    left:1250px;
+    top: 42vh;
     width: 95px;
     height: 10vh;
     
@@ -78,7 +78,7 @@
 }
 .btnImageStandLink {
     left:-10px;
-    top: -90%;
+    top: -12vh;
    
 }
 .divPdfStand{
@@ -227,7 +227,7 @@
     .btnImageStandLink {
         width: 150%;
         left:-28px;
-        top: -80%;
+        top: -50%;
     }
     /* fim site */
     /* pdf */

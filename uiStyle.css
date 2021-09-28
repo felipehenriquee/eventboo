@@ -42,11 +42,29 @@ button {
 }
 .containerObjetos{
     position: relative;
-   
-    max-width: 1920px; max-height: 1080px; width: 100%; height:100vh;;
+    width: 100%; 
+    height:100vh;;
+    max-width: 1920px; 
+    max-height: 1080px; 
+    min-height: 812px;
+    min-width: 1920px;
+}
+.containerObjetos2{
+    position:absolute;  
+    width: 100%; height: 100vh; 
+    max-width: 1920px; 
+    max-height: 1080px; 
+    min-height: 812px;  
 }
 
 .canvas{
+    height: 100vh;
+    position:absolute;
+    min-width: 1920px; 
+    max-height: 1080px; 
+    min-height: 812px; 
+    max-width: 1920px; 
+    width: 100%; 
     height: 100vh;
 }
 /*Header*/
@@ -686,7 +704,7 @@ button {
     align-items: center;
     margin: 10px 0px;
     font-size: 1.5rem;
-    background-color: blue;
+    
 }
 
 .listHeaderInputContainer{
@@ -1916,7 +1934,7 @@ button {
 .chatFrame {   
     position: absolute; 
     width: 100%;
-    height: 90%;
+    height: 88%;
     top: 5px;
     right: 0px;
     border: none;
@@ -2850,4 +2868,52 @@ html, body{
     .teste{
         display: none !important;
     }
+
+    .containerObjetos{
+        position: relative;
+        width: 100%; 
+        height:100vh;;
+        max-width: 1920px; 
+        max-height: 1080px; 
+        min-height: 812px;
+        min-width: 1200px;
+    }
+    .containerObjetos2{
+        position:absolute;  
+        width: 100%; height: 100vh; 
+        max-width: 1920px; 
+        max-height: 1080px; 
+        min-height: 812px;  
+    }
+    
+    .canvas{
+        width: 100%; 
+        height: 100vh;
+        position:absolute;
+        min-width:160vh; 
+        max-height: 812px; 
+        min-height: 540px; 
+        max-width: 1920px; 
+        
+    }
+    
+    .divVideo{
+        position: absolute;
+        z-index:1;
+        
+        left:40px;
+        top: 42vh;
+        width: 430px;
+        height: 21.5%;
+        
+        transition: 1s;
+    }
+    .comeceAqui a{
+        
+        
+        left:500px;
+        top: 48vh;
+        
+    }
+    
 }

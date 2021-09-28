@@ -1761,8 +1761,8 @@ function calculateTalkActive(utcHour, talkStartHour, talkEndHour) {
     let talk = new Date(talkStartHour);
     let end = new Date(talkEndHour);
     //console.log(`${utc} > ${talkHour}: ${utc.getTime() > talk.getTime()}`)
-    const active = utc>talk && utc<end;
-    console.log(active)
+    const active = utc>talk;
+    
     // console.log(`${utc.getTime() - (3 * 60 * 60 * 1000)} ${talk.getTime()} - ${utc.getTime() - (3 * 60 * 60 * 1000) > talk.getTime()}`)
     return active;
 }
