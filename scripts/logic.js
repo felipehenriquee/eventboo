@@ -12,9 +12,9 @@ var subscribeConfirmationBg;
 
 var utcHour;
 
-var baseApi = 'http://localhost:3000/v1';
+//var baseApi = 'http://localhost:3000/v1';
 // var baseApi = 'http://147.182.210.54:4006/v1';
-// var baseApi = 'https://bugabooserver.com.br:4006/v1'
+var baseApi = 'https://bugabooserver.com.br:4006/v1'
 
 var eventData;
 
