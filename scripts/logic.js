@@ -12,9 +12,9 @@ var subscribeConfirmationBg;
 
 var utcHour;
 
-// var baseApi = 'http://localhost:3000/v1';
+var baseApi = 'http://localhost:3000/v1';
 // var baseApi = 'http://147.182.210.54:4006/v1';
-var baseApi = 'https://bugabooserver.com.br:4006/v1'
+// var baseApi = 'https://bugabooserver.com.br:4006/v1'
 
 var eventData;
 
@@ -84,6 +84,13 @@ if (window.localStorage.getItem("code")){
     setInterval(verificaLocalLogin, 1 * 60 * 1000);
 }
 
+redirecionaSemLogin();
+
+function redirecionaSemLogin(){
+    if((location.href.includes('auditorios') || location.href.includes('hall') || location.href.includes('standes') ) && !window.localStorage.getItem('Token')){
+        location.href = "/index.html"
+    }
+}
 
 
 function refreshToken() {

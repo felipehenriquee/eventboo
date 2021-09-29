@@ -252,3 +252,92 @@
     /* fim pdf */
     
 }
+@media screen and (max-width:750px) {
+    .logoStand{
+        
+        
+        left:70vh;
+        top: 11vh;
+        width: 30vh;
+        height: 22vh;
+        z-index: 100;
+        
+    }
+    .logoStand a{
+        width: 100%;
+    }
+    .logoStand a img{
+        width: 100%;
+    }
+    .imgLogoStand{
+        background-position: center;
+        background-size: contain;
+        width: 24vh;
+        height: 12vh;
+        background-repeat: no-repeat;
+    }
+    .divVideoStand{
+       
+        
+        left:87vh;
+        top: 34vh;
+        width: 167px;
+        height: 94px;
+        
+        
+    }
+    .btnImageStand{
+        
+        left:-25px;
+        top: -70%;
+       
+    }
+    .btnPlayStand{
+        
+        
+        left:35%;
+        top: 20px;
+        width: 5vh;
+        height: 5vh;
+        
+    }
+    .divSiteStand{
+        
+        
+        left:54vh;
+        top: 65vh;
+        
+        
+    }
+    .divPdfStand{
+        
+        
+        left:54vh;
+        top: 37vh;
+        height: 12vh;
+        width: 20vh;
+    }
+    .btnImageStandPdf {
+        left:-12px;
+        top: -80%;
+    }
+    .btnImageStandLink {
+        
+        left:-20px;
+        top: -100%;
+    }
+    .saibaMais div{
+        
+        border-radius: 25px;
+        width: 20vh;
+        height: 4.2vh;
+        
+        font-size:15px;
+    }
+    .telaEntradaLinkStand{
+    
+        width: 4.2vh;
+        height: 4.2vh;
+        margin-left: 16vh;
+    }
+}

@@ -7,7 +7,7 @@
     position: absolute;
     
     left:200px;
-    top: 14vh;
+    top: 15vh;
     width: 254px;
     height: 161px;
     
@@ -76,7 +76,7 @@
     z-index:1;
     
     left:465px;
-    top: 46vh;
+    top: 47vh;
     width: 167px;
     height: 94px;
     
@@ -252,4 +252,89 @@
    
     /* fim pdf */
     
+}
+
+@media screen and (max-width:750px) {
+    .logoStand{
+        
+        
+        left:200px;
+        top: 13vh;
+        width: 254px;
+        height: 161px;
+        z-index: 100;
+    }
+    .logoStand a{
+        width: 100%;
+    }
+    .logoStand a img{
+        width: 100%;
+    }
+    .imgLogoStand{
+        background-position: center;
+        background-size: contain;
+        width: 24vh;
+        height: 14vh;
+        background-repeat: no-repeat;
+    }
+    .divVideoStand{
+       
+        
+        left:36vh;
+        top: 47vh;
+        width: 167px;
+        height: 94px;
+        
+        
+    }
+    .btnImageStand{
+        
+        left:-20px;
+        top: -90%;
+       
+    }
+    .btnPlayStand{
+        
+        
+        left:35%;
+        top: 20px;
+        width: 5vh;
+        height: 5vh;
+        
+    }
+    .divSiteStand{
+        
+        
+        left:65vh;
+        top: 41vh;
+        
+        
+    }
+    .divPdfStand{
+        
+        
+        left:90vh;
+        top: 48.5vh;
+        height: 12vh;
+        width: 20vh;
+        
+    }
+    .btnImageStandPdf {
+        left:-30px;
+        top: -100%;
+    }
+    .saibaMais div{
+        
+        border-radius: 25px;
+        width: 120px;
+        height: 27px;
+        
+        font-size:15px;
+    }
+    .telaEntradaLinkStand{
+    
+        width: 27px;
+        height: 27px;
+        margin-left: 98px;
+    }
 }
