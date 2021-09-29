@@ -88,7 +88,7 @@ redirecionaSemLogin();
 
 function redirecionaSemLogin(){
     if((location.href.includes('auditorios') || location.href.includes('hall') || location.href.includes('standes') ) && !window.localStorage.getItem('Token')){
-        location.href = "/index.html"
+        location.href = "/eventboo/index.html"
     }
 }
 
